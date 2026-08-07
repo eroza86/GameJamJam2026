@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
-[ext_resource type="PackedScene" uid="uid://bsr2hio5iyciq" path="res://scenes/bullets/test_bullet.tscn" id="5_vcsse"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://resources/shell.gd" id="6_1hwpr"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
 
@@ -12,17 +11,6 @@
 
 [node name="Player" parent="." unique_id=67252580 instance=ExtResource("1_gi7kc")]
 position = Vector2(0, -35)
-SPEED = 135.0
-ACCELERATION = 1200.0
-FRICTION = 1400.0
-GRAVITY = 500.0
-FALL_GRAVITY = 1000.0
-FAST_FALL_GRAVITY = 1500.0
-MAX_FALL_SPEED = 200.0
-MAX_FAST_FALL_SPEED = 300.0
-JUMP_VELOCITY = -200.0
-INPUT_BUFFER_WINDOW = 0.1
-COYOTE_WINDOW = 0.08
 
 [node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
 position = Vector2(0, -67)
@@ -50,5 +38,4 @@ position = Vector2(-122, -72)
 position = Vector2(3, -32)
 target = NodePath("../Player")
 SPEED = 35.0
-bullet = ExtResource("5_vcsse")
 shells = Array[ExtResource("6_1hwpr")]([ExtResource("7_st0q7"), null, null])

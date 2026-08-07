@@ -2,7 +2,6 @@ extends Node2D
 
 @export var target: CharacterBody2D
 @export var SPEED: float
-@export var bullet: PackedScene
 @onready var barrel = $barrel
 
 # Shells
@@ -16,8 +15,8 @@ func shoot_shell() -> void:
 	
 	for powder_amount in shells[current_shell].powders:
 		# var bullet_instance = bullet.instantiate()
-		var powder = powder_amount.powder
-		var amount = powder_amount.amount
+		var powder: Powder = powder_amount.powder
+		var amount: int = powder_amount.amount
 		
 		if powder is BasePowder:
 			#TODO: Change values based on amount. Call bullet?
@@ -25,8 +24,13 @@ func shoot_shell() -> void:
 			bullet_instance.global_position = barrel.global_position
 			var bullet_data = bullet_instance.get_node("BulletComponent")
 			var bullet_direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
+
+
 			bullet_data.direction = bullet_direction
 			bullet_instance.rotation = bullet_direction
+
+			bullet_data.add_powder_amount(powder.name, amount)
+
 			add_sibling(bullet_instance)
 			target.velocity.y *= 0.3
 			target.velocity += Vector2.RIGHT.rotated(self.rotation).normalized() * bullet_data.kick * -1

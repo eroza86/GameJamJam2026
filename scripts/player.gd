@@ -1,18 +1,19 @@
 extends CharacterBody2D
-@export var SPEED = 1.0
-@export var ACCELERATION = 1.0
-@export var FRICTION = 1.0
+@export var SPEED = 135.0
+@export var ACCELERATION = 1200.0
+@export var FRICTION = 1400.0
 
-@export var GRAVITY = 1.0
-@export var FALL_GRAVITY = 1.0
-@export var FAST_FALL_GRAVITY = 1.0
-@export var MAX_FALL_SPEED = 1.0
-@export var MAX_FAST_FALL_SPEED = 1.0
+@export var GRAVITY = 500.0
+@export var FALL_GRAVITY = 1000.0
+@export var FAST_FALL_GRAVITY = 1500.0
+@export var MAX_FALL_SPEED = 200.0
+@export var MAX_FAST_FALL_SPEED = 300.0
+@export var MAX_HORI_SPEED = 500.0
 
-@export var JUMP_VELOCITY = 1.0
+@export var JUMP_VELOCITY = -200.0
 
-@export var INPUT_BUFFER_WINDOW = 1.0
-@export var COYOTE_WINDOW = 1.0
+@export var INPUT_BUFFER_WINDOW = 0.1
+@export var COYOTE_WINDOW = 0.08
 
 var input_buffer : Timer
 var coyote_timer : Timer
@@ -72,6 +73,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		if velocity.y > MAX_FALL_SPEED:
 			velocity.y = MAX_FALL_SPEED
+	
+	if abs(velocity.x) > MAX_HORI_SPEED:
+		velocity.x = sign(velocity.x) * MAX_HORI_SPEED
 	
 	move_and_slide()
 
