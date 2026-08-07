@@ -16,7 +16,10 @@ var direction: float = 0
 func _ready() -> void:
 	var launch_dir = Vector2.RIGHT.rotated(direction).normalized()
 	var velocity = launch_dir * speed
-	bullet.linear_velocity = velocity
+	if bullet is RigidBody2D:
+		bullet.linear_velocity = velocity
+	elif bullet is Area2D:
+		explosion.emitting = true
 
 #func add_powder_amount(amount: float) -> void:
 	#0.05 - 1.0
@@ -25,9 +28,12 @@ func _ready() -> void:
 func _collide(body: Node) -> void:
 	bullet.linear_velocity = Vector2.ZERO
 	collider.set_deferred("disabled", true)
-	main_particles.emitting = false
-	trail.emitting = false
-	explosion.emitting = true
+	if main_particles != null:
+		main_particles.emitting = false
+	if trail != null:
+		trail.emitting = false
+	if explosion != null:
+		explosion.emitting = true
 	
 func _dead() -> void:
 	bullet.queue_free()

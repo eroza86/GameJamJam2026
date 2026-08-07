@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://jx6ums4li3ep" path="res://scenes/bullets/icicle.tscn" id="2_6yrqo"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="2_yf7ci"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://resources/shell.gd" id="3_6yrqo"]
+[ext_resource type="PackedScene" uid="uid://chuq5myvfbp7y" path="res://scenes/bullets/wind_burst.tscn" id="4_6yrqo"]
 
 [sub_resource type="Resource" id="Resource_or12j"]
 script = ExtResource("2_yf7ci")
@@ -18,8 +19,8 @@ amount = 0.5
 
 [sub_resource type="Resource" id="Resource_pjpip"]
 script = ExtResource("2_yf7ci")
-element = 2
-bullet = ExtResource("2_6yrqo")
+element = 4
+bullet = ExtResource("4_6yrqo")
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"
 
 [sub_resource type="Resource" id="Resource_113uv"]
