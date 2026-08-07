@@ -24,7 +24,9 @@ func shoot_shell() -> void:
 			var bullet_instance = powder_amount.powder.bullet.instantiate()
 			bullet_instance.global_position = barrel.global_position
 			var bullet_data = bullet_instance.get_node("BulletComponent")
-			bullet_data.direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
+			var bullet_direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
+			bullet_data.direction = bullet_direction
+			bullet_instance.rotation = bullet_direction
 			add_sibling(bullet_instance)
 			target.velocity.y *= 0.3
 			target.velocity += Vector2.RIGHT.rotated(self.rotation).normalized() * bullet_data.kick * -1

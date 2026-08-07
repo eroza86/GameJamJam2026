@@ -1,15 +1,14 @@
 [gd_resource type="Resource" script_class="Shell" format=3 uid="uid://dsyrdqvh25r3t"]
 
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="1_2lhei"]
+[ext_resource type="PackedScene" uid="uid://jx6ums4li3ep" path="res://scenes/bullets/icicle.tscn" id="2_6yrqo"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="2_yf7ci"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://resources/shell.gd" id="3_6yrqo"]
-[ext_resource type="PackedScene" uid="uid://bwkyv4xdmlx77" path="res://scenes/bullets/fireball.tscn" id="4_6yrqo"]
-[ext_resource type="PackedScene" uid="uid://bsr2hio5iyciq" path="res://scenes/bullets/test_bullet.tscn" id="4_pjpip"]
 
 [sub_resource type="Resource" id="Resource_or12j"]
 script = ExtResource("2_yf7ci")
 element = 2
-bullet = ExtResource("4_pjpip")
+bullet = ExtResource("2_6yrqo")
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"
 
 [sub_resource type="Resource" id="Resource_p1rao"]
@@ -19,7 +18,8 @@ amount = 0.5
 
 [sub_resource type="Resource" id="Resource_pjpip"]
 script = ExtResource("2_yf7ci")
-bullet = ExtResource("4_6yrqo")
+element = 2
+bullet = ExtResource("2_6yrqo")
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"
 
 [sub_resource type="Resource" id="Resource_113uv"]
