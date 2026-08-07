@@ -3,43 +3,50 @@
 [ext_resource type="PackedScene" uid="uid://p55gf3p5gj68" path="res://scenes/bullets/bullet_component.tscn" id="1_soujd"]
 
 [sub_resource type="Curve" id="Curve_oknc0"]
-_data = [Vector2(0.009009007, 0.44198895), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.6631016), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_soujd"]
 offsets = PackedFloat32Array(0.43779904, 1)
-colors = PackedColorArray(0.25058362, 0.8182783, 0.95379156, 1, 1, 1, 1, 0.3882353)
+colors = PackedColorArray(0.247, 0.8093998, 0.95, 0.5254902, 1, 1, 1, 0.3882353)
 
 [sub_resource type="Curve" id="Curve_yf5fn"]
 _data = [Vector2(0, 0.18232042), 0.0, 1.1062726, 0, 0, Vector2(0.4481982, 0.7458564), 2.5511594, 2.5511594, 0, 0, Vector2(1, 0.5635359), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_g4v7s"]
-offsets = PackedFloat32Array(0.39473686, 0.96889955)
-colors = PackedColorArray(0.23000002, 0.8203335, 1, 1, 1, 1, 1, 0.42745098)
+[sub_resource type="Gradient" id="Gradient_vcsse"]
+offsets = PackedFloat32Array(0.33732057, 0.8492823)
+colors = PackedColorArray(0, 0.6971666, 0.89, 1, 1, 1, 1, 0.5294118)
 
 [sub_resource type="Curve" id="Curve_soujd"]
 _data = [Vector2(0, 0.9060774), 0.0, 0.0, 0, 0, Vector2(1, 0.35911602), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_g4v7s"]
+offsets = PackedFloat32Array(0.39473686, 0.96889955)
+colors = PackedColorArray(0.23000002, 0.8203335, 1, 1, 1, 1, 1, 0.42745098)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 1.4142135
 
 [node name="TestBullet" type="RigidBody2D" unique_id=915027813]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
 
 [node name="Trail" type="CPUParticles2D" parent="." unique_id=1278474809]
 amount = 45
+lifetime = 0.2
 preprocess = 1.0
 emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 180.0
-gravity = Vector2(0, 5)
+gravity = Vector2(0, 9)
 initial_velocity_min = 1.2
 initial_velocity_max = 2.4
-scale_amount_min = 0.5
+scale_amount_min = 0.8
 scale_amount_max = 1.25
 scale_amount_curve = SubResource("Curve_oknc0")
 color_ramp = SubResource("Gradient_soujd")
@@ -54,30 +61,38 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 2.4
-initial_velocity_max = 5.0
-scale_amount_min = 2.0
-scale_amount_max = 4.0
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_yf5fn")
-color_ramp = SubResource("Gradient_g4v7s")
+color_ramp = SubResource("Gradient_vcsse")
 
 [node name="BulletParticles" type="CPUParticles2D" parent="." unique_id=1637449154]
 amount = 15
+lifetime = 0.5
 preprocess = 1.0
 local_coords = true
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 1.2
-initial_velocity_max = 2.0
-scale_amount_min = 1.5
-scale_amount_max = 2.5
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_soujd")
 color_ramp = SubResource("Gradient_g4v7s")
 
-[node name="BulletComponent" parent="." unique_id=279700306 instance=ExtResource("1_soujd")]
+[node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider") instance=ExtResource("1_soujd")]
 damage = 1.0
 speed = 100.0
 kick = 1.0
+explosion = NodePath("../Explosion")
+main_particles = NodePath("../BulletParticles")
+trail = NodePath("../Trail")
+collider = NodePath("../CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1105253124]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="." to="BulletComponent" method="_collide"]
+[connection signal="finished" from="Explosion" to="BulletComponent" method="_dead"]
