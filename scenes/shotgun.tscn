@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dkiwe0qyk8cay"]
+
+[ext_resource type="Script" uid="uid://hy8jmr2nsbu8" path="res://scripts/shotgun.gd" id="1_voyse"]
+
+[sub_resource type="Gradient" id="Gradient_5ptbe"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g4v7s"]
+gradient = SubResource("Gradient_5ptbe")
+
+[node name="Shotgun" type="Node2D" unique_id=1436656832]
+script = ExtResource("1_voyse")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=321277152]
+position = Vector2(5, 0)
+scale = Vector2(0.07128907, 3.3750002)
+texture = SubResource("GradientTexture1D_g4v7s")
+
+[node name="barrel" type="Node2D" parent="." unique_id=398098972]
+position = Vector2(14, 0)
