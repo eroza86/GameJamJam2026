@@ -1,4 +1,5 @@
 extends Node2D
+
 @export var damage: float
 @export var speed: float
 @export var kick: float

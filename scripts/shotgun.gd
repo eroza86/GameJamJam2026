@@ -1,9 +1,14 @@
 extends Node2D
+
 @export var target: Node2D
 @export var SPEED: float
 @export var bullet: PackedScene
 @onready var barrel = $barrel
 
+# Shells
+
+@export var shells: Array[Shell] = [null, null, null]
+ 
 func _physics_process(delta: float) -> void:
 	if target != null:
 		global_position = global_position.lerp(target.position, SPEED * delta)
