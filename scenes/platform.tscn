@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cimj8eg814p0t"]
+
+[sub_resource type="Gradient" id="Gradient_v4t87"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_57qmd"]
+gradient = SubResource("Gradient_v4t87")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="Platform" type="Node2D" unique_id=1798121149]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1716432911]
+position = Vector2(0, 4.7683716e-07)
+scale = Vector2(0.07812499, 19.999998)
+texture = SubResource("GradientTexture1D_57qmd")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=862231172]
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=2132730136]
+shape = SubResource("RectangleShape2D_g4v7s")

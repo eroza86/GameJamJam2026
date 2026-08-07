@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://ba70oc4hemmr1"]
 
+[ext_resource type="PackedScene" uid="uid://cimj8eg814p0t" path="res://scenes/platform.tscn" id="1_8rem4"]
+[ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
+
 [node name="Stage" type="Node2D" unique_id=1046058173]
+
+[node name="Player" parent="." unique_id=67252580 instance=ExtResource("1_gi7kc")]
+position = Vector2(0, -35)
+SPEED = 200.0
+ACCELERATION = 1200.0
+FRICTION = 1400.0
+GRAVITY = 1200.0
+FALL_GRAVITY = 2000.0
+FAST_FALL_GRAVITY = 3000.0
+JUMP_VELOCITY = -300.0
+INPUT_BUFFER_WINDOW = 0.1
+COYOTE_WINDOW = 0.08
+
+[node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
+position = Vector2(0, -67)
+
+[node name="Platform" parent="." unique_id=1710862572 instance=ExtResource("1_8rem4")]
+scale = Vector2(30.147934, 1)
