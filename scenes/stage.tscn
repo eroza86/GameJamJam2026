@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
-[ext_resource type="PackedScene" uid="uid://bsr2hio5iyciq" path="res://scenes/bullets/test_bullet.tscn" id="5_vcsse"]
+[ext_resource type="PackedScene" uid="uid://bwkyv4xdmlx77" path="res://scenes/bullets/fireball.tscn" id="5_vcsse"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 

@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bwkyv4xdmlx77"]
+
+[ext_resource type="PackedScene" uid="uid://p55gf3p5gj68" path="res://scenes/bullets/bullet_component.tscn" id="1_gjqqg"]
+
+[sub_resource type="Curve" id="Curve_ey2d6"]
+_data = [Vector2(0, 0.839779), 0.0, 0.0, 0, 0, Vector2(0.5450451, 0.6629834), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_l1nk1"]
+offsets = PackedFloat32Array(0.13875598, 0.43779904, 1)
+colors = PackedColorArray(1, 0.26666665, 0, 0.5254902, 1, 0.53333336, 0, 0.5254902, 0.65012825, 0.6501283, 0.65012825, 0.3882353)
+
+[sub_resource type="Curve" id="Curve_qhn8b"]
+_data = [Vector2(0, 0.18232042), 0.0, 1.1062726, 0, 0, Vector2(0.231982, 0.7292818), 3.9861906, 3.9861906, 0, 0, Vector2(0.5202703, 0.46408838), -1.4866904, -1.4866904, 0, 0, Vector2(1, 0), -1.582606, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_kkxlm"]
+offsets = PackedFloat32Array(0.114832535, 0.50717705, 0.81100476)
+colors = PackedColorArray(0.8199214, 0.5867364, 1.92523e-07, 1, 1, 0.31666666, 0, 0.9411765, 0.59717613, 0.59717613, 0.5971761, 0.5294118)
+
+[sub_resource type="Curve" id="Curve_3dbie"]
+_data = [Vector2(0, 0.6243094), 0.0, 0.0, 0, 0, Vector2(0.5405406, 0.8449198), 0.0, 0.0, 0, 0, Vector2(1, 0.35911602), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_xpoo6"]
+offsets = PackedFloat32Array(0.11244019, 0.39952153, 0.75119615, 0.96889955)
+colors = PackedColorArray(0.85, 0.74913335, 0.09350002, 0.6392157, 0.80664897, 0.24845234, 0, 0.8235294, 0.81, 0.032400016, 0.0453598, 0.63529414, 0.74, 0.74, 0.74, 0.42745098)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4v3kp"]
+radius = 2.0
+
+[node name="Fireball" type="RigidBody2D" unique_id=2092640543]
+collision_layer = 0
+collision_mask = 2
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 2
+
+[node name="Trail" type="CPUParticles2D" parent="." unique_id=2117564453]
+amount = 45
+lifetime = 0.35000000000000003
+preprocess = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 9)
+initial_velocity_min = 1.2
+initial_velocity_max = 2.4
+scale_amount_min = 1.2
+scale_amount_max = 1.75
+scale_amount_curve = SubResource("Curve_ey2d6")
+color_ramp = SubResource("Gradient_l1nk1")
+
+[node name="Explosion" type="CPUParticles2D" parent="." unique_id=805111044]
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.74
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+angle_max = 720.0
+scale_amount_min = 4.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_qhn8b")
+color_ramp = SubResource("Gradient_kkxlm")
+
+[node name="BulletParticles" type="CPUParticles2D" parent="." unique_id=1837293441]
+amount = 15
+lifetime = 0.5
+preprocess = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+angle_max = 720.0
+scale_amount_min = 3.5
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_3dbie")
+color_ramp = SubResource("Gradient_xpoo6")
+
+[node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider") instance=ExtResource("1_gjqqg")]
+damage = 1.0
+speed = 125.0
+kick = 250.0
+explosion = NodePath("../Explosion")
+main_particles = NodePath("../BulletParticles")
+trail = NodePath("../Trail")
+collider = NodePath("../CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=267663067]
+shape = SubResource("CircleShape2D_4v3kp")
+
+[connection signal="body_entered" from="." to="BulletComponent" method="_collide"]
+[connection signal="finished" from="Explosion" to="BulletComponent" method="_dead"]
