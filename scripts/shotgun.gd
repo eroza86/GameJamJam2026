@@ -23,8 +23,11 @@ func shoot_shell() -> void:
 			#TODO: Change values based on amount. Call bullet?
 			var bullet_instance = powder_amount.powder.bullet.instantiate()
 			bullet_instance.global_position = barrel.global_position
-			bullet_instance.get_node("BulletComponent").direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
+			var bullet_data = bullet_instance.get_node("BulletComponent")
+			bullet_data.direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
 			add_sibling(bullet_instance)
+			target.velocity.y *= 0.3
+			target.velocity += Vector2.RIGHT.rotated(self.rotation).normalized() * bullet_data.kick * -1
 
  
 func _physics_process(delta: float) -> void:
@@ -34,11 +37,3 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot_shell()
-		
-		var bullet_instance = bullet.instantiate()
-		bullet_instance.global_position = barrel.global_position		
-		var bullet_data = bullet_instance.get_node("BulletComponent")
-		bullet_data.direction = self.rotation
-		target.velocity.y *= 0.3
-		target.velocity += Vector2.RIGHT.rotated(self.rotation).normalized() * bullet_data.kick * -1
-		add_sibling(bullet_instance)
