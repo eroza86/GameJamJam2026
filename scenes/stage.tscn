@@ -18,7 +18,7 @@ MAX_FALL_SPEED = 200.0
 MAX_FAST_FALL_SPEED = 300.0
 JUMP_VELOCITY = -200.0
 INPUT_BUFFER_WINDOW = 0.1
-COYOTE_WINDOW = 0.12
+COYOTE_WINDOW = 0.08
 
 [node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
 position = Vector2(0, -67)
@@ -34,7 +34,6 @@ scale = Vector2(6.0000024, 0.4437472)
 [node name="Main Camera" type="Camera2D" parent="." unique_id=224485954 node_paths=PackedStringArray("target")]
 zoom = Vector2(3, 3)
 process_callback = 0
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_kewym")
 target = NodePath("../Player")

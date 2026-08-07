@@ -4,5 +4,4 @@ extends Camera2D
 
 func _physics_process(delta: float) -> void:
 	if target != null:
-		var distance = position.distance_to(target.position)
-		position = position.move_toward(target.position, SPEED * distance * delta)
+		global_position = global_position.lerp(target.position, SPEED * delta)
