@@ -18,6 +18,10 @@ func _ready() -> void:
 	var velocity = launch_dir * speed
 	bullet.linear_velocity = velocity
 
+#func add_powder_amount(amount: float) -> void:
+	#0.05 - 1.0
+	#0.05 is treated as the base value
+
 func _collide(body: Node) -> void:
 	bullet.linear_velocity = Vector2.ZERO
 	collider.set_deferred("disabled", true)

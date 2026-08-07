@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="PackedScene" uid="uid://bsr2hio5iyciq" path="res://scenes/bullets/test_bullet.tscn" id="5_vcsse"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://resources/shell.gd" id="6_1hwpr"]
+[ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 
@@ -49,3 +51,4 @@ position = Vector2(3, -32)
 target = NodePath("../Player")
 SPEED = 35.0
 bullet = ExtResource("5_vcsse")
+shells = Array[ExtResource("6_1hwpr")]([ExtResource("7_st0q7"), null, null])
