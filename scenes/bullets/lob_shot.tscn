@@ -42,13 +42,13 @@ scale = Vector2(1.75, 1.75)
 amount = 25
 preprocess = 1.0
 emission_shape = 1
-emission_sphere_radius = 2.0
+emission_sphere_radius = 3.0
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 1.0
 angular_velocity_max = 15.0
-scale_amount_min = 0.5
-scale_amount_max = 1.5
+scale_amount_min = 0.75
+scale_amount_max = 2.25
 scale_amount_curve = SubResource("Curve_bbm1y")
 color_ramp = SubResource("Gradient_uqt6b")
 

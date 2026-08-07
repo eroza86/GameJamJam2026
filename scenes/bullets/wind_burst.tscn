@@ -49,7 +49,7 @@ shape = SubResource("CapsuleShape2D_yf5fn")
 
 [node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "collider") instance=ExtResource("1_hco5k")]
 damage = 1.0
-kick = 350.0
+kick = 600.0
 explosion = NodePath("../Explosion")
 collider = NodePath("../CollisionShape2D")
 

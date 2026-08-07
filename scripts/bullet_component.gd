@@ -38,9 +38,12 @@ func _dead() -> void:
 	bullet.queue_free()
 
 func set_size(size: float) -> void:
-	trail.scale *= size
-	main_particles.scale *= size
-	explosion.scale *= size
+	if trail != null:
+		trail.scale *= size
+	if main_particles != null:
+		main_particles.scale *= size
+	if explosion != null:
+		explosion.scale *= size
 
 func add_powder_amount(element: String, amount: float) -> void:
 	damage *= amount/4 
