@@ -18,7 +18,3 @@ round_precision = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501974622]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_g4v7s")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=23732738]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cimj8eg814p0t" path="res://scenes/platform.tscn" id="1_8rem4"]
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
+[ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 
@@ -19,6 +20,17 @@ COYOTE_WINDOW = 0.08
 
 [node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
 position = Vector2(0, -67)
+scale = Vector2(6.0000024, 0.4437472)
 
 [node name="Platform" parent="." unique_id=1710862572 instance=ExtResource("1_8rem4")]
 scale = Vector2(30.147934, 1)
+
+[node name="Platform3" parent="." unique_id=815370614 instance=ExtResource("1_8rem4")]
+position = Vector2(173, -38)
+scale = Vector2(6.0000024, 0.4437472)
+
+[node name="Main Camera" type="Camera2D" parent="." unique_id=224485954 node_paths=PackedStringArray("target")]
+zoom = Vector2(3, 3)
+script = ExtResource("3_kewym")
+target = NodePath("../Player")
+SPEED = 10.0
