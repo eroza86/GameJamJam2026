@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 				coyote_timer.start()
 		velocity.y += get_gravity_type(horizontal_input) * delta
 		
-	var floor_damping : float = 1.0 if is_on_floor() else 0.2
+	var floor_damping : float = 1.0 if is_on_floor() else 0.1
 	var dash_multiplier : float = 1.25 if Input.is_action_pressed("dash") else 1.0
 	if horizontal_input:
 		velocity.x = move_toward(velocity.x, horizontal_input * SPEED * dash_multiplier, ACCELERATION * delta)
