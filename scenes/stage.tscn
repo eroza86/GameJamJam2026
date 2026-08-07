@@ -31,6 +31,9 @@ scale = Vector2(6.0000024, 0.4437472)
 
 [node name="Main Camera" type="Camera2D" parent="." unique_id=224485954 node_paths=PackedStringArray("target")]
 zoom = Vector2(3, 3)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("3_kewym")
 target = NodePath("../Player")
-SPEED = 10.0
+SPEED = 8.0
