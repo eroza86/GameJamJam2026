@@ -27,6 +27,7 @@ func _ready() -> void:
 
 func _collide(body: Node) -> void:
 	bullet.linear_velocity = Vector2.ZERO
+	bullet.set_deferred("freeze", true)
 	collider.set_deferred("disabled", true)
 	if main_particles != null:
 		main_particles.emitting = false
