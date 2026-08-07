@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var GRAVITY = 1.0
 @export var FALL_GRAVITY = 1.0
 @export var FAST_FALL_GRAVITY = 1.0
+@export var MAX_FALL_SPEED = 1.0
+@export var MAX_FAST_FALL_SPEED = 1.0
 
 @export var JUMP_VELOCITY = 1.0
 
@@ -61,7 +63,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, horizontal_input * SPEED * dash_multiplier, ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * floor_damping)
-		
+	
+	if Input.is_action_pressed("down"):
+		if velocity.y > MAX_FAST_FALL_SPEED:
+			velocity.y = MAX_FAST_FALL_SPEED
+	else:
+		if velocity.y > MAX_FALL_SPEED:
+			velocity.y = MAX_FALL_SPEED
+	
 	move_and_slide()
 
 func coyote_timeout():

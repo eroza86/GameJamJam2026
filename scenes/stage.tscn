@@ -8,13 +8,15 @@
 
 [node name="Player" parent="." unique_id=67252580 instance=ExtResource("1_gi7kc")]
 position = Vector2(0, -35)
-SPEED = 200.0
+SPEED = 135.0
 ACCELERATION = 1200.0
 FRICTION = 1400.0
-GRAVITY = 1200.0
-FALL_GRAVITY = 2000.0
-FAST_FALL_GRAVITY = 3000.0
-JUMP_VELOCITY = -300.0
+GRAVITY = 500.0
+FALL_GRAVITY = 1000.0
+FAST_FALL_GRAVITY = 1500.0
+MAX_FALL_SPEED = 200.0
+MAX_FAST_FALL_SPEED = 300.0
+JUMP_VELOCITY = -200.0
 INPUT_BUFFER_WINDOW = 0.1
 COYOTE_WINDOW = 0.08
 
@@ -37,3 +39,6 @@ position_smoothing_speed = 10.0
 script = ExtResource("3_kewym")
 target = NodePath("../Player")
 SPEED = 8.0
+
+[node name="Platform4" parent="." unique_id=1990806678 instance=ExtResource("1_8rem4")]
+position = Vector2(-122, -72)
