@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		input_buffer.start()
 		
 	# handle fast fall on jump release
-	if Input.is_action_just_released("jump") and velocity.y < 0:
+	if Input.is_action_just_released("jump") and velocity.y < -0.1:
 		velocity.y = JUMP_VELOCITY / 4
 	
 	if is_on_floor():
@@ -58,13 +58,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y += get_gravity_type(horizontal_input) * delta
 		
 	var floor_damping : float = 1.0 if is_on_floor() else 0.2
-	var dash_multiplier : float = 2.0 if Input.is_action_pressed("dash") else 1.0
+	var dash_multiplier : float = 1.25 if Input.is_action_pressed("dash") else 1.0
 	if horizontal_input:
 		velocity.x = move_toward(velocity.x, horizontal_input * SPEED * dash_multiplier, ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * floor_damping)
 	
-	if Input.is_action_pressed("down"):
+	if Input.is_action_pressed("down") and velocity.y > 0:
 		if velocity.y > MAX_FAST_FALL_SPEED:
 			velocity.y = MAX_FAST_FALL_SPEED
 	else:

@@ -18,7 +18,7 @@ MAX_FALL_SPEED = 200.0
 MAX_FAST_FALL_SPEED = 300.0
 JUMP_VELOCITY = -200.0
 INPUT_BUFFER_WINDOW = 0.1
-COYOTE_WINDOW = 0.08
+COYOTE_WINDOW = 0.12
 
 [node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
 position = Vector2(0, -67)
