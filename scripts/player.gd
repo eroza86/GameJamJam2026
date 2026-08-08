@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		
 	# handle fast fall on jump release
 	if Input.is_action_just_released("jump") and velocity.y < 0:
-		velocity.y = velocity.y / 4
+		velocity.y = JUMP_VELOCITY / 4
 	
 	if is_on_floor():
 		coyote_jump_available = true
