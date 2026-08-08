@@ -4,10 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
 [ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="7_1hwpr"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
 [ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="8_1hwpr"]
+=======
+>>>>>>> Stashed changes
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 
@@ -42,6 +45,7 @@ SPEED = 8.0
 [node name="Platform4" parent="." unique_id=1990806678 instance=ExtResource("1_8rem4")]
 position = Vector2(-122, -72)
 
+<<<<<<< Updated upstream
 [node name="Enemy" parent="." unique_id=656613126 groups=["Enemy"] instance=ExtResource("7_1hwpr")]
 position = Vector2(123, -65)
 
@@ -49,3 +53,9 @@ position = Vector2(123, -65)
 position = Vector2(-103, -71)
 
 [editable path="Turret"]
+=======
+[node name="Shotgun" parent="." unique_id=1436656832 node_paths=PackedStringArray("target") instance=ExtResource("4_6c5u0")]
+position = Vector2(3, -32)
+target = NodePath("../Player")
+SPEED = 35.0
+>>>>>>> Stashed changes
