@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("2_4jqjn")
 bullet = ExtResource("1_rt8yc")
-name = "Fire"
+name = "fire"
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"

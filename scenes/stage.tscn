@@ -51,5 +51,10 @@ position = Vector2(-103, -71)
 
 [node name="ItemPickup" parent="." unique_id=1782800605 instance=ExtResource("9_dexii")]
 position = Vector2(0, -105)
+heal_amount = 2
+
+[node name="ItemPickup2" parent="." unique_id=964877862 instance=ExtResource("9_dexii")]
+position = Vector2(-178, -22)
+heal_amount = 2
 
 [editable path="Turret"]

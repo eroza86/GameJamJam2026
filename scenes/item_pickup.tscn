@@ -28,6 +28,7 @@ contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_lgqak")
 powder_flask = SubResource("Resource_lgqak")
+heal_amount = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=844826517]
 shape = SubResource("CircleShape2D_phvbs")

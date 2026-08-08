@@ -19,6 +19,7 @@ extends CharacterBody2D
 
 @export_group("Components")
 @export var health_component: HealthComponent
+@export var powders: Dictionary = {"fire" = 0, "water" = 0, "lightning" = 0}
 
 var input_buffer : Timer
 var coyote_timer : Timer
@@ -87,7 +88,7 @@ func _physics_process(delta: float) -> void:
 func coyote_timeout():
 	coyote_jump_available = false
 	
-func get_gravity_type(input_direction : float = 0) -> float:
+func get_gravity_type(_input_direction : float = 0) -> float:
 	if Input.is_action_pressed("down"):
 		return FAST_FALL_GRAVITY
 	if velocity.y < 0:

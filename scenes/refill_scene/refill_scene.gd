@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var label: Label = $Label
+@onready var backButton: Button = $Button
+@export var player: CharacterBody2D
 
 var heldBottle: RigidBody2D
 var hasMouse: bool = false
@@ -19,3 +21,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_bottle_is_holding() -> void:
 	pass # Replace with function body.
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
