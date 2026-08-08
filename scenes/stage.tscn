@@ -42,13 +42,10 @@ SPEED = 8.0
 [node name="Platform4" parent="." unique_id=1990806678 instance=ExtResource("1_8rem4")]
 position = Vector2(-122, -72)
 
-[node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("7_1hwpr")]
+[node name="Enemy" parent="." unique_id=656613126 groups=["Enemy"] instance=ExtResource("7_1hwpr")]
 position = Vector2(123, -65)
 
-[node name="Turret" parent="." unique_id=2044094002 instance=ExtResource("8_1hwpr")]
+[node name="Turret" parent="." unique_id=2044094002 groups=["Enemy"] instance=ExtResource("8_1hwpr")]
 position = Vector2(-103, -71)
-shotgun_scene = ExtResource("4_6c5u0")
-shell = ExtResource("7_st0q7")
 
 [editable path="Turret"]
-[editable path="Turret/Shotgun"]
