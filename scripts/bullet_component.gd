@@ -30,7 +30,7 @@ func _ready() -> void:
 
 
 func _collide(body: Node) -> void:
-	
+	print(body.to_string())
 	if exploded:
 		return
 	
@@ -77,7 +77,6 @@ func explode() -> void:
 		explosion.emitting = true
 	
 func _dead() -> void:
-	print("Dead: " + bullet.to_string())
 	if bullet is RigidBody2D:
 		shotgun.unregister_bullet(bullet)
 	bullet.queue_free()
