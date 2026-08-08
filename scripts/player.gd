@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			coyote_jump_available = false
 			if input_buffer.time_left > 0 and !Input.is_action_pressed("jump"):
-				velocity.y = JUMP_VELOCITY / 4
+				velocity.y = velocity.y / 4
 		elif jump_attempted:
 			input_buffer.start()
 		
