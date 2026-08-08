@@ -9,7 +9,7 @@ func _ready() -> void:
 	var shotgun = shotgun_scene.instantiate()
 	shotgun.shells[0] = shell
 	shotgun.target = self
-	add_sibling(shotgun)
+	add_sibling.call_deferred(shotgun)
 	firing_component.shotgun = shotgun
 	shotgun.global_position = global_position
 
