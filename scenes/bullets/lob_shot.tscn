@@ -38,7 +38,7 @@ contact_monitor = true
 max_contacts_reported = 2
 
 [node name="Trail" type="CPUParticles2D" parent="." unique_id=1690823828]
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.25, 1.25)
 amount = 25
 preprocess = 1.0
 emission_shape = 1
@@ -53,7 +53,7 @@ scale_amount_curve = SubResource("Curve_bbm1y")
 color_ramp = SubResource("Gradient_uqt6b")
 
 [node name="Explosion" type="CPUParticles2D" parent="." unique_id=438412311]
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.25, 1.25)
 emitting = false
 amount = 35
 lifetime = 0.5
@@ -74,7 +74,7 @@ scale_amount_curve = SubResource("Curve_ic5au")
 color_ramp = SubResource("Gradient_c2auj")
 
 [node name="BulletParticles" type="CPUParticles2D" parent="." unique_id=1233881656]
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.25, 1.25)
 amount = 20
 lifetime = 0.5
 preprocess = 1.0
@@ -90,10 +90,11 @@ scale_amount_curve = SubResource("Curve_wjcjr")
 color_ramp = SubResource("Gradient_s30wy")
 
 [node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider") instance=ExtResource("1_bemos")]
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.25, 1.25)
 damage = 1.0
 speed = 200.0
 kick = 50.0
+cooldown = 0.1
 explosion = NodePath("../Explosion")
 main_particles = NodePath("../BulletParticles")
 trail = NodePath("../Trail")
@@ -101,7 +102,7 @@ collider = NodePath("../CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1776715886]
 visible = false
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.25, 1.25)
 shape = SubResource("CircleShape2D_nc8xu")
 
 [connection signal="body_entered" from="." to="BulletComponent" method="_collide"]
