@@ -91,7 +91,6 @@ color_ramp = SubResource("Gradient_nobxx")
 damage = 1.0
 speed = 200.0
 kick = 50.0
-cooldown = 0.1
 explosion = NodePath("../Explosion")
 main_particles = NodePath("../BulletParticles")
 trail = NodePath("../Trail")
