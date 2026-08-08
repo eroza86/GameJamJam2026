@@ -1,22 +1,48 @@
 [gd_resource type="Resource" script_class="Shell" format=3 uid="uid://dsyrdqvh25r3t"]
 
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="1_2lhei"]
+[ext_resource type="PackedScene" uid="uid://b1n33bnhs7qws" path="res://scenes/bullets/lob_shot.tscn" id="2_6yrqo"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="2_yf7ci"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://resources/shell.gd" id="3_6yrqo"]
-[ext_resource type="PackedScene" uid="uid://chuq5myvfbp7y" path="res://scenes/bullets/wind_burst.tscn" id="4_6yrqo"]
+[ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="3_pjpip"]
 
-[sub_resource type="Resource" id="Resource_1hwpr"]
+[sub_resource type="Resource" id="Resource_2lhei"]
 script = ExtResource("2_yf7ci")
-bullet = ExtResource("4_6yrqo")
+bullet = ExtResource("2_6yrqo")
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"
 
 [sub_resource type="Resource" id="Resource_st0q7"]
 script = ExtResource("1_2lhei")
-powder = SubResource("Resource_1hwpr")
-amount = 5
+powder = SubResource("Resource_2lhei")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_yf7ci"]
+script = ExtResource("1_2lhei")
+powder = SubResource("Resource_2lhei")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_pjpip"]
+script = ExtResource("1_2lhei")
+powder = SubResource("Resource_2lhei")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_113uv"]
+script = ExtResource("1_2lhei")
+powder = SubResource("Resource_2lhei")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_or12j"]
+script = ExtResource("1_2lhei")
+powder = SubResource("Resource_2lhei")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_6yrqo"]
+script = ExtResource("1_2lhei")
+powder = ExtResource("3_pjpip")
+amount = 15
 metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [resource]
 script = ExtResource("3_6yrqo")
-powders = Array[ExtResource("1_2lhei")]([SubResource("Resource_st0q7")])
+powders = Array[ExtResource("1_2lhei")]([SubResource("Resource_st0q7"), SubResource("Resource_yf7ci"), SubResource("Resource_pjpip"), SubResource("Resource_113uv"), SubResource("Resource_or12j"), SubResource("Resource_6yrqo")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"

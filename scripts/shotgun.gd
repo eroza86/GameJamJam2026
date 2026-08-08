@@ -2,7 +2,7 @@ extends Node2D
 
 @export var target: CharacterBody2D
 @export var SPEED: float
-@onready var barrel = $barrel
+@export var barrel: Marker2D 
 
 # Shells
 
@@ -19,7 +19,6 @@ func shoot_shell() -> void:
 		var amount: int = powder_amount.amount
 		
 		if powder is BasePowder:
-			#TODO: Change values based on amount. Call bullet?
 			var bullet_instance = powder_amount.powder.bullet.instantiate()
 			bullet_instance.global_position = barrel.global_position
 			var bullet_data = bullet_instance.get_node("BulletComponent")
@@ -38,8 +37,14 @@ func shoot_shell() -> void:
  
 func _physics_process(delta: float) -> void:
 	if target != null:
-		global_position = global_position.lerp(target.position, SPEED * delta)
-	look_at(get_global_mouse_position())
+		global_position = lerp(global_position, target.global_position, SPEED * delta)
+		print(global_position)
 	
-	if Input.is_action_just_pressed("shoot"):
-		shoot_shell()
+	if target is Player:
+		look_at(get_global_mouse_position())
+	
+		if Input.is_action_just_pressed("shoot"):
+			shoot_shell()
+	else:
+		pass
+		

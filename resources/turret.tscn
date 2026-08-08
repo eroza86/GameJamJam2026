@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://btul3ocvl7cih"]
+
+[ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_e2xx0"]
+[ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_e2xx0"]
+[ext_resource type="Script" uid="uid://bwtkv1fu7o4g1" path="res://resources/firing_component.gd" id="3_2ep0y"]
+[ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="4_1mbuk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_phvbs"]
+radius = 113.28283
+
+[node name="Turret" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("firing_component")]
+script = ExtResource("1_e2xx0")
+firing_component = NodePath("FiringComponent")
+shotgun_scene = ExtResource("2_e2xx0")
+shell = ExtResource("4_1mbuk")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=867128478]
+points = PackedVector2Array(0, 0, 0, 1)
+default_color = Color(1, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241338940]
+shape = SubResource("CapsuleShape2D_bosb8")
+
+[node name="FiringComponent" type="Node2D" parent="." unique_id=2023848972]
+script = ExtResource("3_2ep0y")
+
+[node name="Timer" type="Timer" parent="FiringComponent" unique_id=1409480128]
+wait_time = 2.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="FiringComponent" unique_id=1783410680]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FiringComponent/Area2D" unique_id=816038660]
+shape = SubResource("CircleShape2D_phvbs")
+
+[connection signal="timeout" from="FiringComponent/Timer" to="FiringComponent" method="_on_timer_timeout"]
+[connection signal="body_entered" from="FiringComponent/Area2D" to="FiringComponent" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="FiringComponent/Area2D" to="FiringComponent" method="_on_area_2d_body_exited"]

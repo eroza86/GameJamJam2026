@@ -8,13 +8,14 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_g4v7s"]
 gradient = SubResource("Gradient_5ptbe")
 
-[node name="Shotgun" type="Node2D" unique_id=1436656832]
+[node name="Shotgun" type="Node2D" unique_id=1436656832 node_paths=PackedStringArray("barrel")]
 script = ExtResource("1_voyse")
+barrel = NodePath("barrel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=321277152]
 position = Vector2(5, 0)
 scale = Vector2(0.07128907, 3.3750002)
 texture = SubResource("GradientTexture1D_g4v7s")
 
-[node name="barrel" type="Node2D" parent="." unique_id=398098972]
+[node name="barrel" type="Marker2D" parent="." unique_id=651779335]
 position = Vector2(14, 0)

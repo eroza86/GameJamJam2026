@@ -5,12 +5,20 @@
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://resources/shell.gd" id="6_1hwpr"]
+[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="7_1hwpr"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
+[ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="8_1hwpr"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 
 [node name="Player" parent="." unique_id=67252580 instance=ExtResource("1_gi7kc")]
 position = Vector2(0, -35)
+
+[node name="Shotgun" parent="." unique_id=1436656832 node_paths=PackedStringArray("target") instance=ExtResource("4_6c5u0")]
+position = Vector2(3, -32)
+target = NodePath("../Player")
+SPEED = 35.0
+shells = Array[ExtResource("6_1hwpr")]([ExtResource("7_st0q7"), null, null])
 
 [node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
 position = Vector2(0, -67)
@@ -34,8 +42,13 @@ SPEED = 8.0
 [node name="Platform4" parent="." unique_id=1990806678 instance=ExtResource("1_8rem4")]
 position = Vector2(-122, -72)
 
-[node name="Shotgun" parent="." unique_id=1436656832 node_paths=PackedStringArray("target") instance=ExtResource("4_6c5u0")]
-position = Vector2(3, -32)
-target = NodePath("../Player")
-SPEED = 35.0
-shells = Array[ExtResource("6_1hwpr")]([ExtResource("7_st0q7"), null, null])
+[node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("7_1hwpr")]
+position = Vector2(123, -65)
+
+[node name="Turret" parent="." unique_id=2044094002 instance=ExtResource("8_1hwpr")]
+position = Vector2(-103, -71)
+shotgun_scene = ExtResource("4_6c5u0")
+shell = ExtResource("7_st0q7")
+
+[editable path="Turret"]
+[editable path="Turret/Shotgun"]
