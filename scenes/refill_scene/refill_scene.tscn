@@ -10,9 +10,7 @@ size = Vector2(1154, 20)
 
 [node name="RefillScene" type="Node2D" unique_id=1718217334]
 script = ExtResource("1_qkivf")
-
-[node name="Bottle" parent="." unique_id=1776255825 instance=ExtResource("2_qp78i")]
-position = Vector2(342, 404)
+bottle = ExtResource("2_qp78i")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1421438365]
 position = Vector2(56, 467)
@@ -35,12 +33,6 @@ texture = SubResource("PlaceholderTexture2D_s1fef")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "FPS:"
-
-[node name="Bottle2" parent="." unique_id=1931850851 instance=ExtResource("2_qp78i")]
-position = Vector2(263, 405)
-
-[node name="Bottle3" parent="." unique_id=1215826522 instance=ExtResource("2_qp78i")]
-position = Vector2(422, 407)
 
 [node name="Button" type="Button" parent="." unique_id=430304693]
 offset_left = 972.0

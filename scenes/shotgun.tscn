@@ -1,6 +1,24 @@
 [gd_scene format=3 uid="uid://dkiwe0qyk8cay"]
 
 [ext_resource type="Script" uid="uid://hy8jmr2nsbu8" path="res://scripts/shotgun.gd" id="1_voyse"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="2_w47vr"]
+[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="3_ma6dp"]
+[ext_resource type="Script" uid="uid://8s5qchk0uig4" path="res://scripts/powder.gd" id="4_lmvec"]
+
+[sub_resource type="Resource" id="Resource_xkdpu"]
+script = ExtResource("4_lmvec")
+name = "fire"
+metadata/_custom_type_script = "uid://8s5qchk0uig4"
+
+[sub_resource type="Resource" id="Resource_yodej"]
+script = ExtResource("3_ma6dp")
+powder = SubResource("Resource_xkdpu")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_qp78i"]
+script = ExtResource("2_w47vr")
+powders = Array[ExtResource("3_ma6dp")]([SubResource("Resource_yodej")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [sub_resource type="Gradient" id="Gradient_5ptbe"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -10,6 +28,7 @@ gradient = SubResource("Gradient_5ptbe")
 
 [node name="Shotgun" type="Node2D" unique_id=1436656832]
 script = ExtResource("1_voyse")
+shells = Array[ExtResource("2_w47vr")]([SubResource("Resource_qp78i"), null, null])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=321277152]
 position = Vector2(5, 0)

@@ -6,7 +6,7 @@ var player: Player = null
 func _on_timer_timeout() -> void:
 	shotgun.shoot_shell()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if shotgun != null and player != null:
 		shotgun.look_at(player.global_position)
 

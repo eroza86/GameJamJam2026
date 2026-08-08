@@ -13,6 +13,7 @@ var can_shoot: bool
 var cooldown_timer: Timer
 
 func _ready() -> void:
+	print(shells)
 	cooldown_timer = Timer.new()
 	cooldown_timer.one_shot = true
 	cooldown_timer.timeout.connect(cooldown_timeout)

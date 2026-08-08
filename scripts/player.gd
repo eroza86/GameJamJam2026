@@ -19,13 +19,26 @@ extends CharacterBody2D
 
 @export_group("Components")
 @export var health_component: HealthComponent
-@export var powders: Dictionary = {"fire" = 0, "water" = 0, "lightning" = 0}
+@export var powders: Dictionary[String, int] = {
+		"Fire": 0, 
+		"Lightning": 0, 
+		"Ice": 0, 
+		"Acid": 0, 
+		"Cloud": 0, 
+		"Missile": 0, 
+		"Lob": 0
+	}
 
 var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available :=  true
 
+
+
 func _ready() -> void:
+	# updates the GlobalSaveHolder with the player's inventory.
+	GlobalSaveHolder.playerInv = powders
+	
 	# setup input buffer timer
 	input_buffer = Timer.new()
 	input_buffer.wait_time = INPUT_BUFFER_WINDOW
@@ -39,7 +52,7 @@ func _ready() -> void:
 	add_child(coyote_timer)
 	coyote_timer.timeout.connect(coyote_timeout)
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
 	var horizontal_input = Input.get_axis("move_left", "move_right")
 	var jump_attempted = Input.is_action_just_pressed("jump")
 	
@@ -94,3 +107,22 @@ func get_gravity_type(_input_direction : float = 0) -> float:
 	if velocity.y < 0:
 		return GRAVITY
 	return FALL_GRAVITY
+	
+func addPowder(powderName: String, amount: int) -> void:
+	match powderName:
+		"Fire":
+			powders["Fire"] += amount
+		"Lightning":
+			powders["Lightning"] += amount
+		"Ice":
+			powders["Ice"] += amount
+		"Acid":
+			powders["Acid"] += amount
+		"Cloud":
+			powders["Cloud"] += amount
+		"Missle":
+			powders["Missile"] += amount
+		"Lob":
+			powders["Lob"] += amount
+			
+	GlobalSaveHolder.playerInv = powders

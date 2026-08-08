@@ -11,13 +11,13 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	var shotgun = shotgun_scene.instantiate()
-	shotgun.shells[0] = shell
+	# shotgun.shells[1] = shell
 	shotgun.target = self
 	add_sibling.call_deferred(shotgun)
 	firing_component.shotgun = shotgun
 	shotgun.global_position = global_position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if firing_component != null:
 		firing_component.shotgun.global_position = global_position
 	if movement_component != null:
