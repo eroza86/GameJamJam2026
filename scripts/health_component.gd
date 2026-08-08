@@ -8,6 +8,8 @@ signal died
 
 # Returns remaining health
 func take_damage(dmg: int) -> int:
+	print(hp)
+	print(dmg)
 	hp = max(0, hp - dmg)
 	if hp == 0:
 		died.emit()

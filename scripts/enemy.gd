@@ -1,5 +1,7 @@
+class_name Enemy
 extends CharacterBody2D
 
+@export var health_component: HealthComponent
 @export var movement_component: Node2D
 @export var firing_component: Node2D
 @export var shotgun_scene: PackedScene
@@ -13,7 +15,20 @@ func _ready() -> void:
 	firing_component.shotgun = shotgun
 	shotgun.global_position = global_position
 
+func _physics_process(delta: float) -> void:
+	if movement_component != null:
+		movement_component.do_movement()
+		move_and_slide()
+
+func on_death() -> void:
+	queue_free()
+	firing_component.shotgun.queue_free()
+
 
 
 
 	
+
+
+func _on_health_component_died() -> void:
+	pass # Replace with function body.

@@ -25,7 +25,7 @@ height = 4.0
 
 [node name="Icicle" type="RigidBody2D" unique_id=1635074887]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 3
 gravity_scale = 0.0
 lock_rotation = true
 contact_monitor = true

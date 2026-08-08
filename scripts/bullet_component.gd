@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var bullet_health: float = 1.0
-@export var damage: float
+@export var damage: float = 1.0
 @export var speed: float
 @export var kick: float
 @export var cooldown: float
@@ -31,12 +31,17 @@ func _collide(body: Node) -> void:
 		return
 	
 	print(body)
+
+	if body is Player or body is Enemy:
+		print(body.health_component.take_damage(damage))
+		bullet_health -= 5
+
 	
 	var other_bullet = body.get_node("BulletComponent")
 	if other_bullet != null:
 		bullet_health -= other_bullet.bullet_health
 
-	if bullet_health == 0:
+	if bullet_health <= 0:
 		explode()
 
 
@@ -63,7 +68,7 @@ func set_size(size: float) -> void:
 		explosion.scale *= size
 
 func add_powder_amount(element: String, amount: float, augments: Array[float]) -> void:
-	damage *= amount/4 * augments[0]
+	damage *= (amount/4 + 1) * augments[0]
 	speed *= (amount/20 + 1) * augments[1]
 	kick *= amount/8 * augments[2]
 	set_size((amount/5 + 1) * augments[3]) 

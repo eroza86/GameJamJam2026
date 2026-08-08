@@ -1,10 +1,23 @@
 [gd_scene format=3 uid="uid://bm7locmbd30fu"]
 
+[ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_288yo"]
+[ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_7tskh"]
+[ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://resources/firing_component.tscn" id="2_lum5s"]
+[ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="3_oiqoh"]
+[ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="3_r78bl"]
+[ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
 radius = 5.0
 height = 16.0
 
-[node name="Enemy" type="CharacterBody2D" unique_id=656613126]
+[node name="Enemy" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "movement_component", "firing_component")]
+script = ExtResource("1_288yo")
+health_component = NodePath("HealthComponent")
+movement_component = NodePath("MovementComponent")
+firing_component = NodePath("FiringComponent")
+shotgun_scene = ExtResource("2_7tskh")
+shell = ExtResource("3_oiqoh")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 points = PackedVector2Array(0, 0, 0, 6)
@@ -16,3 +29,14 @@ round_precision = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241338940]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_bosb8")
+
+[node name="FiringComponent" parent="." unique_id=251753494 instance=ExtResource("2_lum5s")]
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2020781222]
+script = ExtResource("3_r78bl")
+metadata/_custom_type_script = "uid://bymqxq3huhmw7"
+
+[node name="MovementComponent" type="Node2D" parent="." unique_id=1667526438]
+script = ExtResource("4_r78bl")
+
+[connection signal="died" from="HealthComponent" to="." method="on_death"]

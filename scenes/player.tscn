@@ -7,8 +7,9 @@
 radius = 5.0
 height = 16.0
 
-[node name="Player" type="CharacterBody2D" unique_id=67252580]
+[node name="Player" type="CharacterBody2D" unique_id=67252580 node_paths=PackedStringArray("health_component")]
 script = ExtResource("1_3vyb7")
+health_component = NodePath("HealthComponent")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1400394727]
 points = PackedVector2Array(0, 0, 0, 6)

@@ -2,19 +2,17 @@
 
 [ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_e2xx0"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_e2xx0"]
-[ext_resource type="Script" uid="uid://bwtkv1fu7o4g1" path="res://resources/firing_component.gd" id="3_2ep0y"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="4_1mbuk"]
+[ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://resources/firing_component.tscn" id="4_hh126"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="5_hh126"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
 radius = 5.0
 height = 10.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_phvbs"]
-radius = 113.28283
-
-[node name="Turret" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("firing_component")]
+[node name="Turret" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "firing_component")]
 script = ExtResource("1_e2xx0")
+health_component = NodePath("HealthComponent")
 firing_component = NodePath("FiringComponent")
 shotgun_scene = ExtResource("2_e2xx0")
 shell = ExtResource("4_1mbuk")
@@ -29,22 +27,10 @@ round_precision = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241338940]
 shape = SubResource("CapsuleShape2D_bosb8")
 
-[node name="FiringComponent" type="Node2D" parent="." unique_id=2023848972]
-script = ExtResource("3_2ep0y")
-
-[node name="Timer" type="Timer" parent="FiringComponent" unique_id=1409480128]
-wait_time = 2.0
-autostart = true
-
-[node name="Area2D" type="Area2D" parent="FiringComponent" unique_id=1783410680]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FiringComponent/Area2D" unique_id=816038660]
-shape = SubResource("CircleShape2D_phvbs")
+[node name="FiringComponent" parent="." unique_id=251753494 instance=ExtResource("4_hh126")]
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1809848720]
 script = ExtResource("5_hh126")
 metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 
-[connection signal="timeout" from="FiringComponent/Timer" to="FiringComponent" method="_on_timer_timeout"]
-[connection signal="body_entered" from="FiringComponent/Area2D" to="FiringComponent" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="FiringComponent/Area2D" to="FiringComponent" method="_on_area_2d_body_exited"]
+[connection signal="died" from="HealthComponent" to="." method="on_death"]

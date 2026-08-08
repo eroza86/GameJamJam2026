@@ -16,7 +16,7 @@ height = 26.0
 
 [node name="WindBurst" type="Area2D" unique_id=189087793]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 3
 
 [node name="Explosion" type="CPUParticles2D" parent="." unique_id=1890098733]
 scale = Vector2(1.75, 1.75)

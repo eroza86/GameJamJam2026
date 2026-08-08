@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://be3b0xksst3kr"]
+
+[ext_resource type="Script" uid="uid://bwtkv1fu7o4g1" path="res://resources/firing_component.gd" id="1_l7wfq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_phvbs"]
+radius = 240.46829
+
+[node name="FiringComponent" type="Node2D" unique_id=251753494]
+script = ExtResource("1_l7wfq")
+
+[node name="Timer" type="Timer" parent="." unique_id=581541008]
+wait_time = 2.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1124172357]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1681301414]
+shape = SubResource("CircleShape2D_phvbs")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
