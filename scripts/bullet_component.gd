@@ -34,7 +34,7 @@ func _collide(body: Node) -> void:
 
 	if body is Player or body is Enemy:
 		print(body.health_component.take_damage(damage))
-		bullet_health -= 5
+		bullet_health -= 20 # TODO: Change this
 
 	
 	var other_bullet = body.get_node("BulletComponent")

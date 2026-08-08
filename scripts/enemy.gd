@@ -16,6 +16,8 @@ func _ready() -> void:
 	shotgun.global_position = global_position
 
 func _physics_process(delta: float) -> void:
+	if firing_component != null:
+		firing_component.shotgun.global_position = global_position
 	if movement_component != null:
 		movement_component.do_movement()
 		move_and_slide()
@@ -28,7 +30,3 @@ func on_death() -> void:
 
 
 	
-
-
-func _on_health_component_died() -> void:
-	pass # Replace with function body.
