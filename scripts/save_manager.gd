@@ -8,7 +8,8 @@ const SAVE_GAME_PATH: String = "user://save.tres"
 # Gameplay
 
 func add_powder(powder: PowderAmount) -> void:
-	powder_inventory.append(powder)
+	if powder_inventory.size() < 16:
+		powder_inventory.append(powder)
 
 # Saving
 
