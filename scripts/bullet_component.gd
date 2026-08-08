@@ -26,6 +26,21 @@ func _ready() -> void:
 
 
 func _collide(body: Node) -> void:
+	if body is StaticBody2D:
+		explode()
+		return
+	
+	print(body)
+	
+	var other_bullet = body.get_node("BulletComponent")
+	if other_bullet != null:
+		bullet_health -= other_bullet.bullet_health
+
+	if bullet_health == 0:
+		explode()
+
+
+func explode() -> void:
 	bullet.linear_velocity = Vector2.ZERO
 	bullet.set_deferred("freeze", true)
 	collider.set_deferred("disabled", true)

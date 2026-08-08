@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_e2xx0"]
 [ext_resource type="Script" uid="uid://bwtkv1fu7o4g1" path="res://resources/firing_component.gd" id="3_2ep0y"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="4_1mbuk"]
+[ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="5_hh126"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
 radius = 5.0
@@ -39,6 +40,10 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FiringComponent/Area2D" unique_id=816038660]
 shape = SubResource("CircleShape2D_phvbs")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1809848720]
+script = ExtResource("5_hh126")
+metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 
 [connection signal="timeout" from="FiringComponent/Timer" to="FiringComponent" method="_on_timer_timeout"]
 [connection signal="body_entered" from="FiringComponent/Area2D" to="FiringComponent" method="_on_area_2d_body_entered"]

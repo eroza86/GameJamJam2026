@@ -20,9 +20,7 @@ func _ready() -> void:
 	can_shoot = true
 	
 func cooldown_timeout():
-	print("cooled down")
 	can_shoot = true
-	print(cooldown_timer.wait_time)
 
 func shoot_shell() -> void:
 	if shells[current_shell] == null or can_shoot == false:
@@ -78,5 +76,5 @@ func _physics_process(delta: float) -> void:
 			shoot_shell()
 
 	if !cooldown_timer.is_stopped():
-		print(cooldown_timer.time_left)
+		pass
 	
