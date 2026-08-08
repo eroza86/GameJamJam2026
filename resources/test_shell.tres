@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://bybmvvsracpqu"
 [sub_resource type="Resource" id="Resource_pjpip"]
 script = ExtResource("1_2lhei")
 powder = SubResource("Resource_113uv")
-amount = 10
+amount = 5
 metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [sub_resource type="Resource" id="Resource_or12j"]
@@ -39,7 +39,7 @@ metadata/_custom_type_script = "uid://b2oqtr8envr5y"
 [sub_resource type="Resource" id="Resource_p1rao"]
 script = ExtResource("1_2lhei")
 powder = SubResource("Resource_or12j")
-amount = 2
+amount = 4
 metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [resource]

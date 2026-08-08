@@ -76,7 +76,3 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("shoot"):
 			shoot_shell()
-
-	if !cooldown_timer.is_stopped():
-		print(cooldown_timer.time_left)
-	
