@@ -13,6 +13,8 @@ var can_shoot: bool
 var cooldown_timer: Timer
 var num_base_powders = 0
 
+var projectiles: Array[RigidBody3D] = []
+
 func _ready() -> void:
 	cooldown_timer = Timer.new()
 	cooldown_timer.one_shot = true
@@ -59,9 +61,13 @@ func shoot_shell() -> void:
 			bullet_instance.rotation = bullet_direction
 
 			bullet_data.add_powder_amount(powder.name, amount, mod_powder_augment)
-			bullet_data.bullet_owner = self
+			bullet_data.bullet_owner = target
+			bullet_instance.add_collision_exception_with(target)
+			bullet_data.shotgun = self
 			cooldown_time += bullet_data.cooldown
 			mod_powder_augment = [1, 1, 1, 1, 1]
+			
+			register_bullet(bullet_instance)
 			
 			add_sibling(bullet_instance)
 			target.velocity.y *= 0.3
@@ -77,13 +83,24 @@ func shoot_shell() -> void:
 	cooldown_timer.wait_time = cooldown_time
 	cooldown_timer.start()
  
+func register_bullet(bullet: RigidBody2D):
+	for projectile in projectiles:
+		bullet.add_collision_exception_with(projectile)
+		projectile.add_collision_exception_with(bullet)
+	projectiles.append(bullet)
+	print("Register: " + bullet.to_string())
+	
+func unregister_bullet(bullet: RigidBody2D):
+	print("Unregister: " + bullet.to_string())
+	print(" ")
+	projectiles.erase(bullet)
+
 func _physics_process(delta: float) -> void:
 	if target != null:
 		global_position = lerp(global_position, target.global_position, SPEED * delta)
 	
 	if target is Player:
 		look_at(get_global_mouse_position())
-	
 
 		if Input.is_action_just_pressed("shoot"):
 			shoot_shell()

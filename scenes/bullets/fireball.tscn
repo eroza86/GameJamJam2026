@@ -34,8 +34,9 @@ collision_layer = 4
 collision_mask = 7
 gravity_scale = 0.0
 lock_rotation = true
+continuous_cd = 2
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 5
 
 [node name="Trail" type="CPUParticles2D" parent="." unique_id=2117564453]
 amount = 45
@@ -89,7 +90,7 @@ color_ramp = SubResource("Gradient_xpoo6")
 
 [node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider") instance=ExtResource("1_gjqqg")]
 speed = 125.0
-kick = 250.0
+kick = 150.0
 cooldown = 0.25
 explosion = NodePath("../Explosion")
 main_particles = NodePath("../BulletParticles")

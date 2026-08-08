@@ -11,10 +11,13 @@ extends Node2D
 @export var collider: CollisionShape2D
 @onready var bullet = get_parent()
 var bullet_owner: Node2D
+var shotgun: Node2D
 var velocity
 
 var gun: Node2D
 var direction: float = 0
+
+var exploded: bool = false
 
 func _ready() -> void:
 	var launch_dir = Vector2.RIGHT.rotated(direction).normalized()
@@ -27,6 +30,10 @@ func _ready() -> void:
 
 
 func _collide(body: Node) -> void:
+	
+	if exploded:
+		return
+	
 	if body is StaticBody2D:
 		explode()
 		return
@@ -38,7 +45,7 @@ func _collide(body: Node) -> void:
 		bullet_health -= 20 # TODO: Change this
 
 	
-	var other_bullet = body.get_node("BulletComponent")
+	var other_bullet = body.get_node_or_null("BulletComponent")
 	if other_bullet != null && other_bullet.bullet_owner != self.bullet_owner:
 		print("hit bullet")
 		if body.global_position.x > self.global_position.x:
@@ -54,8 +61,13 @@ func _collide(body: Node) -> void:
 
 
 func explode() -> void:
+	if exploded:
+		return
+	
+	exploded = true
+	
 	bullet.linear_velocity = Vector2.ZERO
-	bullet.set_deferred("freeze", true)
+	bullet.freeze = true
 	collider.set_deferred("disabled", true)
 	if main_particles != null:
 		main_particles.emitting = false
@@ -65,6 +77,9 @@ func explode() -> void:
 		explosion.emitting = true
 	
 func _dead() -> void:
+	print("Dead: " + bullet.to_string())
+	if bullet is RigidBody2D:
+		shotgun.unregister_bullet(bullet)
 	bullet.queue_free()
 
 func set_size(size: float) -> void:
@@ -85,3 +100,4 @@ func add_powder_amount(element: String, amount: float, augments: Array[float]) -
 	bullet_health = int(amount)
 	#0.05 - 1.0
 	#0.05 is treated as the base value
+	
