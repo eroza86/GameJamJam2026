@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://pnbhp234cws4"]
 
 [ext_resource type="Script" uid="uid://ueadjr4hq58o" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 5.0
@@ -18,3 +19,6 @@ round_precision = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501974622]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1158797871]
+script = ExtResource("2_g2els")

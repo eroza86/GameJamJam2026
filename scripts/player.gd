@@ -1,5 +1,6 @@
 class_name Player
 extends CharacterBody2D
+
 @export var SPEED = 135.0
 @export var ACCELERATION = 1200.0
 @export var FRICTION = 1400.0
@@ -15,6 +16,9 @@ extends CharacterBody2D
 
 @export var INPUT_BUFFER_WINDOW = 0.1
 @export var COYOTE_WINDOW = 0.08
+
+@export_group("Components")
+@export var health_component: HealthComponent
 
 var input_buffer : Timer
 var coyote_timer : Timer
