@@ -45,10 +45,10 @@ func set_size(size: float) -> void:
 	if explosion != null:
 		explosion.scale *= size
 
-func add_powder_amount(element: String, amount: float) -> void:
-	damage *= amount/4 
-	speed *= amount/20 + 1
-	kick *= amount/8 
-	set_size(amount/5 + 1)
+func add_powder_amount(element: String, amount: float, augments: Array[float]) -> void:
+	damage *= amount/4 * augments[0]
+	speed *= (amount/20 + 1) * augments[1]
+	kick *= amount/8 * augments[2]
+	set_size((amount/5 + 1) * augments[3]) 
 	#0.05 - 1.0
 	#0.05 is treated as the base value
