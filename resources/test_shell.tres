@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Shell" format=3 uid="uid://dsyrdqvh25r3t"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="1_2lhei"]
 [ext_resource type="PackedScene" uid="uid://b1n33bnhs7qws" path="res://scenes/bullets/lob_shot.tscn" id="2_6yrqo"]
 [ext_resource type="Script" uid="uid://bybmvvsracpqu" path="res://scripts/modifier_powder.gd" id="2_pjpip"]
@@ -41,8 +42,22 @@ script = ExtResource("1_2lhei")
 powder = SubResource("Resource_or12j")
 amount = 2
 metadata/_custom_type_script = "uid://drxdkdot864up"
+=======
+[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="1_2lhei"]
+[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="2_2lhei"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://resources/shell.gd" id="3_6yrqo"]
+>>>>>>> Stashed changes
+
+[sub_resource type="Resource" id="Resource_qkivf"]
+script = ExtResource("1_2lhei")
+powder = ExtResource("2_2lhei")
+metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [resource]
 script = ExtResource("3_6yrqo")
+<<<<<<< Updated upstream
 powders = Array[ExtResource("1_2lhei")]([SubResource("Resource_st0q7"), SubResource("Resource_pjpip"), SubResource("Resource_p1rao")])
+=======
+powders = Array[ExtResource("1_2lhei")]([SubResource("Resource_qkivf")])
+>>>>>>> Stashed changes
 metadata/_custom_type_script = "uid://cie1duhcybmbl"

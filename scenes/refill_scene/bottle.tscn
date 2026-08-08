@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dqfvifn5fnudl"]
+
+[ext_resource type="Script" uid="uid://dog5pk0hj3nwk" path="res://scenes/refill_scene/bottle.gd" id="1_r0tus"]
+[ext_resource type="Texture2D" uid="uid://bdwr00x86ws01" path="res://scenes/refill_scene/bottle.png" id="1_xbxom"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qp78i"]
+radius = 16.5
+height = 89.0
+
+[node name="Bottle" type="RigidBody2D" unique_id=1931850851]
+input_pickable = true
+script = ExtResource("1_r0tus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=178549202]
+position = Vector2(-3, 3)
+shape = SubResource("CapsuleShape2D_qp78i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780867170]
+texture = ExtResource("1_xbxom")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
