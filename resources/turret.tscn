@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btul3ocvl7cih"]
 
 [ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_e2xx0"]
+[ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="2_aq5wg"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_e2xx0"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="3_1mbuk"]
 [ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="4_aq5wg"]
@@ -27,6 +28,7 @@ height = 10.0
 script = ExtResource("1_e2xx0")
 health_component = NodePath("HealthComponent")
 firing_component = NodePath("FiringComponent")
+item_scene = ExtResource("2_aq5wg")
 shotgun_scene = ExtResource("2_e2xx0")
 shell = SubResource("Resource_hlwof")
 

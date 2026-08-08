@@ -4,8 +4,10 @@ extends CharacterBody2D
 @export var health_component: HealthComponent
 @export var movement_component: Node2D
 @export var firing_component: Node2D
+@export var item_scene: PackedScene
 @export var shotgun_scene: PackedScene
 @export var shell: Shell
+
 
 func _ready() -> void:
 	var shotgun = shotgun_scene.instantiate()
@@ -23,6 +25,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func on_death() -> void:
+	var item_drop = item_scene.instantiate()
+	add_sibling(item_drop)
+	item_drop.global_position = global_position
 	queue_free()
 	firing_component.shotgun.queue_free()
 

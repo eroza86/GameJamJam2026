@@ -66,7 +66,6 @@ func shoot_shell() -> void:
  
 func _physics_process(delta: float) -> void:
 	if target != null:
-		print(target)
 		global_position = lerp(global_position, target.global_position, SPEED * delta)
 	
 	if target is Player:

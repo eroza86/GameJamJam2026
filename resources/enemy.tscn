@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_288yo"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_7tskh"]
+[ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="2_17l45"]
 [ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://resources/firing_component.tscn" id="2_lum5s"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="3_r78bl"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="3_y16rc"]
@@ -35,6 +36,7 @@ script = ExtResource("1_288yo")
 health_component = NodePath("HealthComponent")
 movement_component = NodePath("MovementComponent")
 firing_component = NodePath("FiringComponent")
+item_scene = ExtResource("2_17l45")
 shotgun_scene = ExtResource("2_7tskh")
 shell = SubResource("Resource_tefeu")
 
