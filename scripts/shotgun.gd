@@ -69,10 +69,14 @@ func shoot_shell() -> void:
 func _physics_process(delta: float) -> void:
 	if target != null:
 		global_position = global_position.lerp(target.position, SPEED * delta)
-	look_at(get_global_mouse_position())
 	
+	if target is Player:
+		look_at(get_global_mouse_position())
+	
+
+		if Input.is_action_just_pressed("shoot"):
+			shoot_shell()
+
 	if !cooldown_timer.is_stopped():
 		print(cooldown_timer.time_left)
 	
-	if Input.is_action_just_pressed("shoot"):
-		shoot_shell()
