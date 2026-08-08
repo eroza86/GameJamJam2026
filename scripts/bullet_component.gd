@@ -10,14 +10,15 @@ extends Node2D
 @export var trail: CPUParticles2D
 @export var collider: CollisionShape2D
 @onready var bullet = get_parent()
-
+var bullet_owner: Node2D
+var velocity
 
 var gun: Node2D
 var direction: float = 0
 
 func _ready() -> void:
 	var launch_dir = Vector2.RIGHT.rotated(direction).normalized()
-	var velocity = launch_dir * speed
+	velocity = launch_dir * speed
 	if bullet is RigidBody2D:
 		bullet.linear_velocity = velocity
 	elif bullet is Area2D:
@@ -30,19 +31,26 @@ func _collide(body: Node) -> void:
 		explode()
 		return
 	
-	print(body)
+	#print(body)
 
 	if body is Player or body is Enemy:
-		print(body.health_component.take_damage(damage))
+		body.health_component.take_damage(damage)
 		bullet_health -= 20 # TODO: Change this
 
 	
 	var other_bullet = body.get_node("BulletComponent")
-	if other_bullet != null:
-		bullet_health -= other_bullet.bullet_health
+	if other_bullet != null && other_bullet.bullet_owner != self.bullet_owner:
+		print("hit bullet")
+		if body.global_position.x > self.global_position.x:
+			var health_copy: float = bullet_health
+			bullet_health -= other_bullet.bullet_health
+			other_bullet.bullet_health -= health_copy
 
 	if bullet_health <= 0:
 		explode()
+	
+	if bullet is RigidBody2D:
+		bullet.linear_velocity = velocity
 
 
 func explode() -> void:

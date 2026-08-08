@@ -24,8 +24,8 @@ radius = 1.0
 height = 4.0
 
 [node name="Icicle" type="RigidBody2D" unique_id=1635074887]
-collision_layer = 0
-collision_mask = 3
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 lock_rotation = true
 contact_monitor = true
@@ -87,7 +87,6 @@ scale_amount_curve = SubResource("Curve_utu1b")
 color_ramp = SubResource("Gradient_me8h7")
 
 [node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider") instance=ExtResource("1_bwwh5")]
-damage = 1.0
 speed = 300.0
 kick = 25.0
 cooldown = 0.1

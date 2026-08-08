@@ -11,6 +11,7 @@ extends Node2D
 
 var can_shoot: bool
 var cooldown_timer: Timer
+var num_base_powders = 0
 
 func _ready() -> void:
 	cooldown_timer = Timer.new()
@@ -29,6 +30,13 @@ func shoot_shell() -> void:
 	can_shoot = false
 	var cooldown_time: float = 0
 	
+	#find number of base powders
+	num_base_powders = 0
+	for powder_amount in shells[current_shell].powders:
+		var powder: Powder = powder_amount.powder
+		if powder is BasePowder:
+			num_base_powders += 1
+	
 	var mod_powder_augment: Array[float] = [1, 1, 1, 1, 1]
 	for powder_amount in shells[current_shell].powders:
 		# var bullet_instance = bullet.instantiate()
@@ -41,12 +49,17 @@ func shoot_shell() -> void:
 			var bullet_instance = powder_amount.powder.bullet.instantiate()
 			bullet_instance.global_position = barrel.global_position
 			var bullet_data = bullet_instance.get_node("BulletComponent")
-			var bullet_direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
-
+			var bullet_direction
+			if num_base_powders == 1:
+				bullet_direction = self.rotation
+			else: 
+				bullet_direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
+			
 			bullet_data.direction = bullet_direction
 			bullet_instance.rotation = bullet_direction
 
 			bullet_data.add_powder_amount(powder.name, amount, mod_powder_augment)
+			bullet_data.bullet_owner = self
 			cooldown_time += bullet_data.cooldown
 			mod_powder_augment = [1, 1, 1, 1, 1]
 			

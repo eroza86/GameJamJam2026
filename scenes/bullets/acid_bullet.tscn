@@ -30,8 +30,8 @@ colors = PackedColorArray(0.102, 0.3, 0.11849998, 0.37254903, 0.45586804, 0.6554
 radius = 1.0
 
 [node name="AcidBullet" type="RigidBody2D" unique_id=2106111631]
-collision_layer = 0
-collision_mask = 3
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 lock_rotation = true
 contact_monitor = true
@@ -88,7 +88,7 @@ scale_amount_curve = SubResource("Curve_8pulk")
 color_ramp = SubResource("Gradient_nobxx")
 
 [node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider") instance=ExtResource("1_oerpb")]
-damage = 1.0
+bullet_health = 2.0
 speed = 200.0
 kick = 50.0
 cooldown = 0.1

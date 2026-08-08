@@ -12,7 +12,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _physics_process(delta: float) -> void:
 	var closest_enemy: Enemy
 	var closest_distance: float
-	print(enemies.size())
 	if enemies.size() > 0:
 		closest_enemy = enemies[0]
 		closest_distance = global_position.distance_squared_to(enemies[0].global_position)

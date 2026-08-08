@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="1_h7w8e"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="2_2lhei"]
-[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="2_yf7ci"]
+[ext_resource type="PackedScene" uid="uid://jx6ums4li3ep" path="res://scenes/bullets/icicle.tscn" id="2_6yrqo"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="2_yf7ci"]
+
+[sub_resource type="Resource" id="Resource_taix2"]
+script = ExtResource("2_yf7ci")
+bullet = ExtResource("2_6yrqo")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
 
 [sub_resource type="Resource" id="Resource_yf7ci"]
 script = ExtResource("1_h7w8e")
-powder = ExtResource("2_yf7ci")
-amount = 10
+powder = SubResource("Resource_taix2")
+amount = 5
 metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [resource]
