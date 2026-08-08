@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var bullet_health: int = 1
 @export var damage: float
 @export var speed: float
 @export var kick: float
@@ -50,5 +51,6 @@ func add_powder_amount(element: String, amount: float) -> void:
 	speed *= amount/20 + 1
 	kick *= amount/8 
 	set_size(amount/5 + 1)
+	bullet_health = int(amount)
 	#0.05 - 1.0
 	#0.05 is treated as the base value
