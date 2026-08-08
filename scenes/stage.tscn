@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="7_1hwpr"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
 [ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="8_1hwpr"]
+[ext_resource type="Resource" uid="uid://dcoxiexdjao7f" path="res://resources/enemy_test_shell.tres" id="9_dexii"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 
@@ -47,5 +48,6 @@ position = Vector2(123, -65)
 
 [node name="Turret" parent="." unique_id=2044094002 groups=["Enemy"] instance=ExtResource("8_1hwpr")]
 position = Vector2(-103, -71)
+shell = ExtResource("9_dexii")
 
 [editable path="Turret"]

@@ -1,3 +1,4 @@
+class_name Enemy
 extends CharacterBody2D
 
 @export var movement_component: Node2D

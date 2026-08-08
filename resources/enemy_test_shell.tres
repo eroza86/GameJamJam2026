@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Shell" format=3 uid="uid://dcoxiexdjao7f"]
+
+[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="1_h7lyd"]
+[ext_resource type="PackedScene" uid="uid://bwkyv4xdmlx77" path="res://scenes/bullets/fireball.tscn" id="2_h7lyd"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="3_yhwgx"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="4_adx4y"]
+
+[sub_resource type="Resource" id="Resource_6yrqo"]
+script = ExtResource("3_yhwgx")
+bullet = ExtResource("2_h7lyd")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_st0q7"]
+script = ExtResource("1_h7lyd")
+powder = SubResource("Resource_6yrqo")
+amount = 2
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[resource]
+script = ExtResource("4_adx4y")
+powders = Array[ExtResource("1_h7lyd")]([SubResource("Resource_st0q7")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
