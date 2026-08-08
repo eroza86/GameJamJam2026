@@ -3,9 +3,28 @@
 [ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_288yo"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_7tskh"]
 [ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://resources/firing_component.tscn" id="2_lum5s"]
-[ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="3_oiqoh"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="3_r78bl"]
+[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="3_y16rc"]
+[ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="4_hlwof"]
 [ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="5_spyv3"]
+
+[sub_resource type="Resource" id="Resource_y16rc"]
+script = ExtResource("5_spyv3")
+bullet = ExtResource("4_hlwof")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_o6xl0"]
+script = ExtResource("3_y16rc")
+powder = SubResource("Resource_y16rc")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_tefeu"]
+script = ExtResource("5_17l45")
+powders = Array[ExtResource("3_y16rc")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
 radius = 5.0
@@ -17,7 +36,7 @@ health_component = NodePath("HealthComponent")
 movement_component = NodePath("MovementComponent")
 firing_component = NodePath("FiringComponent")
 shotgun_scene = ExtResource("2_7tskh")
-shell = ExtResource("3_oiqoh")
+shell = SubResource("Resource_tefeu")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 points = PackedVector2Array(0, 0, 0, 6)
