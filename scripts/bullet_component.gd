@@ -77,8 +77,6 @@ func explode() -> void:
 		explosion.emitting = true
 	
 func _dead() -> void:
-	if bullet is RigidBody2D:
-		shotgun.unregister_bullet(bullet)
 	bullet.queue_free()
 
 func set_size(size: float) -> void:
@@ -99,4 +97,3 @@ func add_powder_amount(element: String, amount: float, augments: Array[float]) -
 	bullet_health = int(amount)
 	#0.05 - 1.0
 	#0.05 is treated as the base value
-	

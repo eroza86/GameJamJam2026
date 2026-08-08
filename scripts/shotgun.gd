@@ -67,8 +67,6 @@ func shoot_shell() -> void:
 			cooldown_time += bullet_data.cooldown
 			mod_powder_augment = [1, 1, 1, 1, 1]
 			
-			register_bullet(bullet_data.get_parent())
-			
 			add_sibling(bullet_instance)
 			target.velocity.y *= 0.3
 			target.velocity += Vector2.RIGHT.rotated(self.rotation).normalized() * bullet_data.kick * -1
@@ -82,15 +80,6 @@ func shoot_shell() -> void:
 	
 	cooldown_timer.wait_time = cooldown_time
 	cooldown_timer.start()
- 
-func register_bullet(bullet: RigidBody2D):
-	for projectile in projectiles:
-		bullet.add_collision_exception_with(projectile)
-		projectile.add_collision_exception_with(bullet)
-	projectiles.append(bullet)
-	
-func unregister_bullet(bullet: RigidBody2D):
-	projectiles.erase(bullet)
 
 func _physics_process(delta: float) -> void:
 	if target != null:
