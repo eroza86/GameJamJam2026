@@ -9,11 +9,29 @@ extends Node2D
 @export var shells: Array[Shell] = [null, null, null]
 @export_range(0, 2, 1) var current_shell: int = 0 # Index of above array
 
+var can_shoot: bool
+var cooldown_timer: Timer
+
+func _ready() -> void:
+	cooldown_timer = Timer.new()
+	cooldown_timer.one_shot = true
+	cooldown_timer.timeout.connect(cooldown_timeout)
+	add_child(cooldown_timer)
+	can_shoot = true
+	
+func cooldown_timeout():
+	print("cooled down")
+	can_shoot = true
+	print(cooldown_timer.wait_time)
+
 func shoot_shell() -> void:
-	if shells[current_shell] == null:
+	if shells[current_shell] == null or can_shoot == false:
 		return
 	
-	var mod_powder_augment: Array[float] = [1, 1, 1, 1]
+	can_shoot = false
+	var cooldown_time: float = 0
+	
+	var mod_powder_augment: Array[float] = [1, 1, 1, 1, 1]
 	for powder_amount in shells[current_shell].powders:
 		# var bullet_instance = bullet.instantiate()
 		var powder: Powder = powder_amount.powder
@@ -31,7 +49,8 @@ func shoot_shell() -> void:
 			bullet_instance.rotation = bullet_direction
 
 			bullet_data.add_powder_amount(powder.name, amount, mod_powder_augment)
-			mod_powder_augment = [1, 1, 1, 1]
+			cooldown_time += bullet_data.cooldown
+			mod_powder_augment = [1, 1, 1, 1, 1]
 			
 			add_sibling(bullet_instance)
 			target.velocity.y *= 0.3
@@ -42,12 +61,18 @@ func shoot_shell() -> void:
 			mod_powder_augment[1] += powder.speed * amount / 20
 			mod_powder_augment[2] += powder.kick * amount / 20
 			mod_powder_augment[3] += powder.size * amount / 20
-
+			mod_powder_augment[4] += powder.cooldown * amount / 20
+	
+	cooldown_timer.wait_time = cooldown_time
+	cooldown_timer.start()
  
 func _physics_process(delta: float) -> void:
 	if target != null:
 		global_position = global_position.lerp(target.position, SPEED * delta)
 	look_at(get_global_mouse_position())
+	
+	if !cooldown_timer.is_stopped():
+		print(cooldown_timer.time_left)
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot_shell()

@@ -3,6 +3,7 @@ extends Node2D
 @export var damage: float
 @export var speed: float
 @export var kick: float
+@export var cooldown: float
 @export var explosion: CPUParticles2D
 @export var main_particles: CPUParticles2D
 @export var trail: CPUParticles2D
@@ -50,5 +51,6 @@ func add_powder_amount(element: String, amount: float, augments: Array[float]) -
 	speed *= (amount/20 + 1) * augments[1]
 	kick *= amount/8 * augments[2]
 	set_size((amount/5 + 1) * augments[3]) 
+	cooldown *= 1 + augments[4]
 	#0.05 - 1.0
 	#0.05 is treated as the base value

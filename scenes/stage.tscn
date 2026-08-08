@@ -39,3 +39,5 @@ position = Vector2(3, -32)
 target = NodePath("../Player")
 SPEED = 35.0
 shells = Array[ExtResource("6_1hwpr")]([ExtResource("7_st0q7"), null, null])
+
+[node name="Timer" type="Timer" parent="." unique_id=1436323955]
