@@ -1,19 +1,11 @@
 [gd_scene format=3 uid="uid://ba70oc4hemmr1"]
 
-[ext_resource type="PackedScene" uid="uid://cimj8eg814p0t" path="res://scenes/platform.tscn" id="1_8rem4"]
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
-[ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="9_dexii"]
-[ext_resource type="PackedScene" uid="uid://cac307i0incho" path="res://scenes/lever.tscn" id="11_0hg5s"]
-[ext_resource type="PackedScene" uid="uid://dxg25jcgqkcmf" path="res://scenes/bomb_barrel.tscn" id="12_e38vs"]
-[ext_resource type="PackedScene" uid="uid://tdge7tttftws" path="res://scenes/test_crate.tscn" id="12_jl6nj"]
-[ext_resource type="PackedScene" uid="uid://itun5foje5gc" path="res://scenes/jump_thru_platform.tscn" id="13_e38vs"]
-[ext_resource type="PackedScene" uid="uid://g53mao3q5tbe" path="res://scenes/dore.tscn" id="13_xfx4c"]
-[ext_resource type="PackedScene" uid="uid://dm02lhp5a7l8k" path="res://scenes/increment_dore.tscn" id="14_5sts7"]
-[ext_resource type="PackedScene" uid="uid://b4piloqkbma6o" path="res://scenes/breakable_wall.tscn" id="14_xfx4c"]
+[ext_resource type="PackedScene" uid="uid://bgrg14ohj8flm" path="res://scenes/level.tscn" id="9_dexii"]
 [ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="15_5sts7"]
 [ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="16_t30jk"]
 [ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="17_d4wp7"]
@@ -29,17 +21,6 @@ target = NodePath("../Player")
 SPEED = 35.0
 shells = Array[ExtResource("6_1hwpr")]([ExtResource("7_st0q7"), null, null])
 
-[node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
-position = Vector2(0, -67)
-scale = Vector2(6.0000024, 0.4437472)
-
-[node name="Platform" parent="." unique_id=1710862572 instance=ExtResource("1_8rem4")]
-scale = Vector2(190.18942, 1.0093021)
-
-[node name="Platform3" parent="." unique_id=815370614 instance=ExtResource("1_8rem4")]
-position = Vector2(173, -38)
-scale = Vector2(5.5423045, 0.86334866)
-
 [node name="Main Camera" type="Camera2D" parent="." unique_id=224485954 node_paths=PackedStringArray("target")]
 zoom = Vector2(3, 3)
 process_callback = 0
@@ -48,100 +29,13 @@ script = ExtResource("3_kewym")
 target = NodePath("../Player")
 SPEED = 8.0
 
-[node name="Platform4" parent="." unique_id=1990806678 instance=ExtResource("1_8rem4")]
-position = Vector2(-122, -72)
-
-[node name="ItemPickup" parent="." unique_id=1782800605 instance=ExtResource("9_dexii")]
-position = Vector2(0, -105)
-
-[node name="TestCrate" parent="." unique_id=2075906928 instance=ExtResource("12_jl6nj")]
-position = Vector2(-228, -78)
-
-[node name="JumpThruPlatform" parent="." unique_id=593784915 instance=ExtResource("13_e38vs")]
-position = Vector2(97, -35)
-
-[node name="JumpThruPlatform" parent="JumpThruPlatform" unique_id=77050945 instance=ExtResource("13_e38vs")]
-position = Vector2(410.00003, 5)
-scale = Vector2(7.6399903, 1)
-
-[node name="JumpThruPlatform2" parent="." unique_id=473513868 instance=ExtResource("13_e38vs")]
-position = Vector2(97, -35)
-
-[node name="JumpThruPlatform" parent="JumpThruPlatform2" unique_id=47504548 instance=ExtResource("13_e38vs")]
-position = Vector2(616, 4)
-scale = Vector2(7.6399903, 1)
-
-[node name="JumpThruPlatform2" parent="JumpThruPlatform2" unique_id=71064514 instance=ExtResource("13_e38vs")]
-position = Vector2(515, -25)
-scale = Vector2(7.6399903, 1)
-
-[node name="BreakableWall" parent="." unique_id=675506426 instance=ExtResource("14_xfx4c")]
-position = Vector2(282, -55)
-scale = Vector2(1.0058393, 5.573365)
-
-[node name="Lever" parent="." unique_id=1004030683 instance=ExtResource("11_0hg5s")]
-position = Vector2(172, -44)
-
-[node name="Lever2" parent="." unique_id=1192723394 instance=ExtResource("11_0hg5s")]
-position = Vector2(506, -38)
-
-[node name="Lever3" parent="." unique_id=874704599 instance=ExtResource("11_0hg5s")]
-position = Vector2(612, -68)
-
-[node name="Lever4" parent="." unique_id=175044781 instance=ExtResource("11_0hg5s")]
-position = Vector2(714, -39)
-
-[node name="BombBarrel" parent="." unique_id=1092316470 instance=ExtResource("12_e38vs")]
-position = Vector2(-144, -30)
-
-[node name="BombBarrel2" parent="." unique_id=596924951 instance=ExtResource("12_e38vs")]
-position = Vector2(-227, -108)
-
-[node name="BombBarrel3" parent="." unique_id=702085866 instance=ExtResource("12_e38vs")]
-position = Vector2(-520, -26)
-
-[node name="BombBarrel4" parent="." unique_id=505675340 instance=ExtResource("12_e38vs")]
-position = Vector2(-532, -56)
-
-[node name="BombBarrel5" parent="." unique_id=732028620 instance=ExtResource("12_e38vs")]
-position = Vector2(-541, -83)
-
-[node name="BombBarrel6" parent="." unique_id=1584198087 instance=ExtResource("12_e38vs")]
-position = Vector2(-555, -54)
-
-[node name="BombBarrel7" parent="." unique_id=1551043469 instance=ExtResource("12_e38vs")]
-position = Vector2(-544, -25)
-
-[node name="BombBarrel8" parent="." unique_id=988984224 instance=ExtResource("12_e38vs")]
-position = Vector2(-566, -26)
-
-[node name="Dore" parent="." unique_id=2144881133 instance=ExtResource("13_xfx4c")]
-position = Vector2(339, -109)
-open_pos = Vector2(339, -200)
-close_pos = Vector2(339, -109)
-speed = 3.0
-
-[node name="IncrementDore" parent="." unique_id=90566136 instance=ExtResource("14_5sts7")]
-position = Vector2(864, -109)
-open_pos = Vector2(864, -179)
-close_pos = Vector2(864, -109)
-speed = 3.0
-num_needed = 3
-
 [node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("15_5sts7")]
-position = Vector2(128, -94)
+position = Vector2(292, -378)
 
 [node name="EnemyWizard" parent="." unique_id=1437721045 instance=ExtResource("16_t30jk")]
-position = Vector2(-23, -94)
+position = Vector2(306, -78)
 
 [node name="Turret" parent="." unique_id=1357332744 instance=ExtResource("17_d4wp7")]
-position = Vector2(-87, -24)
+position = Vector2(486, -50)
 
-[connection signal="off" from="Lever" to="Dore" method="close"]
-[connection signal="on" from="Lever" to="Dore" method="open"]
-[connection signal="off" from="Lever2" to="IncrementDore" method="decrement"]
-[connection signal="on" from="Lever2" to="IncrementDore" method="increment"]
-[connection signal="off" from="Lever3" to="IncrementDore" method="decrement"]
-[connection signal="on" from="Lever3" to="IncrementDore" method="increment"]
-[connection signal="off" from="Lever4" to="IncrementDore" method="decrement"]
-[connection signal="on" from="Lever4" to="IncrementDore" method="increment"]
+[node name="Level" parent="." unique_id=1148501230 instance=ExtResource("9_dexii")]
