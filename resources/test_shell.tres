@@ -13,21 +13,10 @@ metadata/_custom_type_script = "uid://b2oqtr8envr5y"
 [sub_resource type="Resource" id="Resource_yf7ci"]
 script = ExtResource("1_h7w8e")
 powder = SubResource("Resource_taix2")
-amount = 10
-metadata/_custom_type_script = "uid://drxdkdot864up"
-
-[sub_resource type="Resource" id="Resource_jl6nj"]
-script = ExtResource("2_yf7ci")
-bullet = ExtResource("2_6yrqo")
-metadata/_custom_type_script = "uid://b2oqtr8envr5y"
-
-[sub_resource type="Resource" id="Resource_0hg5s"]
-script = ExtResource("1_h7w8e")
-powder = SubResource("Resource_jl6nj")
-amount = 10
+amount = 5
 metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [resource]
 script = ExtResource("2_2lhei")
-powders = Array[ExtResource("1_h7w8e")]([SubResource("Resource_yf7ci"), SubResource("Resource_0hg5s")])
+powders = Array[ExtResource("1_h7w8e")]([SubResource("Resource_yf7ci")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"

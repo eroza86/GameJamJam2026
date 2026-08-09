@@ -25,6 +25,7 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+[ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 5.0
@@ -55,3 +56,5 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1158797871]
 script = ExtResource("2_g2els")
+
+[node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("3_qhqgy")]

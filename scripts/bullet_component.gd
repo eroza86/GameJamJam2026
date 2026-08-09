@@ -10,10 +10,12 @@ extends Node2D
 @export var trail: CPUParticles2D
 @export var collider: CollisionShape2D
 @export var bullet_collision_area: Area2D
+@export var explosion_area: Area2D
 @onready var bullet = get_parent()
 var bullet_owner: Node2D
 var shotgun: Node2D
 var velocity
+var launchables: Array[Node2D] = []
 
 var gun: Node2D
 var direction: float = 0
@@ -29,11 +31,10 @@ func _ready() -> void:
 		explosion.emitting = true
 
 func _collide(body: Node) -> void:
-	print(body.to_string())
 	if exploded:
 		return
 	
-	if body is StaticBody2D:
+	if body is StaticBody2D or body is RigidBody2D and body.get_node_or_null("LaunchableComponent") != null:
 		explode()
 		return
 
@@ -61,7 +62,6 @@ func explode() -> void:
 		return
 	
 	exploded = true
-	
 	bullet.linear_velocity = Vector2.ZERO
 	bullet.freeze = true
 	collider.set_deferred("disabled", true)
@@ -71,6 +71,14 @@ func explode() -> void:
 		trail.emitting = false
 	if explosion != null:
 		explosion.emitting = true
+	for object in launchables:
+		var launch_vector = (object.global_position - bullet.global_position).normalized() * kick
+		if object is CharacterBody2D:
+			object.velocity += launch_vector
+			continue
+		if object is RigidBody2D:
+			object.apply_impulse(launch_vector / 2, bullet.global_position)
+	print(launchables)
 	
 func _dead() -> void:
 	bullet.queue_free()
@@ -86,6 +94,16 @@ func set_size(size: float) -> void:
 		collider.scale *= size
 	if bullet_collision_area != null:
 		bullet_collision_area.scale *= size
+	if explosion_area != null:
+		explosion_area.scale *= size
+
+func physics_body_enter(body: Node):
+	if body.get_node_or_null("LaunchableComponent") != null:
+		launchables.append(body)
+	
+func physics_body_exit(body: Node):
+	if body.get_node_or_null("LaunchableComponent") != null and !exploded:
+		launchables.erase(body)
 
 func add_powder_amount(element: String, amount: float, augments: Array[float]) -> void:
 	damage *= (amount/4 + 1) * augments[0]
