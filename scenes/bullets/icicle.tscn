@@ -23,13 +23,17 @@ colors = PackedColorArray(1, 1, 1, 0.21176471, 0, 0.6907512, 0.999396, 0.8235294
 radius = 1.0
 height = 4.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwwh5"]
+radius = 2.6666667
+height = 6.666667
+
 [node name="Icicle" type="RigidBody2D" unique_id=1635074887]
-collision_layer = 0
-collision_mask = 3
+collision_layer = 4
+collision_mask = 7
 gravity_scale = 0.0
 lock_rotation = true
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 5
 
 [node name="Trail" type="CPUParticles2D" parent="." unique_id=1959284383]
 rotation = 3.1415927
@@ -86,8 +90,7 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_utu1b")
 color_ramp = SubResource("Gradient_me8h7")
 
-[node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider") instance=ExtResource("1_bwwh5")]
-damage = 1.0
+[node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider", "bullet_collision_area", "explosion_area") instance=ExtResource("1_bwwh5")]
 speed = 300.0
 kick = 25.0
 cooldown = 0.1
@@ -95,6 +98,8 @@ explosion = NodePath("../Explosion")
 main_particles = NodePath("../BulletParticles")
 trail = NodePath("../Trail")
 collider = NodePath("../CollisionShape2D")
+bullet_collision_area = NodePath("../Area2D")
+explosion_area = NodePath("../Area2D2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=3669593]
 position = Vector2(-3, 0)
@@ -102,5 +107,28 @@ rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_r5w7f")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=434611825]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=753927636]
+position = Vector2(-3, 0)
+rotation = 1.5707964
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_r5w7f")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1496810541]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2" unique_id=47169877]
+position = Vector2(-3, 0)
+rotation = 1.5707964
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_bwwh5")
+
 [connection signal="body_entered" from="." to="BulletComponent" method="_collide"]
 [connection signal="finished" from="Explosion" to="BulletComponent" method="_dead"]
+[connection signal="body_entered" from="Area2D" to="BulletComponent" method="bullet_clash"]
+[connection signal="body_entered" from="Area2D2" to="BulletComponent" method="physics_body_enter"]
+[connection signal="body_exited" from="Area2D2" to="BulletComponent" method="physics_body_exit"]

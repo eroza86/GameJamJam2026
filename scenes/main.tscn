@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://bhb6w1si340s5" path="res://assets/default_theme.tres" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://ba70oc4hemmr1" path="res://scenes/stage.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cxj3pjy8evpd6" path="res://scenes/refill_scene/refill_scene.tscn" id="3_tbgi4"]
+[ext_resource type="FontFile" uid="uid://c7nadm678a654" path="res://assets/OldeEnglish.ttf" id="5_tbgi4"]
 
 [node name="Main" type="Node" unique_id=1860395890]
 script = ExtResource("1_0wfyh")
@@ -29,8 +30,9 @@ offset_right = 93.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme = ExtResource("1_o5qli")
+theme_override_fonts/font = ExtResource("5_tbgi4")
 theme_override_font_sizes/font_size = 72
-text = "Shellcasters of the Spire"
+text = "Shellcasters"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1388202176]
 layout_mode = 1

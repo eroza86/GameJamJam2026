@@ -1,22 +1,20 @@
 [gd_scene format=3 uid="uid://ba70oc4hemmr1"]
 
-[ext_resource type="PackedScene" uid="uid://cimj8eg814p0t" path="res://scenes/platform.tscn" id="1_8rem4"]
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
-[ext_resource type="Script" uid="uid://conidrcthts07" path="res://scripts/stage.gd" id="1_yd2gm"]
+[ext_resource type="Script" uid="uid://cae6tvhvf0xge" path="res://scripts/stage.gd" id="1_yd2gm"]
+[ext_resource type="PackedScene" uid="uid://su4jevp6prbu" path="res://scenes/death_screen.tscn" id="2_0hg5s"]
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
-[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://scenes/enemy.tscn" id="7_1hwpr"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
-[ext_resource type="FontFile" uid="uid://crdueveg854ml" path="res://fonts/Metamorphous-Regular.ttf" id="8_0hg5s"]
-[ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://scenes/turret.tscn" id="8_1hwpr"]
-[ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="9_dexii"]
-
-[sub_resource type="Theme" id="Theme_jra4v"]
-default_font = ExtResource("8_0hg5s")
+[ext_resource type="PackedScene" uid="uid://bgrg14ohj8flm" path="res://scenes/level.tscn" id="9_dexii"]
+[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="15_5sts7"]
+[ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="16_t30jk"]
+[ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="17_d4wp7"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 script = ExtResource("1_yd2gm")
+death_scene = ExtResource("2_0hg5s")
 
 [node name="Player" parent="." unique_id=67252580 instance=ExtResource("1_gi7kc")]
 position = Vector2(0, -35)
@@ -27,17 +25,6 @@ target = NodePath("../Player")
 SPEED = 35.0
 shells = Array[ExtResource("6_1hwpr")]([ExtResource("7_st0q7"), null, null])
 
-[node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
-position = Vector2(0, -67)
-scale = Vector2(6.0000024, 0.4437472)
-
-[node name="Platform" parent="." unique_id=1710862572 instance=ExtResource("1_8rem4")]
-scale = Vector2(30.147934, 1)
-
-[node name="Platform3" parent="." unique_id=815370614 instance=ExtResource("1_8rem4")]
-position = Vector2(173, -38)
-scale = Vector2(6.0000024, 0.4437472)
-
 [node name="Main Camera" type="Camera2D" parent="." unique_id=224485954 node_paths=PackedStringArray("target")]
 zoom = Vector2(3, 3)
 process_callback = 0
@@ -46,47 +33,18 @@ script = ExtResource("3_kewym")
 target = NodePath("../Player")
 SPEED = 8.0
 
-[node name="UIControl" type="Control" parent="Main Camera" unique_id=1615101716]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -192.0
-offset_top = -108.0
-offset_right = 191.0
-offset_bottom = 107.0
+[node name="AudioListener2D" type="AudioListener2D" parent="Main Camera" unique_id=1260609562]
+current = true
 
-[node name="Items" type="Label" parent="Main Camera/UIControl" unique_id=1122891845]
-layout_mode = 0
-offset_right = 142.0
-offset_bottom = 218.0
-theme = SubResource("Theme_jra4v")
-theme_override_font_sizes/font_size = 10
+[node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("15_5sts7")]
+position = Vector2(292, -378)
 
-[node name="Button" type="Button" parent="Main Camera/UIControl" unique_id=164608646]
-layout_mode = 0
-offset_left = 269.0
-offset_top = 1.0
-offset_right = 384.0
-offset_bottom = 32.0
-text = "Back to menu"
+[node name="EnemyWizard" parent="." unique_id=1437721045 instance=ExtResource("16_t30jk")]
+position = Vector2(306, -78)
 
-[node name="Platform4" parent="." unique_id=1990806678 instance=ExtResource("1_8rem4")]
-position = Vector2(-122, -72)
+[node name="Turret" parent="." unique_id=1357332744 instance=ExtResource("17_d4wp7")]
+position = Vector2(486, -50)
 
-[node name="Enemy" parent="." unique_id=656613126 groups=["Enemy"] instance=ExtResource("7_1hwpr")]
-position = Vector2(123, -65)
+[node name="Level" parent="." unique_id=1148501230 instance=ExtResource("9_dexii")]
 
-[node name="Turret" parent="." unique_id=2044094002 groups=["Enemy"] instance=ExtResource("8_1hwpr")]
-position = Vector2(-103, -71)
-
-[node name="FiringComponent" parent="Turret" index="2" unique_id=251753494]
-visible = false
-
-[node name="ItemPickup" parent="." unique_id=1782800605 instance=ExtResource("9_dexii")]
-position = Vector2(0, -105)
-
-[node name="ItemPickup2" parent="." unique_id=964877862 instance=ExtResource("9_dexii")]
-position = Vector2(-178, -22)
-
-[connection signal="pressed" from="Main Camera/UIControl/Button" to="." method="_on_button_pressed"]
-
-[editable path="Turret"]
+[connection signal="player_died" from="Player" to="." method="_on_player_died"]

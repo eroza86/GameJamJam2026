@@ -1,38 +1,26 @@
 [gd_scene format=3 uid="uid://dkiwe0qyk8cay"]
 
 [ext_resource type="Script" uid="uid://hy8jmr2nsbu8" path="res://scripts/shotgun.gd" id="1_voyse"]
-[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="2_w47vr"]
-[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="3_ma6dp"]
-[ext_resource type="Script" uid="uid://bybmvvsracpqu" path="res://resources/modifier_powder.gd" id="4_w47vr"]
-
-[sub_resource type="Resource" id="Resource_w47vr"]
-script = ExtResource("4_w47vr")
-metadata/_custom_type_script = "uid://bybmvvsracpqu"
-
-[sub_resource type="Resource" id="Resource_1ya1i"]
-script = ExtResource("3_ma6dp")
-powder = SubResource("Resource_w47vr")
-metadata/_custom_type_script = "uid://drxdkdot864up"
-
-[sub_resource type="Resource" id="Resource_qp78i"]
-script = ExtResource("2_w47vr")
-powders = Array[ExtResource("3_ma6dp")]([SubResource("Resource_1ya1i")])
-metadata/_custom_type_script = "uid://cie1duhcybmbl"
-
-[sub_resource type="Gradient" id="Gradient_5ptbe"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_g4v7s"]
-gradient = SubResource("Gradient_5ptbe")
+[ext_resource type="Texture2D" uid="uid://dngtvnbteiyhi" path="res://assets/gun.png" id="2_gnj2g"]
+[ext_resource type="AudioStream" uid="uid://d2uuun1o0e1ka" path="res://assets/hitHurt.wav" id="3_w47vr"]
+[ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="4_w47vr"]
 
 [node name="Shotgun" type="Node2D" unique_id=1436656832]
 script = ExtResource("1_voyse")
-shells = Array[ExtResource("2_w47vr")]([SubResource("Resource_qp78i"), null, null])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=321277152]
-position = Vector2(5, 0)
-scale = Vector2(0.07128907, 3.3750002)
-texture = SubResource("GradientTexture1D_g4v7s")
+position = Vector2(4, 1)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_gnj2g")
 
 [node name="barrel" type="Marker2D" parent="." unique_id=651779335]
 position = Vector2(14, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=566353003]
+stream = ExtResource("3_w47vr")
+volume_db = -18.91
+bus = &"SFX"
+script = ExtResource("4_w47vr")
+pitch_difference = 0.2
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="randomize_pitch"]

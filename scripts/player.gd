@@ -24,7 +24,7 @@ var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available :=  true
 
-
+signal player_died
 
 func _ready() -> void:
 	# setup input buffer timer
@@ -40,13 +40,14 @@ func _ready() -> void:
 	add_child(coyote_timer)
 	coyote_timer.timeout.connect(coyote_timeout)
 	
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	var horizontal_input = Input.get_axis("move_left", "move_right")
 	var jump_attempted = Input.is_action_just_pressed("jump")
 	
 	# handle jumping
 	if jump_attempted or input_buffer.time_left > 0:
 		if coyote_jump_available:
+			$JumpAudio.play()
 			velocity.y = JUMP_VELOCITY
 			coyote_jump_available = false
 			if input_buffer.time_left > 0 and !Input.is_action_pressed("jump"):
@@ -71,6 +72,9 @@ func _physics_process(delta: float) -> void:
 	var dash_multiplier : float = 1.25 if Input.is_action_pressed("dash") else 1.0
 	if horizontal_input:
 		velocity.x = move_toward(velocity.x, horizontal_input * SPEED * dash_multiplier, ACCELERATION * delta)
+		$AnimatedSprite2D.flip_h = false
+		if velocity.x < 0:
+			$AnimatedSprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta * floor_damping)
 	
@@ -84,15 +88,19 @@ func _physics_process(delta: float) -> void:
 	if abs(velocity.x) > MAX_HORI_SPEED:
 		velocity.x = sign(velocity.x) * MAX_HORI_SPEED
 	
+		
 	move_and_slide()
 
 func coyote_timeout():
 	coyote_jump_available = false
 	
-func get_gravity_type(_input_direction : float = 0) -> float:
+func get_gravity_type(input_direction : float = 0) -> float:
 	if Input.is_action_pressed("down"):
 		return FAST_FALL_GRAVITY
 	if velocity.y < 0:
 		return GRAVITY
 	return FALL_GRAVITY
-	
+
+
+func _on_death() -> void:
+	player_died.emit()

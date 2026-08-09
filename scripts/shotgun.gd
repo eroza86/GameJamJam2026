@@ -11,6 +11,9 @@ extends Node2D
 
 var can_shoot: bool
 var cooldown_timer: Timer
+var num_base_powders = 0
+
+var projectiles: Array[Node] = []
 
 func _ready() -> void:
 	print(shells)
@@ -26,9 +29,18 @@ func cooldown_timeout():
 func shoot_shell() -> void:
 	if shells[current_shell] == null or can_shoot == false:
 		return
+
+	$AudioStreamPlayer2D.play()
 	
 	can_shoot = false
 	var cooldown_time: float = 0
+	
+	#find number of base powders
+	num_base_powders = 0
+	for powder_amount in shells[current_shell].powders:
+		var powder: Powder = powder_amount.powder
+		if powder is BasePowder:
+			num_base_powders += 1
 	
 	var mod_powder_augment: Array[float] = [1, 1, 1, 1, 1]
 	for powder_amount in shells[current_shell].powders:
@@ -42,12 +54,19 @@ func shoot_shell() -> void:
 			var bullet_instance = powder_amount.powder.bullet.instantiate()
 			bullet_instance.global_position = barrel.global_position
 			var bullet_data = bullet_instance.get_node("BulletComponent")
-			var bullet_direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
-
+			var bullet_direction
+			if num_base_powders == 1:
+				bullet_direction = self.rotation
+			else: 
+				bullet_direction = self.rotation + deg_to_rad(randf_range(-15.0, 15.0))
+			
 			bullet_data.direction = bullet_direction
 			bullet_instance.rotation = bullet_direction
 
 			bullet_data.add_powder_amount(powder.name, amount, mod_powder_augment)
+			bullet_data.bullet_owner = target
+			bullet_instance.add_collision_exception_with(target)
+			bullet_data.shotgun = self
 			cooldown_time += bullet_data.cooldown
 			mod_powder_augment = [1, 1, 1, 1, 1]
 			
@@ -64,14 +83,17 @@ func shoot_shell() -> void:
 	
 	cooldown_timer.wait_time = cooldown_time
 	cooldown_timer.start()
- 
+
 func _physics_process(delta: float) -> void:
 	if target != null:
 		global_position = lerp(global_position, target.global_position, SPEED * delta)
 	
 	if target is Player:
 		look_at(get_global_mouse_position())
-	
 
 		if Input.is_action_just_pressed("shoot"):
 			shoot_shell()
+
+	$Sprite2D.flip_v = false
+	if abs(int(rotation_degrees) % 360) < 270 and abs(int(rotation_degrees) % 360) > 90:
+		$Sprite2D.flip_v = true

@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var parent = get_parent()
 
-const SPEED: float = 120.0
+const SPEED: float = 220.0
 
-func do_movement() -> void:
+func do_movement(_delta: float) -> void:
 	if parent.firing_component != null and parent.firing_component.player != null:
 		var player = parent.firing_component.player
 
@@ -19,7 +19,7 @@ func do_movement() -> void:
 				parent.velocity.x = direction.x * SPEED
 				parent.velocity.y = direction.y * SPEED
 			else:
-				parent.velocity.x = lerp(parent.velocity.x, direction.x * SPEED, 0.01)
-				parent.velocity.y = lerp(parent.velocity.y, direction.y * SPEED, 0.01)
+				parent.velocity.x = lerp(parent.velocity.x, direction.x * SPEED, 0.03)
+				parent.velocity.y = lerp(parent.velocity.y, direction.y * SPEED, 0.03)
 		else:
 			parent.velocity.x = move_toward(parent.velocity.x, 0, SPEED)

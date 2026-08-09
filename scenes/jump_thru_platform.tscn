@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://itun5foje5gc"]
+
+[sub_resource type="Gradient" id="Gradient_v4t87"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uckle"]
+gradient = SubResource("Gradient_v4t87")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtea6"]
+size = Vector2(16, 8)
+
+[node name="JumpThruPlatform" type="StaticBody2D" unique_id=593784915]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=821793391]
+position = Vector2(-2.3841858e-07, -4)
+scale = Vector2(0.062499996, 8)
+texture = SubResource("GradientTexture1D_uckle")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1267228059]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_vtea6")
+one_way_collision = true
