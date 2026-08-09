@@ -77,6 +77,7 @@ func explode() -> void:
 		explosion.emitting = true
 	
 func _dead() -> void:
+	shotgun.deregister_bullet(self)
 	bullet.queue_free()
 
 func set_size(size: float) -> void:
@@ -86,6 +87,8 @@ func set_size(size: float) -> void:
 		main_particles.scale *= size
 	if explosion != null:
 		explosion.scale *= size
+	if collider != null:
+		collider.scale *= size
 
 func add_powder_amount(element: String, amount: float, augments: Array[float]) -> void:
 	damage *= (amount/4 + 1) * augments[0]

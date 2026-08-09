@@ -29,7 +29,7 @@ colors = PackedColorArray(0.85, 0.74913335, 0.09350002, 0.6392157, 0.80664897, 0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4v3kp"]
 radius = 2.0
 
-[node name="Fireball" type="RigidBody2D" unique_id=2092640543]
+[node name="Fireball" type="RigidBody2D" unique_id=2092640543 groups=["Bullet"]]
 collision_layer = 4
 collision_mask = 7
 gravity_scale = 0.0
