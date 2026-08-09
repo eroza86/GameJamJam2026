@@ -90,3 +90,7 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("shoot"):
 			shoot_shell()
+
+	$Sprite2D.flip_v = false
+	if abs(int(rotation_degrees) % 360) < 270 and abs(int(rotation_degrees) % 360) > 90:
+		$Sprite2D.flip_v = true
