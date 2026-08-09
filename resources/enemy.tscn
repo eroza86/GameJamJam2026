@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="5_spyv3"]
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_spyv3"]
+[ext_resource type="Texture2D" uid="uid://bf563br1qcgie" path="res://assets/tome.png" id="12_1lo3u"]
 
 [sub_resource type="Resource" id="Resource_y16rc"]
 script = ExtResource("5_spyv3")
@@ -32,7 +33,64 @@ metadata/_custom_type_script = "uid://cie1duhcybmbl"
 radius = 5.0
 height = 16.0
 
-[node name="Enemy" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "movement_component", "firing_component")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqkes"]
+atlas = ExtResource("12_1lo3u")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knikh"]
+atlas = ExtResource("12_1lo3u")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lud8b"]
+atlas = ExtResource("12_1lo3u")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f68b"]
+atlas = ExtResource("12_1lo3u")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etwnm"]
+atlas = ExtResource("12_1lo3u")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jtjr"]
+atlas = ExtResource("12_1lo3u")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx4h3"]
+atlas = ExtResource("12_1lo3u")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phvbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqkes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knikh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lud8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f68b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etwnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jtjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx4h3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FlyingTome" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "movement_component", "firing_component")]
 script = ExtResource("1_288yo")
 health_component = NodePath("HealthComponent")
 movement_component = NodePath("MovementComponent")
@@ -42,6 +100,7 @@ shotgun_scene = ExtResource("2_7tskh")
 shell = SubResource("Resource_tefeu")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
+visible = false
 points = PackedVector2Array(0, 0, 0, 6)
 default_color = Color(1, 0, 0, 1)
 begin_cap_mode = 2
@@ -62,5 +121,11 @@ metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 script = ExtResource("4_r78bl")
 
 [node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("11_spyv3")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=115759778]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_phvbs")
+autoplay = "default"
+frame_progress = 0.91819465
 
 [connection signal="died" from="HealthComponent" to="." method="on_death"]

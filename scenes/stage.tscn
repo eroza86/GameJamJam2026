@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://g53mao3q5tbe" path="res://scenes/dore.tscn" id="13_xfx4c"]
 [ext_resource type="PackedScene" uid="uid://dm02lhp5a7l8k" path="res://scenes/increment_dore.tscn" id="14_5sts7"]
 [ext_resource type="PackedScene" uid="uid://b4piloqkbma6o" path="res://scenes/breakable_wall.tscn" id="14_xfx4c"]
+[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="15_5sts7"]
+[ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="16_t30jk"]
+[ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="17_d4wp7"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 
@@ -124,6 +127,15 @@ open_pos = Vector2(864, -179)
 close_pos = Vector2(864, -109)
 speed = 3.0
 num_needed = 3
+
+[node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("15_5sts7")]
+position = Vector2(128, -94)
+
+[node name="EnemyWizard" parent="." unique_id=1437721045 instance=ExtResource("16_t30jk")]
+position = Vector2(-23, -94)
+
+[node name="Turret" parent="." unique_id=1357332744 instance=ExtResource("17_d4wp7")]
+position = Vector2(-87, -24)
 
 [connection signal="off" from="Lever" to="Dore" method="close"]
 [connection signal="on" from="Lever" to="Dore" method="open"]
