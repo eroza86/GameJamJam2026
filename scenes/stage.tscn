@@ -4,14 +4,56 @@
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
+[ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="5_xfx4c"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
-[ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
-[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="8_1hwpr"]
+[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="6_5sts7"]
+[ext_resource type="PackedScene" uid="uid://dv4xofsemlwxy" path="res://scenes/bullets/homing_bullet.tscn" id="7_5sts7"]
+[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="8_1hwpr"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="9_0hg5s"]
 [ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="9_dexii"]
 [ext_resource type="PackedScene" uid="uid://b1n33bnhs7qws" path="res://scenes/bullets/lob_shot.tscn" id="10_jl6nj"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="11_e38vs"]
 [ext_resource type="PackedScene" uid="uid://tdge7tttftws" path="res://scenes/test_crate.tscn" id="12_jl6nj"]
+[ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="13_e38vs"]
+
+[sub_resource type="Resource" id="Resource_xfx4c"]
+script = ExtResource("9_0hg5s")
+powder = ExtResource("5_xfx4c")
+amount = 5
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_5sts7"]
+script = ExtResource("9_0hg5s")
+powder = ExtResource("6_5sts7")
+amount = 5
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_ddp0b"]
+script = ExtResource("11_e38vs")
+bullet = ExtResource("7_5sts7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_d4wp7"]
+script = ExtResource("9_0hg5s")
+powder = SubResource("Resource_ddp0b")
+amount = 5
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_t30jk"]
+script = ExtResource("11_e38vs")
+bullet = ExtResource("10_jl6nj")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_3bqjo"]
+script = ExtResource("9_0hg5s")
+powder = SubResource("Resource_t30jk")
+amount = 5
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_e38vs"]
+script = ExtResource("6_1hwpr")
+powders = Array[ExtResource("9_0hg5s")]([SubResource("Resource_xfx4c"), SubResource("Resource_5sts7"), SubResource("Resource_d4wp7"), SubResource("Resource_3bqjo")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [sub_resource type="Resource" id="Resource_gr532"]
 script = ExtResource("11_e38vs")
@@ -38,7 +80,7 @@ position = Vector2(0, -35)
 position = Vector2(3, -32)
 target = NodePath("../Player")
 SPEED = 35.0
-shells = Array[ExtResource("6_1hwpr")]([ExtResource("7_st0q7"), null, null])
+shells = Array[ExtResource("6_1hwpr")]([SubResource("Resource_e38vs"), null, null])
 
 [node name="Platform2" parent="." unique_id=1798121149 instance=ExtResource("1_8rem4")]
 position = Vector2(0, -67)
@@ -71,3 +113,6 @@ shell = SubResource("Resource_nvgch")
 
 [node name="TestCrate" parent="." unique_id=2075906928 instance=ExtResource("12_jl6nj")]
 position = Vector2(-228, -78)
+
+[node name="Turret" parent="." unique_id=548173360 instance=ExtResource("13_e38vs")]
+position = Vector2(-85, -56)
