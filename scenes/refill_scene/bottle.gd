@@ -75,7 +75,7 @@ func _on_timer_timeout() -> void:
 			"Missile":
 				particle = missileParticle.instantiate()
 
-		if powders[type] != 0:
+		if powders[type] > 0:
 			get_parent().add_child(particle)
 
 			particle.name = type

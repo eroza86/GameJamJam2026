@@ -37,13 +37,15 @@ func initialize_scene():
 	var powder_type_enum: int = 0
 	for item in powders:
 		# Amount of powder
+		print(item)
+		print(powders[item])
 		var amount = powders[item]
 		if amount <= 0:
 			powders[item] = 0
 			pass
 		else:
 			var bottleNode = bottle.instantiate()
-			bottleNode.type = elements[powder_type_enum]
+			bottleNode.type = item
 			bottleNode.global_position = markers[powder_type_enum].global_position
 			add_child(bottleNode)
 		powder_type_enum += 1
