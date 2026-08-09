@@ -77,11 +77,15 @@ func explode() -> void:
 		explosion.emitting = true
 	for object in launchables:
 		var launch_vector = (object.global_position - bullet.global_position).normalized() * kick
+		if bullet.global_position.x > object.global_position.x:
+			launch_vector.y = abs(launch_vector.y)
+		else:
+			launch_vector.y = -abs(launch_vector.y)
 		if object is CharacterBody2D:
 			object.velocity += launch_vector
 			continue
 		if object is RigidBody2D:
-			object.apply_impulse(launch_vector / 2, bullet.global_position)
+			object.apply_impulse(launch_vector / 2, object.global_position)
 	print(launchables)
 	
 func _dead() -> void:
