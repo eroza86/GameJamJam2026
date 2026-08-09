@@ -4,7 +4,7 @@ extends Node2D
 
 const SPEED: float = 120.0
 
-func do_movement() -> void:
+func do_movement(_delta: float) -> void:
 	if parent.firing_component != null and parent.firing_component.player != null:
 		var player = parent.firing_component.player
 

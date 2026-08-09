@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dxg25jcgqkcmf" path="res://scenes/bomb_barrel.tscn" id="12_e38vs"]
 [ext_resource type="PackedScene" uid="uid://tdge7tttftws" path="res://scenes/test_crate.tscn" id="12_jl6nj"]
 [ext_resource type="PackedScene" uid="uid://itun5foje5gc" path="res://scenes/jump_thru_platform.tscn" id="13_e38vs"]
+[ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="13_xfx4c"]
 [ext_resource type="PackedScene" uid="uid://b4piloqkbma6o" path="res://scenes/breakable_wall.tscn" id="14_xfx4c"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
@@ -85,3 +86,6 @@ position = Vector2(-544, -25)
 
 [node name="BombBarrel8" parent="." unique_id=988984224 instance=ExtResource("12_e38vs")]
 position = Vector2(-566, -26)
+
+[node name="EnemyWizard" parent="." unique_id=656613126 instance=ExtResource("13_xfx4c")]
+position = Vector2(267, -94)
