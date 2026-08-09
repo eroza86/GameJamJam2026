@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://tdge7tttftws"]
+
+[ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="1_tt1fk"]
+
+[sub_resource type="Gradient" id="Gradient_jibny"]
+colors = PackedColorArray(0.5049262, 0.18282133, 0.00912843, 1, 0.5058824, 0.18431373, 0.007843138, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g4v7s"]
+gradient = SubResource("Gradient_jibny")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(256.41025, 1)
+
+[node name="TestCrate" type="RigidBody2D" unique_id=2075906928]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1387341092]
+position = Vector2(-9.685755e-08, 0)
+scale = Vector2(0.078, 20)
+texture = SubResource("GradientTexture1D_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=56460878]
+scale = Vector2(0.078, 20)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("1_tt1fk")]
+scale = Vector2(0.078, 20)

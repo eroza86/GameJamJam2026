@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="5_spyv3"]
+[ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_spyv3"]
 
 [sub_resource type="Resource" id="Resource_y16rc"]
 script = ExtResource("5_spyv3")
@@ -59,5 +60,7 @@ metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 
 [node name="MovementComponent" type="Node2D" parent="." unique_id=1667526438]
 script = ExtResource("4_r78bl")
+
+[node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("11_spyv3")]
 
 [connection signal="died" from="HealthComponent" to="." method="on_death"]

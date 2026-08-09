@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ueadjr4hq58o" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 5.0
@@ -23,3 +24,5 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1158797871]
 script = ExtResource("2_g2els")
+
+[node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("3_qhqgy")]
