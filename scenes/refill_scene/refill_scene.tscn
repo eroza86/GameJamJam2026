@@ -103,13 +103,15 @@ position = Vector2(984, 531)
 position = Vector2(1069, 532)
 
 [node name="Shell" parent="." unique_id=1449684950 instance=ExtResource("12_1eq23")]
-position = Vector2(412, 528)
+position = Vector2(426, 448)
 
 [node name="Shell2" parent="." unique_id=719843026 instance=ExtResource("12_1eq23")]
-position = Vector2(565, 529)
+position = Vector2(588, 448)
+shellIndex = 1
 
 [node name="Shell3" parent="." unique_id=1438187701 instance=ExtResource("12_1eq23")]
-position = Vector2(709, 528)
+position = Vector2(746, 448)
+shellIndex = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]

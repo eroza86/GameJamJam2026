@@ -33,14 +33,13 @@ func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 func initialize_scene():
-	#dispurse_markers()
 	# The increment value
 	var powder_type_enum: int = 0
 	for item in powders:
 		# Amount of powder
 		var amount = powders[item]
-		if amount == 0:
-			# Don't generate an empty bottle
+		if amount <= 0:
+			powders[item] = 0
 			pass
 		else:
 			var bottleNode = bottle.instantiate()
@@ -48,37 +47,17 @@ func initialize_scene():
 			bottleNode.global_position = markers[powder_type_enum].global_position
 			add_child(bottleNode)
 		powder_type_enum += 1
-			 
-# Creates a shell. If not using any of one powder, put "0" as the scales/amount
-#func createShell(amount: int, powderType: Powder, element: int, damageScale: int, 
-#speedScale: int, kickScale: int, sizeScale: int, cooldownScale: int) -> Shell:
-#	var shell = Shell.new()
-#	shell.powders.append(PowderAmount.new())
-#	shell.powders[0] = amount
-#	shell.powders[0].powder = powderType
-#	if shell.PowderAmount.Powder is BasePowder:
-#		shell.PowderAmount.Powder.Element = element
-#	elif shell.PowderAmount.Powder is ModifierPowder:
-#		shell.PowderAmount.Powder.Damage = damageScale
-#		shell.PowderAmount.Powder.Speed = speedScale
-#		shell.PowderAmount.Powder.Kick = kickScale
-#		shell.PowderAmount.Powder.Size = sizeScale
-#		shell.PowderAmount.Powder.Cooldown = cooldownScale
-#	return shell
-	
 
 
 # Pour into a shell
-func add_to_shell(powder_flask: PowderAmount, shell_index: int) -> void:
-	var powder_name: String = powder_flask.powder.name
-
-	# Subtract 1 from temp flask
-	powder_flask.amount -= 1
+func add_to_shell(powder: Powder, shell_index: int) -> void:
+	var powder_name: String = powder.name
 
 	# Subtract 1 from dictionary (dual reference with this system)
 	GlobalSaveHolder.save_game.powder_inventory[powder_name] -= 1
+	print(GlobalSaveHolder.save_game.powder_inventory[powder_name])
 
 	# Add that 1 to the shell
-	shells[shell_index].add_layer(powder_flask.powder)
+	shells[shell_index].add_layer(powder)
 	
 	GlobalSaveHolder.save_game.write_save()

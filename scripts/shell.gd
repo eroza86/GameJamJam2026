@@ -1,60 +1,28 @@
 extends StaticBody2D
 
-@onready var parent: Node2D = get_parent()
-@onready var colorRects: Array[ColorRect] = [
-	$"MarginContainer/VBoxContainer/1",
-	$"MarginContainer/VBoxContainer/2",
-	$"MarginContainer/VBoxContainer/3",
-	$"MarginContainer/VBoxContainer/4",
-	$"MarginContainer/VBoxContainer/5",
-	$"MarginContainer/VBoxContainer/6",
-	$"MarginContainer/VBoxContainer/7",
-	$"MarginContainer/VBoxContainer/8",
-	$"MarginContainer/VBoxContainer/9",
-	$"MarginContainer/VBoxContainer/10",
-	$"MarginContainer/VBoxContainer/11",
-	$"MarginContainer/VBoxContainer/12",
-	$"MarginContainer/VBoxContainer/13",
-	$"MarginContainer/VBoxContainer/14",
-	$"MarginContainer/VBoxContainer/15",
-	$"MarginContainer/VBoxContainer/16",
-	$"MarginContainer/VBoxContainer/17",
-	$"MarginContainer/VBoxContainer/18",
-	$"MarginContainer/VBoxContainer/19"
-]
 
+@export var shellIndex: int = 0
+
+@onready var parent: Node2D = get_parent()
+@onready var vbox: VBoxContainer = $MarginContainer/VBoxContainer
 @onready var shellRes: Shell
 @onready var area: Area2D = $Area2D
+
+var maxShellCapacity: int = 20
 
 func _ready() -> void:
 	shellRes = Shell.new()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	
-	var particleType: Powder
-	match body.name:
-		"Acid":
-			particleType = parent.associated_powders[body.name]
-		"Cloud":
-			particleType = parent.associated_powders[body.name]
-		"Fire":
-			particleType = parent.associated_powders[body.name]
-		"Ice":
-			particleType = parent.associated_powders[body.name]
-		"Lightning":
-			particleType = parent.associated_powders[body.name]
-		"Lob":
-			particleType = parent.associated_powders[body.name]
-		"Missile":
-			particleType = parent.associated_powders[body.name]
-			
-	shellRes.add_layer(particleType)
-	
-	for items in colorRects:
-		if shellRes[body.name] == 0:
-			items.color.a = 0
-		else:
-			items.color = shellRes[body.name].color
-
-		
+	if body.is_in_group("Particles"):
+		var string = body.name.rstrip("0123456789")
+		parent.add_to_shell(parent.associated_powders[string], shellIndex)
+		if vbox.get_child_count() < maxShellCapacity:
+			var rect = ColorRect.new()
+			rect.color = parent.associated_powders[string].color
+			rect.custom_minimum_size = Vector2(rect.get_minimum_size().x, 4)
+			body.free()
+			vbox.add_child(rect)
+		else: 
+			pass
 	

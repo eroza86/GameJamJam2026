@@ -1,136 +1,63 @@
 [gd_scene format=3 uid="uid://18kkeqfyypd4"]
 
-[ext_resource type="Texture2D" uid="uid://dox7f7x1venq4" path="res://assets/shell.png" id="1_bo4bk"]
 [ext_resource type="Script" uid="uid://dufsgarf4pjjh" path="res://scripts/shell.gd" id="1_sb42f"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
-size = Vector2(11, 145)
+[ext_resource type="Texture2D" uid="uid://bn8x7p1v68ci3" path="res://assets/shell_OPEN.png" id="2_sb42f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wb4oo"]
-size = Vector2(77, 130)
+size = Vector2(35, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khhxn"]
-size = Vector2(10, 145)
+size = Vector2(6, 101.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsuaf"]
-size = Vector2(77, 14)
+size = Vector2(49, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
+size = Vector2(7.5, 101)
 
 [node name="Shell" type="StaticBody2D" unique_id=1449684950]
+scale = Vector2(2.0113902, 2.0113902)
 script = ExtResource("1_sb42f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=72566527]
-visible = false
-position = Vector2(-44.5, 2.5)
-shape = SubResource("RectangleShape2D_s1fef")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2079176958]
-texture = ExtResource("1_bo4bk")
+position = Vector2(1, 2)
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("2_sb42f")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1569682614]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1118148465]
-position = Vector2(0.5, -5)
+position = Vector2(0.5, -21.5)
 shape = SubResource("RectangleShape2D_wb4oo")
 debug_color = Color(0.7300883, 0.47127807, 0.12834811, 0.41960785)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=991451036]
 visible = false
-position = Vector2(45, 2.5)
+position = Vector2(22, -22)
 shape = SubResource("RectangleShape2D_khhxn")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1543914936]
 visible = false
-position = Vector2(0.5, 68)
+position = Vector2(0.5, 52.5)
 shape = SubResource("RectangleShape2D_qsuaf")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=72566527]
+visible = false
+position = Vector2(-20.25, -21.5)
+shape = SubResource("RectangleShape2D_s1fef")
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=420585040]
-offset_left = -41.0
-offset_top = -54.0
-offset_right = 35.0
-offset_bottom = 62.0
+offset_left = 18.0
+offset_top = 28.000002
+offset_right = 94.0
+offset_bottom = 144.0
+rotation = 3.1415927
+scale = Vector2(0.44568694, 0.8549281)
 theme_override_constants/margin_left = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1877464316]
 layout_mode = 2
 theme_override_constants/separation = 0
-alignment = 2
-
-[node name="1" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=770127360]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="2" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1516012800]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="3" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1951336806]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="4" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1400674692]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="5" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1989233903]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="6" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1909031400]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="7" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=826161442]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="8" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1438782924]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="9" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=139724923]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="10" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1982692399]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="11" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1202185540]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="12" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=692873970]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="13" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=262813608]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="14" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1545981763]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="15" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=820785031]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="16" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1073419461]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="17" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=933029906]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="18" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1501659497]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-
-[node name="19" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1711250104]
-custom_minimum_size = Vector2(0, 5.92)
-layout_mode = 2
-color = Color(0.28235295, 0.24313726, 1, 1)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

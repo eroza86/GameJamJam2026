@@ -4,7 +4,12 @@ extends Resource
 @export var powders: Array[PowderAmount] 
 
 func add_layer(powder: Powder) -> void:
+	var powderAmount: PowderAmount
 	if powders.size() == 0:
+		powderAmount = PowderAmount.new()
+		powderAmount.powder = powder
+		powderAmount.amount = 1
+		powders.append(powderAmount)
 		return
 		
 	var top_powder_layer: PowderAmount = powders[powders.size() - 1]
@@ -13,7 +18,7 @@ func add_layer(powder: Powder) -> void:
 		top_powder_layer.amount += 1
 		return
 
-	var powderAmount: PowderAmount = PowderAmount.new()
+	powderAmount = PowderAmount.new()
 	powderAmount.powder = powder
 	powderAmount.amount = 1
-	powders.append(powder)
+	powders.append(powderAmount)

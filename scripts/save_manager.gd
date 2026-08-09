@@ -7,10 +7,10 @@ const SAVE_GAME_PATH: String = "user://save.tres"
 	"Fire": 5,
 	"Ice": 5,
 	"Acid": 5,
-	"Lightning": 5,
-	"Cloud": 5,
-	"Lob": 5,
-	"Missile": 5
+	"Lightning": 0,
+	"Cloud": 0,
+	"Lob": 0,
+	"Missile": 0
 }
 
 # Gameplay

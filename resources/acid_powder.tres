@@ -8,4 +8,5 @@ script = ExtResource("2_g05rv")
 element = 3
 bullet = ExtResource("1_40757")
 name = "Acid"
+color = Color(0, 0.47843137, 0, 1)
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"

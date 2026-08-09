@@ -8,4 +8,5 @@ script = ExtResource("2_wbml4")
 element = 1
 bullet = ExtResource("1_mj3lc")
 name = "Lightning"
+color = Color(0.8666667, 0.7058824, 0, 1)
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"

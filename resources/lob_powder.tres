@@ -8,4 +8,5 @@ script = ExtResource("2_vjchx")
 element = 6
 bullet = ExtResource("1_1c8dc")
 name = "Lob"
+color = Color(0.827451, 0, 0.67058825, 1)
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"

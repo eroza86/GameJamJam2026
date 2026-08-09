@@ -33,6 +33,8 @@ window/stretch/scale_mode="integer"
 
 Enemy=""
 Bullet=""
+Bottles=""
+Particles=""
 
 [input]
 

@@ -7,4 +7,5 @@
 script = ExtResource("2_4jqjn")
 bullet = ExtResource("1_rt8yc")
 name = "Fire"
+color = Color(0.69632334, 0.19868496, 0.05023171, 1)
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"

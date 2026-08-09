@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1fef"]
 radius = 9.0
 
-[node name="Ice" type="RigidBody2D" unique_id=1947536353]
+[node name="Ice" type="RigidBody2D" unique_id=1947536353 groups=["Particles"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1644110858]
 shape = SubResource("CircleShape2D_s1fef")

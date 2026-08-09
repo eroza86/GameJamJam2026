@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dqfvifn5fnudl"]
 
 [ext_resource type="Script" uid="uid://dog5pk0hj3nwk" path="res://scenes/refill_scene/bottle.gd" id="1_r0tus"]
-[ext_resource type="Texture2D" uid="uid://bdwr00x86ws01" path="res://scenes/refill_scene/bottle.png" id="1_xbxom"]
 [ext_resource type="PackedScene" uid="uid://d3fxfuyjewenn" path="res://scenes/particles/Fire.tscn" id="2_twgvk"]
 [ext_resource type="PackedScene" uid="uid://i3dosmga7nvt" path="res://scenes/particles/Ice.tscn" id="3_g3l2h"]
 [ext_resource type="PackedScene" uid="uid://bmffvexxa0cbx" path="res://scenes/particles/Acid.tscn" id="4_jlr43"]
@@ -9,11 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://baq0fbq7aga6x" path="res://scenes/particles/Cloud.tscn" id="6_pxxmg"]
 [ext_resource type="PackedScene" uid="uid://btqfbemg8s5sl" path="res://scenes/particles/Lob.tscn" id="7_sbp2b"]
 [ext_resource type="PackedScene" uid="uid://b8ypr11bec8sc" path="res://scenes/particles/Missile.tscn" id="8_7ilb1"]
+[ext_resource type="Texture2D" uid="uid://1b4b0rsji2pa" path="res://assets/bottle2_big.png" id="9_pxxmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxaj"]
-size = Vector2(37, 87)
+size = Vector2(42, 78)
 
-[node name="Bottle" type="RigidBody2D" unique_id=1931850851]
+[node name="Bottle" type="RigidBody2D" unique_id=1931850851 groups=["Bottles"]]
 input_pickable = true
 script = ExtResource("1_r0tus")
 fireParticle = ExtResource("2_twgvk")
@@ -25,11 +25,12 @@ lobParticle = ExtResource("7_sbp2b")
 missileParticle = ExtResource("8_7ilb1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=178549202]
-position = Vector2(-2.5, 2.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_8mxaj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780867170]
-texture = ExtResource("1_xbxom")
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("9_pxxmg")
 
 [node name="Label" type="Label" parent="." unique_id=476143328]
 offset_left = 11.0
@@ -38,7 +39,7 @@ offset_right = 51.0
 offset_bottom = -22.0
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=174066124]
-position = Vector2(-5, -44)
+position = Vector2(0, -40)
 
 [node name="Timer" type="Timer" parent="." unique_id=1759017584]
 autostart = true

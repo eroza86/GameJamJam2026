@@ -78,13 +78,11 @@ func _on_timer_timeout() -> void:
 		if powders[type] != 0:
 			get_parent().add_child(particle)
 
+			particle.name = type
 			particle.global_position = marker.global_position
 			particle.reset_physics_interpolation()
-
+			particle.add_to_group("Particles")
 			particle.sleeping = false
 			
-			powders[type] = powders[type] - 1
-			
-			print(powders[type])
 		else: 
 			pass
