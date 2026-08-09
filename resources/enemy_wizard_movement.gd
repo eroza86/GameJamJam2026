@@ -12,7 +12,7 @@ var gravity = 1000.0
 
 func idle(_delta: float) -> void:
 	parent.velocity.x = lerp(parent.velocity.x, 0.0, 0.1)
-	parent.velocity.y = lerp(parent.velocity.x, 0.0, 0.1)
+	parent.velocity.y += gravity * _delta
 
 func chase(_delta: float) -> void:
 	var target_pos: Vector2 = player.get_global_position()
@@ -83,7 +83,9 @@ func do_movement(_delta: float) -> void:
 
 
 func _on_state_timer_timeout() -> void:
+	print(parent)
 	if state == 0:
 		return
 	state = 1 if state == 2 else 2
+	$StateTimer.wait_time = randf_range(0.8, 1.2)
 	$StateTimer.start()

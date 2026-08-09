@@ -88,4 +88,21 @@ position = Vector2(-544, -25)
 position = Vector2(-566, -26)
 
 [node name="EnemyWizard" parent="." unique_id=656613126 instance=ExtResource("13_xfx4c")]
-position = Vector2(267, -94)
+position = Vector2(249, -94)
+
+[node name="EnemyWizard2" parent="." unique_id=62152167 instance=ExtResource("13_xfx4c")]
+position = Vector2(-388, -125)
+
+[node name="AnimatedSprite2D" parent="EnemyWizard2" index="6" unique_id=198040784]
+animation = &"ice"
+autoplay = "ice"
+
+[node name="EnemyWizard3" parent="." unique_id=1208224458 instance=ExtResource("13_xfx4c")]
+position = Vector2(-116, -156)
+
+[node name="AnimatedSprite2D" parent="EnemyWizard3" index="6" unique_id=198040784]
+animation = &"purple"
+autoplay = "purple"
+
+[editable path="EnemyWizard2"]
+[editable path="EnemyWizard3"]

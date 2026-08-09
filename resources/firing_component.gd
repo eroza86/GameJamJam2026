@@ -4,7 +4,9 @@ extends Node2D
 var player: Player = null
 
 func _on_timer_timeout() -> void:
-	shotgun.shoot_shell()
+	$Timer.wait_time = randf_range(1.5, 2.5)
+	if player != null:
+		shotgun.shoot_shell()
 
 func _physics_process(delta: float) -> void:
 	if shotgun != null and player != null:

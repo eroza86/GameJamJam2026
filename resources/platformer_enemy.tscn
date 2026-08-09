@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_bl4bq"]
 [ext_resource type="Script" uid="uid://o4kfgei3xsq2" path="res://resources/enemy_wizard_movement.gd" id="11_bnofu"]
 [ext_resource type="Texture2D" uid="uid://bhaahdhk6xqsv" path="res://assets/atf_fire.png" id="12_awfgp"]
+[ext_resource type="Texture2D" uid="uid://cxo6vw30fouk7" path="res://assets/atf_ice.png" id="13_e836b"]
+[ext_resource type="Texture2D" uid="uid://rycofqs7alrk" path="res://assets/atf_acid.png" id="14_2rlql"]
+[ext_resource type="Texture2D" uid="uid://beqvgfyyyvdcg" path="res://assets/atf_lightning.png" id="14_5uotl"]
 
 [sub_resource type="Resource" id="Resource_y16rc"]
 script = ExtResource("6_v5fqj")
@@ -41,6 +44,30 @@ region = Rect2(0, 0, 200, 200)
 atlas = ExtResource("12_awfgp")
 region = Rect2(200, 0, 200, 200)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rlql"]
+atlas = ExtResource("13_e836b")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uotl"]
+atlas = ExtResource("13_e836b")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps1c5"]
+atlas = ExtResource("14_5uotl")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fut6b"]
+atlas = ExtResource("14_5uotl")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5fqj"]
+atlas = ExtResource("14_2rlql")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wuo2"]
+atlas = ExtResource("14_2rlql")
+region = Rect2(200, 0, 200, 200)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_phvbs"]
 animations = [{
 "frames": [{
@@ -52,6 +79,39 @@ animations = [{
 }],
 "loop": 1,
 "name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rlql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uotl")
+}],
+"loop": 1,
+"name": &"ice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps1c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fut6b")
+}],
+"loop": 1,
+"name": &"lightning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5fqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wuo2")
+}],
+"loop": 1,
+"name": &"purple",
 "speed": 5.0
 }]
 
@@ -95,7 +155,6 @@ scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_phvbs")
 animation = &"fire"
 autoplay = "fire"
-frame_progress = 0.71882784
 
 [connection signal="died" from="HealthComponent" to="." method="on_death"]
 [connection signal="timeout" from="MovementComponent/StateTimer" to="MovementComponent" method="_on_state_timer_timeout"]
