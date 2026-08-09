@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasePowder" format=3 uid="uid://4pjgy3qibvc4"]
+
+[ext_resource type="PackedScene" uid="uid://chuq5myvfbp7y" path="res://scenes/bullets/wind_burst.tscn" id="1_boiyb"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="2_abb43"]
+
+[resource]
+script = ExtResource("2_abb43")
+element = 4
+bullet = ExtResource("1_boiyb")
+name = "Cloud"
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"

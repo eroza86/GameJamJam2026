@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasePowder" format=3 uid="uid://blyrpvk5v5cuy"]
+
+[ext_resource type="PackedScene" uid="uid://b1n33bnhs7qws" path="res://scenes/bullets/lob_shot.tscn" id="1_1c8dc"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="2_vjchx"]
+
+[resource]
+script = ExtResource("2_vjchx")
+element = 6
+bullet = ExtResource("1_1c8dc")
+name = "Lob"
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"

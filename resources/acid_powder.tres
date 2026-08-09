@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasePowder" format=3 uid="uid://cw4l4ps5dwgch"]
+
+[ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="1_40757"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="2_g05rv"]
+
+[resource]
+script = ExtResource("2_g05rv")
+element = 3
+bullet = ExtResource("1_40757")
+name = "Acid"
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"

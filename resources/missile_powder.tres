@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BasePowder" format=3 uid="uid://dhcmsn2movxjr"]
+
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="1_hg4s6"]
+
+[resource]
+script = ExtResource("1_hg4s6")
+element = 5
+name = "Missile"
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"

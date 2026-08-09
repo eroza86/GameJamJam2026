@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasePowder" format=3 uid="uid://bmgckv33y8yx6"]
+
+[ext_resource type="PackedScene" uid="uid://bee74vnfiimjk" path="res://scenes/bullets/lightning_bolt.tscn" id="1_mj3lc"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="2_wbml4"]
+
+[resource]
+script = ExtResource("2_wbml4")
+element = 1
+bullet = ExtResource("1_mj3lc")
+name = "Lightning"
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
