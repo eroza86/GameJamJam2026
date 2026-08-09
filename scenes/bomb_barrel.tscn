@@ -2,12 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="1_gsyqw"]
 [ext_resource type="Script" uid="uid://71r22kevxsvm" path="res://scenes/bomb_barrel.gd" id="1_twk6d"]
-
-[sub_resource type="Gradient" id="Gradient_jibny"]
-colors = PackedColorArray(0.57925785, 0, 0.00502769, 1, 0.5803922, 0, 0.003921569, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_twk6d"]
-gradient = SubResource("Gradient_jibny")
+[ext_resource type="PackedScene" uid="uid://g53mao3q5tbe" path="res://scenes/dore.tscn" id="3_xfbre"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfbre"]
 size = Vector2(205.1282, 1)
@@ -25,11 +20,6 @@ radius = 72.0
 
 [node name="BombBarrel" type="RigidBody2D" unique_id=1092316470]
 script = ExtResource("1_twk6d")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1145593843]
-position = Vector2(-9.685755e-08, 0)
-scale = Vector2(0.063, 20)
-texture = SubResource("GradientTexture1D_twk6d")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=900956146]
 scale = Vector2(0.078, 20)
@@ -59,7 +49,14 @@ scale_amount_max = 10.0
 scale_amount_curve = SubResource("Curve_gsyqw")
 color_ramp = SubResource("Gradient_twk6d")
 
+[node name="tile" parent="." unique_id=893847846 instance=ExtResource("3_xfbre")]
+position = Vector2(-10.000001, 10.000001)
+scale = Vector2(0.2, 0.2)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 2, 0, 3, 0, 0, 0)
+script = null
+
 [node name="ExplosionArea" type="Area2D" parent="." unique_id=637365367]
+visible = false
 collision_layer = 7
 collision_mask = 7
 

@@ -2,7 +2,7 @@ class_name BombBarrel
 extends RigidBody2D
 @onready var explosion: CPUParticles2D = $Explosion
 @onready var collider: CollisionShape2D = $Collider
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: TileMapLayer = $tile
 var explode_timer: Timer
 var launchables: Array[Node2D] = []
 var exploded: bool = false
