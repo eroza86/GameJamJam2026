@@ -21,7 +21,6 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 GlobalSaveHolder="*uid://b6coy7xnn65hw"
-GameManager="*uid://65py5inv16xf"
 
 [display]
 

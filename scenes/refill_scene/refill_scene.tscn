@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dsn7l4xthcgao" path="res://scenes/refill_scene/refill_scene.gd" id="1_qkivf"]
 [ext_resource type="PackedScene" uid="uid://dqfvifn5fnudl" path="res://scenes/refill_scene/bottle.tscn" id="2_qp78i"]
 [ext_resource type="Script" uid="uid://8s5qchk0uig4" path="res://resources/powder.gd" id="3_xkdpu"]
-[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shellRes.gd" id="3_ytep6"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="3_ytep6"]
 [ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="4_y5nxo"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="4_ytep6"]
 [ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="5_y5nxo"]

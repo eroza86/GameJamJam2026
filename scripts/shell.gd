@@ -1,28 +1,24 @@
-extends StaticBody2D
+class_name Shell
+extends Resource 
 
+@export var powders: Array[PowderAmount] 
 
-@export var shellIndex: int = 0
+func add_layer(powder: Powder) -> void:
+	var powderAmount: PowderAmount
+	if powders.size() == 0:
+		powderAmount = PowderAmount.new()
+		powderAmount.powder = powder
+		powderAmount.amount = 1
+		powders.append(powderAmount)
+		return
+		
+	var top_powder_layer: PowderAmount = powders[powders.size() - 1]
 
-@onready var parent: Node2D = get_parent()
-@onready var vbox: VBoxContainer = $MarginContainer/VBoxContainer
-@onready var shellRes: Shell
-@onready var area: Area2D = $Area2D
+	if top_powder_layer != null and top_powder_layer.powder.name == powder.name:
+		top_powder_layer.amount += 1
+		return
 
-var maxShellCapacity: int = 20
-
-func _ready() -> void:
-	shellRes = Shell.new()
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Particles"):
-		var string = body.name.rstrip("0123456789")
-		parent.add_to_shell(parent.associated_powders[string], shellIndex)
-		if vbox.get_child_count() < maxShellCapacity:
-			var rect = ColorRect.new()
-			rect.color = parent.associated_powders[string].color
-			rect.custom_minimum_size = Vector2(rect.get_minimum_size().x, 4)
-			body.free()
-			vbox.add_child(rect)
-		else: 
-			pass
-	
+	powderAmount = PowderAmount.new()
+	powderAmount.powder = powder
+	powderAmount.amount = 1
+	powders.append(powderAmount)

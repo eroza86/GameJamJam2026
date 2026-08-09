@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_bnofu"]
 [ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="2_awfgp"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="3_e836b"]
-[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="4_2rlql"]
+[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="4_2rlql"]
 [ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="5_5uotl"]
-[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="6_v5fqj"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="6_v5fqj"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="7_5wuo2"]
-[ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://resources/firing_component.tscn" id="8_ps1c5"]
+[ext_resource type="PackedScene" uid="uid://bd1e57ye01t4e" path="res://resources/firing_component.tscn" id="8_ps1c5"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="9_fut6b"]
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_bl4bq"]
 [ext_resource type="Script" uid="uid://o4kfgei3xsq2" path="res://resources/enemy_wizard_movement.gd" id="11_bnofu"]
@@ -120,12 +120,12 @@ animations = [{
 
 [node name="EnemyWizard" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "movement_component", "firing_component")]
 script = ExtResource("1_bnofu")
-health_component = NodePath("HealthComponent")
-movement_component = NodePath("MovementComponent")
-firing_component = NodePath("FiringComponent")
 item_scene = ExtResource("2_awfgp")
 shotgun_scene = ExtResource("3_e836b")
 shell = SubResource("Resource_tefeu")
+health_component = NodePath("HealthComponent")
+movement_component = NodePath("MovementComponent")
+firing_component = NodePath("FiringComponent")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 visible = false

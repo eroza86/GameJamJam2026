@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://bm7locmbd30fu"]
+[gd_scene format=3 uid="uid://cnbbmfu1hulr5"]
 
 [ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_288yo"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_7tskh"]
 [ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="2_17l45"]
-[ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://scenes/firing_component.tscn" id="2_lum5s"]
+[ext_resource type="PackedScene" uid="uid://ckenseipk7a34" path="res://scenes/firing_component.tscn" id="2_lum5s"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="3_r78bl"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="3_y16rc"]
 [ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="4_hlwof"]
 [ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
-[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shellRes.gd" id="5_17l45"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="5_spyv3"]
 
 [sub_resource type="Resource" id="Resource_y16rc"]
