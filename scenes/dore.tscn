@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://g53mao3q5tbe"]
+
+[ext_resource type="Script" uid="uid://cg61yduxf4kgh" path="res://scenes/dore.gd" id="1_s5quv"]
+
+[sub_resource type="Gradient" id="Gradient_j8u40"]
+colors = PackedColorArray(0.007843138, 0.1764706, 0.25882354, 1, 0.0072743613, 0.17788833, 0.2589177, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tf3vh"]
+gradient = SubResource("Gradient_j8u40")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjvw1"]
+size = Vector2(16, 109)
+
+[node name="Dore" type="StaticBody2D" unique_id=2144881133]
+script = ExtResource("1_s5quv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=305870909]
+position = Vector2(-2.3841858e-07, 46.5)
+scale = Vector2(0.062499996, 109)
+texture = SubResource("GradientTexture1D_tf3vh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1140639975]
+position = Vector2(0, 46.5)
+shape = SubResource("RectangleShape2D_gjvw1")

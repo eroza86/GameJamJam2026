@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://caxivvby7n3t5" path="res://scenes/breakable_wall.gd" id="1_qx4r1"]
 
-[sub_resource type="Gradient" id="Gradient_j8u40"]
+[sub_resource type="Gradient" id="Gradient_qx4r1"]
 colors = PackedColorArray(0.57700837, 0.5770084, 0.57700837, 1, 0.5764706, 0.5764706, 0.5764706, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qx4r1"]
-gradient = SubResource("Gradient_j8u40")
+gradient = SubResource("Gradient_qx4r1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba5p1"]
 size = Vector2(16, 16)
