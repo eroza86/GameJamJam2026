@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cac307i0incho"]
+
+[ext_resource type="Script" uid="uid://cfm447kux837n" path="res://scenes/lever.gd" id="1_4kwec"]
+
+[sub_resource type="Gradient" id="Gradient_ncfea"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qxmkn"]
+gradient = SubResource("Gradient_ncfea")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="Lever" type="StaticBody2D" unique_id=1004030683]
+rotation = 0.0013818154
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_4kwec")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1433125910]
+position = Vector2(-2.3841858e-07, -4)
+scale = Vector2(0.062499996, 8)
+texture = SubResource("GradientTexture1D_qxmkn")
+
+[node name="Handle" type="Sprite2D" parent="." unique_id=1451021182]
+position = Vector2(0, -7)
+rotation = 0.7853982
+scale = Vector2(0.011718747, 14.999998)
+texture = SubResource("GradientTexture1D_qxmkn")
+offset = Vector2(0, -0.39999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852428477]
+position = Vector2(-0.013818149, -9.99999)
+shape = SubResource("RectangleShape2D_g4v7s")

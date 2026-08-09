@@ -33,6 +33,9 @@ radius = 0.8
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 91.02197
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvgch"]
+radius = 3.0
+
 [node name="HomingBullet" type="RigidBody2D" unique_id=486661661]
 collision_layer = 4
 collision_mask = 7
@@ -94,7 +97,7 @@ scale_amount_max = 1.75
 scale_amount_curve = SubResource("Curve_pxls0")
 color_ramp = SubResource("Gradient_8ahc7")
 
-[node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider", "bullet_collision_area") instance=ExtResource("1_vxoia")]
+[node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider", "bullet_collision_area", "explosion_area") instance=ExtResource("1_vxoia")]
 scale = Vector2(1.75, 1.75)
 speed = 100.0
 kick = 15.0
@@ -104,6 +107,7 @@ main_particles = NodePath("../BulletParticles")
 trail = NodePath("../Trail")
 collider = NodePath("../CollisionShape2D")
 bullet_collision_area = NodePath("../Area2D2")
+explosion_area = NodePath("../Area2D3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=161330028]
 scale = Vector2(2, 2)
@@ -120,8 +124,15 @@ shape = SubResource("CircleShape2D_g4v7s")
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_3lt2i")
 
+[node name="Area2D3" type="Area2D" parent="." unique_id=256588513]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=425641156]
+shape = SubResource("CircleShape2D_nvgch")
+
 [connection signal="body_entered" from="." to="BulletComponent" method="_collide"]
 [connection signal="finished" from="Explosion" to="BulletComponent" method="_dead"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="BulletComponent" method="bullet_clash"]
+[connection signal="body_entered" from="Area2D3" to="BulletComponent" method="physics_body_enter"]
+[connection signal="body_exited" from="Area2D3" to="BulletComponent" method="physics_body_exit"]

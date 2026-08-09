@@ -6,28 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
-[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="8_1hwpr"]
-[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="9_0hg5s"]
 [ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="9_dexii"]
-[ext_resource type="PackedScene" uid="uid://b1n33bnhs7qws" path="res://scenes/bullets/lob_shot.tscn" id="10_jl6nj"]
-[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="11_e38vs"]
+[ext_resource type="PackedScene" uid="uid://cac307i0incho" path="res://scenes/lever.tscn" id="11_0hg5s"]
 [ext_resource type="PackedScene" uid="uid://tdge7tttftws" path="res://scenes/test_crate.tscn" id="12_jl6nj"]
-
-[sub_resource type="Resource" id="Resource_gr532"]
-script = ExtResource("11_e38vs")
-bullet = ExtResource("10_jl6nj")
-metadata/_custom_type_script = "uid://b2oqtr8envr5y"
-
-[sub_resource type="Resource" id="Resource_la7ns"]
-script = ExtResource("9_0hg5s")
-powder = SubResource("Resource_gr532")
-amount = 4
-metadata/_custom_type_script = "uid://drxdkdot864up"
-
-[sub_resource type="Resource" id="Resource_nvgch"]
-script = ExtResource("6_1hwpr")
-powders = Array[ExtResource("9_0hg5s")]([SubResource("Resource_la7ns")])
-metadata/_custom_type_script = "uid://cie1duhcybmbl"
+[ext_resource type="PackedScene" uid="uid://itun5foje5gc" path="res://scenes/jump_thru_platform.tscn" id="13_e38vs"]
+[ext_resource type="PackedScene" uid="uid://b4piloqkbma6o" path="res://scenes/breakable_wall.tscn" id="14_xfx4c"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
 
@@ -49,7 +32,7 @@ scale = Vector2(83.33841, 1)
 
 [node name="Platform3" parent="." unique_id=815370614 instance=ExtResource("1_8rem4")]
 position = Vector2(173, -38)
-scale = Vector2(6.0000024, 0.4437472)
+scale = Vector2(5.5423045, 0.86334866)
 
 [node name="Main Camera" type="Camera2D" parent="." unique_id=224485954 node_paths=PackedStringArray("target")]
 zoom = Vector2(3, 3)
@@ -65,9 +48,15 @@ position = Vector2(-122, -72)
 [node name="ItemPickup" parent="." unique_id=1782800605 instance=ExtResource("9_dexii")]
 position = Vector2(0, -105)
 
-[node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("8_1hwpr")]
-position = Vector2(132, -58)
-shell = SubResource("Resource_nvgch")
-
 [node name="TestCrate" parent="." unique_id=2075906928 instance=ExtResource("12_jl6nj")]
 position = Vector2(-228, -78)
+
+[node name="JumpThruPlatform" parent="." unique_id=593784915 instance=ExtResource("13_e38vs")]
+position = Vector2(97, -35)
+
+[node name="BreakableWall" parent="." unique_id=675506426 instance=ExtResource("14_xfx4c")]
+position = Vector2(282, -55)
+scale = Vector2(1.0058393, 5.573365)
+
+[node name="Lever" parent="." unique_id=1004030683 instance=ExtResource("11_0hg5s")]
+position = Vector2(172, -44)
