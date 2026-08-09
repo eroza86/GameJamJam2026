@@ -13,3 +13,5 @@ texture = ExtResource("2_gnj2g")
 
 [node name="barrel" type="Marker2D" parent="." unique_id=651779335]
 position = Vector2(14, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=566353003]

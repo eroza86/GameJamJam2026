@@ -58,3 +58,5 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 script = ExtResource("2_g2els")
 
 [node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("4_dqkch")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=984159132]
