@@ -3,15 +3,16 @@ extends Node2D
 @onready var parent = get_parent()
 
 const SPEED: float = 120.0
-const JUMP_VELOCITY: float = 225.0
-var gravity = 125.0
+const JUMP_VELOCITY: float = -225.0
+var gravity = 1000.0
 
 @export_enum("Idle", "Chasing", "Backing Off") var state: int = 0
 @export var player: Player = null
 @export var sprite: AnimatedSprite2D
 
 func idle(_delta: float) -> void:
-	pass
+	parent.velocity.x = lerp(parent.velocity.x, 0.0, 0.1)
+	parent.velocity.y = lerp(parent.velocity.x, 0.0, 0.1)
 
 func chase(_delta: float) -> void:
 	var target_pos: Vector2 = player.get_global_position()
@@ -19,7 +20,7 @@ func chase(_delta: float) -> void:
 	if not parent.is_on_floor():
 		parent.velocity.y += gravity * _delta
 	else:
-		parent.velocity.y = 225
+		parent.velocity.y = JUMP_VELOCITY
 		
 	
 	
@@ -42,6 +43,13 @@ func chase(_delta: float) -> void:
 	
 func back_off(_delta: float) -> void:
 	var target_pos: Vector2 = player.get_global_position()
+	if get_global_position().x > target_pos.x:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
+
+	parent.velocity.x = lerp(parent.velocity.x, 0.0, 0.1)
+	parent.velocity.y = lerp(parent.velocity.x, 0.0, 0.1)
 
 
 
