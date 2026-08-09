@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
 [ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="9_dexii"]
 [ext_resource type="PackedScene" uid="uid://cac307i0incho" path="res://scenes/lever.tscn" id="11_0hg5s"]
+[ext_resource type="PackedScene" uid="uid://dxg25jcgqkcmf" path="res://scenes/bomb_barrel.tscn" id="12_e38vs"]
 [ext_resource type="PackedScene" uid="uid://tdge7tttftws" path="res://scenes/test_crate.tscn" id="12_jl6nj"]
 [ext_resource type="PackedScene" uid="uid://itun5foje5gc" path="res://scenes/jump_thru_platform.tscn" id="13_e38vs"]
 [ext_resource type="PackedScene" uid="uid://b4piloqkbma6o" path="res://scenes/breakable_wall.tscn" id="14_xfx4c"]
@@ -60,3 +61,27 @@ scale = Vector2(1.0058393, 5.573365)
 
 [node name="Lever" parent="." unique_id=1004030683 instance=ExtResource("11_0hg5s")]
 position = Vector2(172, -44)
+
+[node name="BombBarrel" parent="." unique_id=1092316470 instance=ExtResource("12_e38vs")]
+position = Vector2(-144, -30)
+
+[node name="BombBarrel2" parent="." unique_id=596924951 instance=ExtResource("12_e38vs")]
+position = Vector2(-227, -108)
+
+[node name="BombBarrel3" parent="." unique_id=702085866 instance=ExtResource("12_e38vs")]
+position = Vector2(-520, -26)
+
+[node name="BombBarrel4" parent="." unique_id=505675340 instance=ExtResource("12_e38vs")]
+position = Vector2(-532, -56)
+
+[node name="BombBarrel5" parent="." unique_id=732028620 instance=ExtResource("12_e38vs")]
+position = Vector2(-541, -83)
+
+[node name="BombBarrel6" parent="." unique_id=1584198087 instance=ExtResource("12_e38vs")]
+position = Vector2(-555, -54)
+
+[node name="BombBarrel7" parent="." unique_id=1551043469 instance=ExtResource("12_e38vs")]
+position = Vector2(-544, -25)
+
+[node name="BombBarrel8" parent="." unique_id=988984224 instance=ExtResource("12_e38vs")]
+position = Vector2(-566, -26)
