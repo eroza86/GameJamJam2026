@@ -7,7 +7,8 @@ const SAVE_GAME_PATH: String = "user://save.tres"
 
 # Gameplay
 
-	# Add_Powder added directly to the player.
+func add_powder(powderName: String, amount: int) -> void:
+	powder_inventory[powderName] += amount
 
 # Saving
 

@@ -105,21 +105,4 @@ func get_gravity_type(_input_direction : float = 0) -> float:
 		return GRAVITY
 	return FALL_GRAVITY
 	
-func addPowder(powderName: String, amount: int) -> void:
-	match powderName:
-		"Fire":
-			powders["Fire"] += amount
-		"Lightning":
-			powders["Lightning"] += amount
-		"Ice":
-			powders["Ice"] += amount
-		"Acid":
-			powders["Acid"] += amount
-		"Cloud":
-			powders["Cloud"] += amount
-		"Missle":
-			powders["Missile"] += amount
-		"Lob":
-			powders["Lob"] += amount
-			
-	GlobalSaveHolder.save_game.powder_inventory = powders
+

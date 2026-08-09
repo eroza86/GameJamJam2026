@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c803josqfnsik"]
+
+[ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_288yo"]
+[ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="2_7tskh"]
+[ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="2_17l45"]
+[ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://scenes/firing_component.tscn" id="2_lum5s"]
+[ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="3_r78bl"]
+[ext_resource type="Script" path="res://scripts/powder_amount.gd" id="3_y16rc"]
+[ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="4_hlwof"]
+[ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
+[ext_resource type="Script" path="res://scripts/base_powder.gd" id="5_spyv3"]
+[ext_resource type="PackedScene" path="res://scenes/LaunchableComponent.tscn" id="11_spyv3"]
+
+[sub_resource type="Resource" id="Resource_y16rc"]
+script = ExtResource("5_spyv3")
+bullet = ExtResource("4_hlwof")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_o6xl0"]
+script = ExtResource("3_y16rc")
+powder = SubResource("Resource_y16rc")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_tefeu"]
+script = ExtResource("5_17l45")
+powders = Array[ExtResource("3_y16rc")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
+radius = 5.0
+height = 16.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "movement_component", "firing_component")]
+script = ExtResource("1_288yo")
+health_component = NodePath("HealthComponent")
+movement_component = NodePath("MovementComponent")
+firing_component = NodePath("FiringComponent")
+item_scene = ExtResource("2_17l45")
+shotgun_scene = ExtResource("2_7tskh")
+shell = SubResource("Resource_tefeu")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=867128478]
+points = PackedVector2Array(0, 0, 0, 6)
+default_color = Color(1, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241338940]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_bosb8")
+
+[node name="FiringComponent" parent="." unique_id=251753494 instance=ExtResource("2_lum5s")]
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2020781222]
+script = ExtResource("3_r78bl")
+metadata/_custom_type_script = "uid://bymqxq3huhmw7"
+
+[node name="MovementComponent" type="Node2D" parent="." unique_id=1667526438]
+script = ExtResource("4_r78bl")
+
+[node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("11_spyv3")]
+
+[connection signal="died" from="HealthComponent" to="." method="on_death"]

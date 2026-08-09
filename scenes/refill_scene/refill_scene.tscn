@@ -2,15 +2,38 @@
 
 [ext_resource type="Script" uid="uid://dsn7l4xthcgao" path="res://scenes/refill_scene/refill_scene.gd" id="1_qkivf"]
 [ext_resource type="PackedScene" uid="uid://dqfvifn5fnudl" path="res://scenes/refill_scene/bottle.tscn" id="2_qp78i"]
+[ext_resource type="Script" uid="uid://82gwiwyeg5fb" path="res://scripts/shell_ui.gd" id="3_cfgym"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="3_ytep6"]
+[ext_resource type="Script" path="res://scripts/powder_amount.gd" id="4_yodej"]
+
+[sub_resource type="Resource" id="Resource_cfgym"]
+script = ExtResource("3_ytep6")
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_1y3xj"]
+script = ExtResource("3_ytep6")
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_ytep6"]
+script = ExtResource("3_ytep6")
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
 size = Vector2(1154, 20)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s1fef"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uwg3o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7f7t1"]
+width = 150
+height = 200
+noise = SubResource("FastNoiseLite_uwg3o")
+
 [node name="RefillScene" type="Node2D" unique_id=1718217334]
 script = ExtResource("1_qkivf")
 bottle = ExtResource("2_qp78i")
+shells = Array[ExtResource("3_ytep6")]([SubResource("Resource_cfgym"), SubResource("Resource_1y3xj"), SubResource("Resource_ytep6")])
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1421438365]
 position = Vector2(56, 467)
@@ -41,7 +64,14 @@ offset_right = 1147.0
 offset_bottom = 65.0
 text = "Back"
 
-[node name="FlaskSpawnMarkers" type="Node" parent="." unique_id=461055330]
+[node name="Button2" type="Button" parent="." unique_id=1570196388]
+offset_left = 972.0
+offset_top = 530.0
+offset_right = 1147.0
+offset_bottom = 583.0
+text = "GO ->"
+
+[node name="FlaskSpawnMarkers" type="Node2D" parent="." unique_id=1147730465]
 
 [node name="1" type="Marker2D" parent="FlaskSpawnMarkers" unique_id=323259591]
 position = Vector2(90, 391)
@@ -58,4 +88,26 @@ position = Vector2(90, 391)
 
 [node name="7" type="Marker2D" parent="FlaskSpawnMarkers" unique_id=1244928343]
 
+[node name="Shell" type="Node2D" parent="." unique_id=1521927449]
+position = Vector2(380, 339)
+script = ExtResource("3_cfgym")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shell" unique_id=1774032010]
+texture = SubResource("NoiseTexture2D_7f7t1")
+
+[node name="Shell2" type="Node2D" parent="." unique_id=209055125]
+position = Vector2(572, 339)
+script = ExtResource("3_cfgym")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shell2" unique_id=2098598013]
+texture = SubResource("NoiseTexture2D_7f7t1")
+
+[node name="Shell3" type="Node2D" parent="." unique_id=491845348]
+position = Vector2(756, 339)
+script = ExtResource("3_cfgym")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shell3" unique_id=2035588692]
+texture = SubResource("NoiseTexture2D_7f7t1")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]

@@ -5,6 +5,7 @@ extends Node2D
 @onready var playerPowders: Dictionary[String, int] = GlobalSaveHolder.save_game.powder_inventory
 @export var bottle: PackedScene
 @export var stage: PackedScene
+@export var associated_powders: Dictionary[String, Powder]
 @export var shells: Array[Shell] = [null, null, null]
 
 @onready var markers: Array[Marker2D] = [
@@ -22,7 +23,8 @@ var hasMouse: bool = false
 var SPEED: float = 10.0
 
 func _ready() -> void:
-	createShell(4, BasePowder.new(), 0, 0, 0, 0, 0, 0)
+	# createShell(4, BasePowder.new(), 0, 0, 0, 0, 0, 0)
+		
 	initialize_scene()
 
 func _process(_delta: float) -> void:
@@ -43,21 +45,21 @@ func initialize_scene():
 			add_child(bottleNode)
 			
 # Creates a shell. If not using any of one powder, put "0" as the scales/amount
-func createShell(amount: int, powderType: Powder, element: int, damageScale: int, 
-speedScale: int, kickScale: int, sizeScale: int, cooldownScale: int) -> Shell:
-	var shell = Shell.new()
-	shell.powders.append(PowderAmount.new())
-	shell.powders[0] = amount
-	shell.powders[0].powder = powderType
-	if shell.PowderAmount.Powder is BasePowder:
-		shell.PowderAmount.Powder.Element = element
-	elif shell.PowderAmount.Powder is ModifierPowder:
-		shell.PowderAmount.Powder.Damage = damageScale
-		shell.PowderAmount.Powder.Speed = speedScale
-		shell.PowderAmount.Powder.Kick = kickScale
-		shell.PowderAmount.Powder.Size = sizeScale
-		shell.PowderAmount.Powder.Cooldown = cooldownScale
-	return shell
+#func createShell(amount: int, powderType: Powder, element: int, damageScale: int, 
+#speedScale: int, kickScale: int, sizeScale: int, cooldownScale: int) -> Shell:
+#	var shell = Shell.new()
+#	shell.powders.append(PowderAmount.new())
+#	shell.powders[0] = amount
+#	shell.powders[0].powder = powderType
+#	if shell.PowderAmount.Powder is BasePowder:
+#		shell.PowderAmount.Powder.Element = element
+#	elif shell.PowderAmount.Powder is ModifierPowder:
+#		shell.PowderAmount.Powder.Damage = damageScale
+#		shell.PowderAmount.Powder.Speed = speedScale
+#		shell.PowderAmount.Powder.Kick = kickScale
+#		shell.PowderAmount.Powder.Size = sizeScale
+#		shell.PowderAmount.Powder.Cooldown = cooldownScale
+#	return shell
 		
 			
 func dispurse_markers() -> void:
@@ -67,3 +69,16 @@ func dispurse_markers() -> void:
 		marker.global_position = Vector2(count * distance, 400)
 		count = count + 1
 		print(marker.global_position)
+	
+
+# Pour into a shell
+func add_to_shell(powder_flask: PowderAmount) -> void:
+	var powder_name: String = powder_flask.powder.name
+
+	# Subtract 1 from temp flask
+	powder_flask.amount -= 1
+
+	# Subtract 1 from dictionary
+	GlobalSaveHolder.save_game.powder_inventory[powder_name] -= 1
+	
+	GlobalSaveHolder.save_game.write_save()
