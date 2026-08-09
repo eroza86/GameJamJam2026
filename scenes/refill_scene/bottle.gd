@@ -21,6 +21,7 @@ var TILTSPEED: float = .05
 
 func _ready() -> void:
 	label.text = type
+	modulate = parent.associated_powders[type].color
 
 func _on_mouse_entered() -> void:
 	is_mouse_over = true

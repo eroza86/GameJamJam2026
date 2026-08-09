@@ -91,16 +91,16 @@ position = Vector2(179, 541)
 position = Vector2(295, 542)
 
 [node name="4" type="Marker2D" parent="FlaskSpawnMarkers" unique_id=602495016]
-position = Vector2(814, 534)
+position = Vector2(835, 535)
 
 [node name="5" type="Marker2D" parent="FlaskSpawnMarkers" unique_id=796081603]
-position = Vector2(896, 532)
+position = Vector2(917, 533)
 
 [node name="6" type="Marker2D" parent="FlaskSpawnMarkers" unique_id=1133695748]
-position = Vector2(984, 531)
+position = Vector2(1005, 532)
 
 [node name="7" type="Marker2D" parent="FlaskSpawnMarkers" unique_id=1244928343]
-position = Vector2(1069, 532)
+position = Vector2(1090, 533)
 
 [node name="Shell" parent="." unique_id=1449684950 instance=ExtResource("12_1eq23")]
 position = Vector2(426, 448)
@@ -114,4 +114,4 @@ position = Vector2(746, 448)
 shellIndex = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_go_pressed"]

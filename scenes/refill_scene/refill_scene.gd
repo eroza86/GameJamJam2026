@@ -23,6 +23,8 @@ var heldBottle: RigidBody2D
 var hasMouse: bool = false
 var SPEED: float = 10.0
 
+signal start_play_with(shells: Array[Shell])
+
 func _ready() -> void:
 	initialize_scene()
 
@@ -63,3 +65,7 @@ func add_to_shell(powder: Powder, shell_index: int) -> void:
 	shells[shell_index].add_layer(powder)
 	
 	GlobalSaveHolder.save_game.write_save()
+
+
+func _on_go_pressed() -> void:
+	start_play_with.emit(shells)
