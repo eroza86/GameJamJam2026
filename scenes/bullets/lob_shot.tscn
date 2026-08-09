@@ -89,7 +89,7 @@ scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_wjcjr")
 color_ramp = SubResource("Gradient_s30wy")
 
-[node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider") instance=ExtResource("1_bemos")]
+[node name="BulletComponent" parent="." unique_id=279700306 node_paths=PackedStringArray("explosion", "main_particles", "trail", "collider", "bullet_collision_area") instance=ExtResource("1_bemos")]
 scale = Vector2(1.25, 1.25)
 speed = 200.0
 kick = 50.0
@@ -98,11 +98,20 @@ explosion = NodePath("../Explosion")
 main_particles = NodePath("../BulletParticles")
 trail = NodePath("../Trail")
 collider = NodePath("../CollisionShape2D")
+bullet_collision_area = NodePath("../Area2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1776715886]
-visible = false
+scale = Vector2(1.25, 1.25)
+shape = SubResource("CircleShape2D_nc8xu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1965231580]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=604561923]
 scale = Vector2(1.25, 1.25)
 shape = SubResource("CircleShape2D_nc8xu")
 
 [connection signal="body_entered" from="." to="BulletComponent" method="_collide"]
 [connection signal="finished" from="Explosion" to="BulletComponent" method="_dead"]
+[connection signal="body_entered" from="Area2D" to="BulletComponent" method="bullet_clash"]

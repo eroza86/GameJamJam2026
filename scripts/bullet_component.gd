@@ -9,6 +9,7 @@ extends Node2D
 @export var main_particles: CPUParticles2D
 @export var trail: CPUParticles2D
 @export var collider: CollisionShape2D
+@export var bullet_collision_area: Area2D
 @onready var bullet = get_parent()
 var bullet_owner: Node2D
 var shotgun: Node2D
@@ -27,8 +28,6 @@ func _ready() -> void:
 	elif bullet is Area2D:
 		explosion.emitting = true
 
-
-
 func _collide(body: Node) -> void:
 	print(body.to_string())
 	if exploded:
@@ -37,28 +36,25 @@ func _collide(body: Node) -> void:
 	if body is StaticBody2D:
 		explode()
 		return
-	
-	#print(body)
 
 	if body is Player or body is Enemy:
 		body.health_component.take_damage(damage)
 		bullet_health -= 20 # TODO: Change this
-
 	
-	var other_bullet = body.get_node_or_null("BulletComponent")
-	if other_bullet != null && other_bullet.bullet_owner != self.bullet_owner:
-		print("hit bullet")
-		if body.global_position.x > self.global_position.x:
-			var health_copy: float = bullet_health
-			bullet_health -= other_bullet.bullet_health
-			other_bullet.bullet_health -= health_copy
-
 	if bullet_health <= 0:
 		explode()
-	
-	if bullet is RigidBody2D:
-		bullet.linear_velocity = velocity
 
+func bullet_clash(body: Node):
+	if body.is_in_group("Bullet"):
+		var other_bullet = body.get_node_or_null("BulletComponent")
+		if other_bullet != null && other_bullet.bullet_owner != self.bullet_owner:
+			print("hit bullet")
+			if body.global_position.x > self.global_position.x:
+				var health_copy: float = bullet_health
+				bullet_health -= other_bullet.bullet_health
+				other_bullet.bullet_health -= health_copy
+	if bullet_health <= 0:
+		explode()
 
 func explode() -> void:
 	if exploded:
@@ -89,6 +85,8 @@ func set_size(size: float) -> void:
 		explosion.scale *= size
 	if collider != null:
 		collider.scale *= size
+	if bullet_collision_area != null:
+		bullet_collision_area.scale *= size
 
 func add_powder_amount(element: String, amount: float, augments: Array[float]) -> void:
 	damage *= (amount/4 + 1) * augments[0]
