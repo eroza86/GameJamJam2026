@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	if firing_component != null:
 		firing_component.shotgun.global_position = global_position
 	if movement_component != null:
-		movement_component.do_movement()
+		movement_component.do_movement(delta)
 		move_and_slide()
 
 func on_death() -> void:

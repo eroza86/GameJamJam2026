@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://dxcbvirrn3a4u"]
+
+[ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="1_bnofu"]
+[ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="2_awfgp"]
+[ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="3_e836b"]
+[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="4_2rlql"]
+[ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="5_5uotl"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="6_v5fqj"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="7_5wuo2"]
+[ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://resources/firing_component.tscn" id="8_ps1c5"]
+[ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="9_fut6b"]
+[ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_bl4bq"]
+[ext_resource type="Script" uid="uid://o4kfgei3xsq2" path="res://resources/enemy_wizard_movement.gd" id="11_bnofu"]
+[ext_resource type="Texture2D" uid="uid://bhaahdhk6xqsv" path="res://assets/atf_fire.png" id="12_awfgp"]
+[ext_resource type="Texture2D" uid="uid://cxo6vw30fouk7" path="res://assets/atf_ice.png" id="13_e836b"]
+[ext_resource type="Texture2D" uid="uid://rycofqs7alrk" path="res://assets/atf_acid.png" id="14_2rlql"]
+[ext_resource type="Texture2D" uid="uid://beqvgfyyyvdcg" path="res://assets/atf_lightning.png" id="14_5uotl"]
+
+[sub_resource type="Resource" id="Resource_y16rc"]
+script = ExtResource("6_v5fqj")
+bullet = ExtResource("5_5uotl")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_o6xl0"]
+script = ExtResource("4_2rlql")
+powder = SubResource("Resource_y16rc")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_tefeu"]
+script = ExtResource("7_5wuo2")
+powders = Array[ExtResource("4_2rlql")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awfgp"]
+atlas = ExtResource("12_awfgp")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e836b"]
+atlas = ExtResource("12_awfgp")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rlql"]
+atlas = ExtResource("13_e836b")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uotl"]
+atlas = ExtResource("13_e836b")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps1c5"]
+atlas = ExtResource("14_5uotl")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fut6b"]
+atlas = ExtResource("14_5uotl")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5fqj"]
+atlas = ExtResource("14_2rlql")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wuo2"]
+atlas = ExtResource("14_2rlql")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phvbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awfgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e836b")
+}],
+"loop": 1,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rlql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uotl")
+}],
+"loop": 1,
+"name": &"ice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps1c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fut6b")
+}],
+"loop": 1,
+"name": &"lightning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5fqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wuo2")
+}],
+"loop": 1,
+"name": &"purple",
+"speed": 5.0
+}]
+
+[node name="EnemyWizard" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "movement_component", "firing_component")]
+script = ExtResource("1_bnofu")
+health_component = NodePath("HealthComponent")
+movement_component = NodePath("MovementComponent")
+firing_component = NodePath("FiringComponent")
+item_scene = ExtResource("2_awfgp")
+shotgun_scene = ExtResource("3_e836b")
+shell = SubResource("Resource_tefeu")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=867128478]
+visible = false
+points = PackedVector2Array(0, 0, 0, 6)
+default_color = Color(1, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241338940]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_bosb8")
+
+[node name="FiringComponent" parent="." unique_id=251753494 instance=ExtResource("8_ps1c5")]
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2020781222]
+script = ExtResource("9_fut6b")
+metadata/_custom_type_script = "uid://bymqxq3huhmw7"
+
+[node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("11_bl4bq")]
+
+[node name="MovementComponent" type="Node2D" parent="." unique_id=103628806 node_paths=PackedStringArray("sprite")]
+script = ExtResource("11_bnofu")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="StateTimer" type="Timer" parent="MovementComponent" unique_id=1108801406]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=198040784]
+position = Vector2(1, -4)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_phvbs")
+animation = &"fire"
+autoplay = "fire"
+
+[connection signal="died" from="HealthComponent" to="." method="on_death"]
+[connection signal="timeout" from="MovementComponent/StateTimer" to="MovementComponent" method="_on_state_timer_timeout"]
