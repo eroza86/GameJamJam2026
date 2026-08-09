@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://g53mao3q5tbe" path="res://scenes/dore.tscn" id="10_olg7q"]
 [ext_resource type="PackedScene" uid="uid://cac307i0incho" path="res://scenes/lever.tscn" id="11_t1rx8"]
 [ext_resource type="PackedScene" uid="uid://dm02lhp5a7l8k" path="res://scenes/increment_dore.tscn" id="12_8iemx"]
+[ext_resource type="PackedScene" uid="uid://cyi67l06xvlcj" path="res://scenes/fog.tscn" id="13_64w2a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
 texture = ExtResource("3_mx8sn")
@@ -179,6 +180,11 @@ position = Vector2(325, -1540)
 [node name="Lever5" parent="." unique_id=422719399 instance=ExtResource("11_t1rx8")]
 position = Vector2(916, -2150.0002)
 
+[node name="Fog" parent="." unique_id=1865970199 instance=ExtResource("13_64w2a")]
+position = Vector2(421.00003, -220)
+scale = Vector2(40, 45)
+
+[connection signal="broken" from="BreakableWall" to="Fog" method="fade_out"]
 [connection signal="off" from="Lever" to="Dore" method="close"]
 [connection signal="on" from="Lever" to="Dore" method="open"]
 [connection signal="off" from="Lever2" to="IncrementDore" method="decrement"]

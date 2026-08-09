@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cyi67l06xvlcj"]
+
+[ext_resource type="Script" uid="uid://ddfcy1q4yxtj7" path="res://scenes/fog.gd" id="1_ntoob"]
+
+[sub_resource type="Gradient" id="Gradient_rcyji"]
+colors = PackedColorArray(0.21230483, 0.21230483, 0.21230483, 1, 0.21176471, 0.21176471, 0.21176471, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g4v7s"]
+gradient = SubResource("Gradient_rcyji")
+
+[node name="Fog" type="Node2D" unique_id=1865970199]
+script = ExtResource("1_ntoob")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535679681]
+position = Vector2(4.7683716e-07, 1.4305115e-06)
+scale = Vector2(0.068359315, 17.5)
+texture = SubResource("GradientTexture1D_g4v7s")
