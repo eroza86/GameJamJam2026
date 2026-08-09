@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ba70oc4hemmr1"]
 
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
+[ext_resource type="Script" uid="uid://cae6tvhvf0xge" path="res://scripts/stage.gd" id="1_yd2gm"]
+[ext_resource type="PackedScene" uid="uid://su4jevp6prbu" path="res://scenes/death_screen.tscn" id="2_0hg5s"]
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
@@ -11,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="17_d4wp7"]
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
+script = ExtResource("1_yd2gm")
+death_scene = ExtResource("2_0hg5s")
 
 [node name="Player" parent="." unique_id=67252580 instance=ExtResource("1_gi7kc")]
 position = Vector2(0, -35)
@@ -42,3 +46,5 @@ position = Vector2(306, -78)
 position = Vector2(486, -50)
 
 [node name="Level" parent="." unique_id=1148501230 instance=ExtResource("9_dexii")]
+
+[connection signal="player_died" from="Player" to="." method="_on_player_died"]

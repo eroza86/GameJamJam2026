@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="5_spyv3"]
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_spyv3"]
 [ext_resource type="Texture2D" uid="uid://bf563br1qcgie" path="res://assets/tome.png" id="12_1lo3u"]
+[ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="13_knikh"]
+[ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="14_lud8b"]
 
 [sub_resource type="Resource" id="Resource_y16rc"]
 script = ExtResource("5_spyv3")
@@ -113,8 +115,9 @@ shape = SubResource("CapsuleShape2D_bosb8")
 
 [node name="FiringComponent" parent="." unique_id=251753494 instance=ExtResource("2_lum5s")]
 
-[node name="HealthComponent" type="Node" parent="." unique_id=2020781222]
+[node name="HealthComponent" type="Node" parent="." unique_id=2020781222 node_paths=PackedStringArray("hurt_sound")]
 script = ExtResource("3_r78bl")
+hurt_sound = NodePath("../HurtAudio")
 metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 
 [node name="MovementComponent" type="Node2D" parent="." unique_id=1667526438]
@@ -128,4 +131,12 @@ sprite_frames = SubResource("SpriteFrames_phvbs")
 autoplay = "default"
 frame_progress = 0.91819465
 
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="." unique_id=1692119306]
+stream = ExtResource("13_knikh")
+volume_db = -12.409
+bus = &"SFX"
+script = ExtResource("14_lud8b")
+pitch_difference = 0.15
+
 [connection signal="died" from="HealthComponent" to="." method="on_death"]
+[connection signal="finished" from="HurtAudio" to="HurtAudio" method="randomize_pitch"]

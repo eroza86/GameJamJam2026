@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cxo6vw30fouk7" path="res://assets/atf_ice.png" id="13_e836b"]
 [ext_resource type="Texture2D" uid="uid://rycofqs7alrk" path="res://assets/atf_acid.png" id="14_2rlql"]
 [ext_resource type="Texture2D" uid="uid://beqvgfyyyvdcg" path="res://assets/atf_lightning.png" id="14_5uotl"]
-[ext_resource type="AudioStream" uid="uid://b8yj2j87koqoe" path="res://assets/oof-hard.mp3" id="16_ps1c5"]
+[ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="16_ps1c5"]
 [ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="17_fut6b"]
 [ext_resource type="AudioStream" uid="uid://xkgco33t3nsd" path="res://assets/jump.wav" id="18_hf7b6"]
 

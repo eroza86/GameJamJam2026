@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://cfn0en8mw33ll" path="res://assets/wizard.png" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="4_dqkch"]
-[ext_resource type="AudioStream" uid="uid://b8yj2j87koqoe" path="res://assets/oof-hard.mp3" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://xkgco33t3nsd" path="res://assets/jump.wav" id="7_fjrip"]
 
@@ -64,7 +64,7 @@ hurt_sound = NodePath("../HurtAudio")
 [node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("4_dqkch")]
 
 [node name="HurtAudio" type="AudioStreamPlayer2D" parent="." unique_id=984159132]
-stream = ExtResource("5_tuyoq")
+stream = ExtResource("5_fjrip")
 volume_db = -12.409
 bus = &"SFX"
 script = ExtResource("6_tuyoq")
@@ -77,5 +77,6 @@ bus = &"SFX"
 script = ExtResource("6_tuyoq")
 pitch_difference = 0.2
 
+[connection signal="died" from="HealthComponent" to="." method="_on_death"]
 [connection signal="finished" from="HurtAudio" to="HurtAudio" method="randomize_pitch"]
 [connection signal="finished" from="JumpAudio" to="JumpAudio" method="randomize_pitch"]

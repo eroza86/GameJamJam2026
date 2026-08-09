@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://su4jevp6prbu"]
+
+[ext_resource type="FontFile" uid="uid://c7nadm678a654" path="res://assets/OldeEnglish.ttf" id="2_dwo6e"]
+
+[node name="DeathScreen" type="CanvasLayer" unique_id=826159266]
+
+[node name="Control" type="Control" parent="." unique_id=90679748]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=274997611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12156863, 0.18039216, 0.11372549, 0.58431375)
+
+[node name="Label" type="Label" parent="Control" unique_id=1214495357]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -566.5
+offset_right = 566.5
+offset_bottom = 146.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_dwo6e")
+theme_override_font_sizes/font_size = 128
+text = "YOU FUCKING DIED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1260225013]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -21.0
+offset_right = 45.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=643698079]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back to shellmaking"
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer" unique_id=243776375]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back to menu"

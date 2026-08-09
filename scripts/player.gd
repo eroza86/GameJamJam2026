@@ -24,6 +24,8 @@ var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available :=  true
 
+signal player_died
+
 func _ready() -> void:
 	# setup input buffer timer
 	input_buffer = Timer.new()
@@ -98,3 +100,7 @@ func get_gravity_type(input_direction : float = 0) -> float:
 	if velocity.y < 0:
 		return GRAVITY
 	return FALL_GRAVITY
+
+
+func _on_death() -> void:
+	player_died.emit()

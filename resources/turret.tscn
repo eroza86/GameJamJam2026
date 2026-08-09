@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cfuifcjk3ncfd" path="res://assets/crystal_ice.png" id="10_ow5bl"]
 [ext_resource type="Texture2D" uid="uid://c4fqkcmkcef4q" path="res://assets/crystal_lightning.png" id="11_qbnmr"]
 [ext_resource type="Texture2D" uid="uid://bnmmf5s21c7p5" path="res://assets/crystal_acid.png" id="12_slyc3"]
+[ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="13_atta7"]
+[ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="14_2qxwh"]
 
 [sub_resource type="Resource" id="Resource_17l45"]
 script = ExtResource("3_1mbuk")
@@ -240,8 +242,10 @@ shape = SubResource("CapsuleShape2D_bosb8")
 
 [node name="FiringComponent" parent="." unique_id=251753494 instance=ExtResource("4_hh126")]
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1809848720]
+[node name="HealthComponent" type="Node" parent="." unique_id=1809848720 node_paths=PackedStringArray("hurt_sound")]
 script = ExtResource("5_hh126")
+max_hp = 5
+hurt_sound = NodePath("../HurtAudio")
 metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=242111160]
@@ -250,4 +254,12 @@ sprite_frames = SubResource("SpriteFrames_phvbs")
 animation = &"purple"
 autoplay = "fire"
 
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="." unique_id=694601621]
+stream = ExtResource("13_atta7")
+volume_db = -12.409
+bus = &"SFX"
+script = ExtResource("14_2qxwh")
+pitch_difference = 0.15
+
 [connection signal="died" from="HealthComponent" to="." method="on_death"]
+[connection signal="finished" from="HurtAudio" to="HurtAudio" method="randomize_pitch"]
