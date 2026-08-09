@@ -20,12 +20,12 @@ extends CharacterBody2D
 @export_group("Components")
 @export var health_component: HealthComponent
 @export var powders: Dictionary[String, int] = {
-		"Fire": 0, 
+		"Fire": 10, 
 		"Lightning": 0, 
 		"Ice": 0, 
 		"Acid": 0, 
 		"Cloud": 0, 
-		"Missile": 0, 
+	"Missile": 0, 
 		"Lob": 0
 	}
 
@@ -36,9 +36,6 @@ var coyote_jump_available :=  true
 
 
 func _ready() -> void:
-	# updates the GlobalSaveHolder with the player's inventory.
-	GlobalSaveHolder.playerInv = powders
-	
 	# setup input buffer timer
 	input_buffer = Timer.new()
 	input_buffer.wait_time = INPUT_BUFFER_WINDOW
@@ -125,4 +122,4 @@ func addPowder(powderName: String, amount: int) -> void:
 		"Lob":
 			powders["Lob"] += amount
 			
-	GlobalSaveHolder.playerInv = powders
+	GlobalSaveHolder.save_game.powder_inventory = powders

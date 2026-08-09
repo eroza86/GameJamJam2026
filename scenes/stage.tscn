@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
-[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="7_1hwpr"]
+[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://scenes/enemy.tscn" id="7_1hwpr"]
 [ext_resource type="Resource" uid="uid://dsyrdqvh25r3t" path="res://resources/test_shell.tres" id="7_st0q7"]
 [ext_resource type="FontFile" uid="uid://crdueveg854ml" path="res://fonts/Metamorphous-Regular.ttf" id="8_0hg5s"]
-[ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="8_1hwpr"]
+[ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://scenes/turret.tscn" id="8_1hwpr"]
 [ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="9_dexii"]
 
 [sub_resource type="Theme" id="Theme_jra4v"]
@@ -61,6 +61,14 @@ offset_bottom = 218.0
 theme = SubResource("Theme_jra4v")
 theme_override_font_sizes/font_size = 10
 
+[node name="Button" type="Button" parent="Main Camera/UIControl" unique_id=164608646]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 1.0
+offset_right = 384.0
+offset_bottom = 32.0
+text = "Back to menu"
+
 [node name="Platform4" parent="." unique_id=1990806678 instance=ExtResource("1_8rem4")]
 position = Vector2(-122, -72)
 
@@ -70,19 +78,15 @@ position = Vector2(123, -65)
 [node name="Turret" parent="." unique_id=2044094002 groups=["Enemy"] instance=ExtResource("8_1hwpr")]
 position = Vector2(-103, -71)
 
+[node name="FiringComponent" parent="Turret" index="2" unique_id=251753494]
+visible = false
+
 [node name="ItemPickup" parent="." unique_id=1782800605 instance=ExtResource("9_dexii")]
 position = Vector2(0, -105)
 
 [node name="ItemPickup2" parent="." unique_id=964877862 instance=ExtResource("9_dexii")]
 position = Vector2(-178, -22)
 
-[node name="Button" type="Button" parent="." unique_id=164608646]
-offset_left = -191.0
-offset_top = 77.0
-offset_right = -76.0
-offset_bottom = 108.0
-text = "Back to menu"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Main Camera/UIControl/Button" to="." method="_on_button_pressed"]
 
 [editable path="Turret"]

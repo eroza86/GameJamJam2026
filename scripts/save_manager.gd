@@ -3,13 +3,11 @@ extends Resource
 
 const SAVE_GAME_PATH: String = "user://save.tres"
 
-@export var powder_inventory: Array[PowderAmount] = []
+@export var powder_inventory: Dictionary[String, int]
 
 # Gameplay
 
-func add_powder(powder: PowderAmount) -> void:
-	if powder_inventory.size() < 16:
-		powder_inventory.append(powder)
+	# Add_Powder added directly to the player.
 
 # Saving
 

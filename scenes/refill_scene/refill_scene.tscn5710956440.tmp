@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dsn7l4xthcgao" path="res://scenes/refill_scene/refill_scene.gd" id="1_qkivf"]
 [ext_resource type="PackedScene" uid="uid://dqfvifn5fnudl" path="res://scenes/refill_scene/bottle.tscn" id="2_qp78i"]
+[ext_resource type="PackedScene" uid="uid://ba70oc4hemmr1" path="res://scenes/stage.tscn" id="3_cfgym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
 size = Vector2(1154, 20)
@@ -11,6 +12,7 @@ size = Vector2(1154, 20)
 [node name="RefillScene" type="Node2D" unique_id=1718217334]
 script = ExtResource("1_qkivf")
 bottle = ExtResource("2_qp78i")
+stage = ExtResource("3_cfgym")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1421438365]
 position = Vector2(56, 467)

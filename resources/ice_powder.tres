@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BasePowder" format=3 uid="uid://cmpl0qlpxsqoq"]
 
 [ext_resource type="PackedScene" uid="uid://jx6ums4li3ep" path="res://scenes/bullets/icicle.tscn" id="1_yerax"]
-[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://scripts/base_powder.gd" id="2_0s354"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="2_0s354"]
 
 [resource]
 script = ExtResource("2_0s354")

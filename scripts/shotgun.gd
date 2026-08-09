@@ -56,11 +56,11 @@ func shoot_shell() -> void:
 			target.velocity += Vector2.RIGHT.rotated(self.rotation).normalized() * bullet_data.kick * -1
 			
 		if powder is ModifierPowder:
-			mod_powder_augment[0] += powder.damage * amount / 20
-			mod_powder_augment[1] += powder.speed * amount / 20
-			mod_powder_augment[2] += powder.kick * amount / 20
-			mod_powder_augment[3] += powder.size * amount / 20
-			mod_powder_augment[4] += powder.cooldown * amount / 20
+			mod_powder_augment[0] += powder.damage * amount
+			mod_powder_augment[1] += powder.speed * amount
+			mod_powder_augment[2] += powder.kick * amount
+			mod_powder_augment[3] += powder.size * amount
+			mod_powder_augment[4] += powder.cooldown * amount
 	
 	cooldown_timer.wait_time = cooldown_time
 	cooldown_timer.start()

@@ -11,7 +11,5 @@ func _on_body_entered(body: Node) -> void:
 		else:
 			body.addPowder(powder_flask.powder.name, powder_flask.amount)
 			print(body.powders)
-		GlobalSaveHolder.save_game.add_powder(powder_flask)
-		GlobalSaveHolder.save_game.write_save()
-
+			
 		queue_free()
