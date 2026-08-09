@@ -73,7 +73,6 @@ func explode() -> void:
 		explosion.emitting = true
 	
 func _dead() -> void:
-	shotgun.deregister_bullet(self)
 	bullet.queue_free()
 
 func set_size(size: float) -> void:
