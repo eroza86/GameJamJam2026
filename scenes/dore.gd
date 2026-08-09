@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends TileMapLayer
 
 @export var open_pos: Vector2
 @export var close_pos: Vector2

@@ -34,7 +34,7 @@ func _collide(body: Node) -> void:
 	if exploded:
 		return
 	
-	if body is StaticBody2D or body is RigidBody2D and body.get_node_or_null("LaunchableComponent") != null:
+	if body is StaticBody2D or body is RigidBody2D and body.get_node_or_null("LaunchableComponent") != null or body is TileMapLayer:
 		if (body is BreakableWall):
 			body.damage(self.damage)
 		if (body is Lever):

@@ -1,24 +1,65 @@
 [gd_scene format=3 uid="uid://dm02lhp5a7l8k"]
 
+[ext_resource type="Texture2D" uid="uid://bp5ximh1ua0yo" path="res://assets/tilesetwip2.png" id="1_fxlii"]
 [ext_resource type="Script" uid="uid://3uaty5bvvw76" path="res://scenes/increment_dore.gd" id="1_nhhgf"]
 
-[sub_resource type="Gradient" id="Gradient_j8u40"]
-colors = PackedColorArray(0.083802976, 0.03814988, 0.4814089, 1, 0.08235294, 0.039215688, 0.48235294, 1)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x4kpa"]
+texture = ExtResource("1_fxlii")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, -1, 50, -1, 50, -50)
+1:0/0/physics_layer_0/polygon_0/one_way = true
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, -1, 50, -1, 50, -50)
+1:1/0/physics_layer_0/polygon_0/one_way = true
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+2:0/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, -1, 50, -1, 50, -50)
+1:2/0/physics_layer_0/polygon_0/one_way = true
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, -1, 50, -1, 50, -50)
+1:3/0/physics_layer_0/polygon_0/one_way = true
+2:3/0 = 0
+3:3/0 = 0
+4:3/size_in_atlas = Vector2i(2, 1)
+4:3/0 = 0
+6:2/size_in_atlas = Vector2i(1, 2)
+6:2/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, -1, 50, -1, 50, -50)
+9:1/0/physics_layer_0/polygon_0/one_way = true
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_tf3vh"]
-gradient = SubResource("Gradient_j8u40")
+[sub_resource type="TileSet" id="TileSet_k4gmy"]
+tile_size = Vector2i(100, 100)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_x4kpa")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjvw1"]
-size = Vector2(16, 109)
-
-[node name="IncrementDore" type="StaticBody2D" unique_id=2144881133]
+[node name="IncrementDore" type="TileMapLayer" unique_id=771556088]
+tile_set = SubResource("TileSet_k4gmy")
 script = ExtResource("1_nhhgf")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=305870909]
-position = Vector2(-2.3841858e-07, 46.5)
-scale = Vector2(0.062499996, 109)
-texture = SubResource("GradientTexture1D_tf3vh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1140639975]
-position = Vector2(0, 46.5)
-shape = SubResource("RectangleShape2D_gjvw1")
