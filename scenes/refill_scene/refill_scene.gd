@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var label: Label = $Label
 @onready var backButton: Button = $Button
-@onready var playerPowders: Dictionary[String, int] = GlobalSaveHolder.save_game.powder_inventory
+@onready var powders: Dictionary[String, int] = GlobalSaveHolder.save_game.powder_inventory
 @export var bottle: PackedScene
 @export var stage: PackedScene
 @export var associated_powders: Dictionary[String, Powder]
@@ -35,14 +35,19 @@ func _on_button_pressed() -> void:
 	
 func initialize_scene():
 	dispurse_markers()
-	for item in playerPowders:
-		var count = playerPowders[item]
-		if count == 0:
+	# 
+	var powder_type_enum: int = 0
+	for item in powders:
+		# Amount of powder
+		var amount = powders[item]
+		if amount == 0:
+			# Don't generate an empty bottle
 			pass
 		else:
 			var bottleNode = bottle.instantiate()
-			bottleNode.global_position = markers[count]
+			bottleNode.global_position = markers[powder_type_enum].global_position
 			add_child(bottleNode)
+		powder_type_enum += 1
 			
 # Creates a shell. If not using any of one powder, put "0" as the scales/amount
 #func createShell(amount: int, powderType: Powder, element: int, damageScale: int, 
@@ -72,13 +77,16 @@ func dispurse_markers() -> void:
 	
 
 # Pour into a shell
-func add_to_shell(powder_flask: PowderAmount) -> void:
+func add_to_shell(powder_flask: PowderAmount, shell_index: int) -> void:
 	var powder_name: String = powder_flask.powder.name
 
 	# Subtract 1 from temp flask
 	powder_flask.amount -= 1
 
-	# Subtract 1 from dictionary
+	# Subtract 1 from dictionary (dual reference with this system)
 	GlobalSaveHolder.save_game.powder_inventory[powder_name] -= 1
+
+	# Add that 1 to the shell
+	shells[shell_index].add_layer(powder_flask.powder)
 	
 	GlobalSaveHolder.save_game.write_save()
