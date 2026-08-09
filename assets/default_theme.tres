@@ -1,3 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://bhb6w1si340s5"]
 
+[ext_resource type="FontFile" uid="uid://dnex5vmaxdhwt" path="res://assets/Corleone-Due-Regular.otf" id="1_qew4h"]
+
 [resource]
+default_font = ExtResource("1_qew4h")
