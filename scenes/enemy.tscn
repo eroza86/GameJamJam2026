@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="3_y16rc"]
 [ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="4_hlwof"]
 [ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
-[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shellRes.gd" id="5_17l45"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="5_spyv3"]
 
 [sub_resource type="Resource" id="Resource_y16rc"]

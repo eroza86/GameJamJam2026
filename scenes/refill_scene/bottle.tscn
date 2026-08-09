@@ -2,21 +2,47 @@
 
 [ext_resource type="Script" uid="uid://dog5pk0hj3nwk" path="res://scenes/refill_scene/bottle.gd" id="1_r0tus"]
 [ext_resource type="Texture2D" uid="uid://bdwr00x86ws01" path="res://scenes/refill_scene/bottle.png" id="1_xbxom"]
+[ext_resource type="PackedScene" uid="uid://d3fxfuyjewenn" path="res://scenes/particles/Fire.tscn" id="2_twgvk"]
+[ext_resource type="PackedScene" uid="uid://i3dosmga7nvt" path="res://scenes/particles/Ice.tscn" id="3_g3l2h"]
+[ext_resource type="PackedScene" uid="uid://bmffvexxa0cbx" path="res://scenes/particles/Acid.tscn" id="4_jlr43"]
+[ext_resource type="PackedScene" uid="uid://5kfvsktqs66o" path="res://scenes/particles/Lightning.tscn" id="5_jlr43"]
+[ext_resource type="PackedScene" uid="uid://baq0fbq7aga6x" path="res://scenes/particles/Cloud.tscn" id="6_pxxmg"]
+[ext_resource type="PackedScene" uid="uid://btqfbemg8s5sl" path="res://scenes/particles/Lob.tscn" id="7_sbp2b"]
+[ext_resource type="PackedScene" uid="uid://b8ypr11bec8sc" path="res://scenes/particles/Missile.tscn" id="8_7ilb1"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qp78i"]
-radius = 16.5
-height = 89.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxaj"]
+size = Vector2(37, 87)
 
 [node name="Bottle" type="RigidBody2D" unique_id=1931850851]
 input_pickable = true
 script = ExtResource("1_r0tus")
+fireParticle = ExtResource("2_twgvk")
+iceParticle = ExtResource("3_g3l2h")
+acidParticle = ExtResource("4_jlr43")
+lightningParticle = ExtResource("5_jlr43")
+cloudParticle = ExtResource("6_pxxmg")
+lobParticle = ExtResource("7_sbp2b")
+missileParticle = ExtResource("8_7ilb1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=178549202]
-position = Vector2(-3, 3)
-shape = SubResource("CapsuleShape2D_qp78i")
+position = Vector2(-2.5, 2.5)
+shape = SubResource("RectangleShape2D_8mxaj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780867170]
 texture = ExtResource("1_xbxom")
 
+[node name="Label" type="Label" parent="." unique_id=476143328]
+offset_left = 11.0
+offset_top = -45.0
+offset_right = 51.0
+offset_bottom = -22.0
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=174066124]
+position = Vector2(-5, -44)
+
+[node name="Timer" type="Timer" parent="." unique_id=1759017584]
+autostart = true
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

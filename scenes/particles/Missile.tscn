@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b8ypr11bec8sc"]
+
+[ext_resource type="Texture2D" uid="uid://btuj2p0hjukc0" path="res://assets/missileparticle.png" id="1_ihm52"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khhxn"]
+radius = 9.0
+
+[node name="Missile" type="RigidBody2D" unique_id=1777075428]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1418681609]
+shape = SubResource("CircleShape2D_khhxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=647031855]
+position = Vector2(1, 0)
+texture = ExtResource("1_ihm52")

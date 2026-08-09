@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="3_1mbuk"]
 [ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="4_aq5wg"]
 [ext_resource type="PackedScene" uid="uid://be3b0xksst3kr" path="res://scenes/firing_component.tscn" id="4_hh126"]
-[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="4_hjbi5"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shellRes.gd" id="4_hjbi5"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="5_hh126"]
 
 [sub_resource type="Resource" id="Resource_17l45"]

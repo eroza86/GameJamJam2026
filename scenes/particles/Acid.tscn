@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bmffvexxa0cbx"]
+
+[ext_resource type="Texture2D" uid="uid://dbuibw8gnmp0f" path="res://assets/acidparticle.png" id="1_v6kor"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1fef"]
+radius = 9.0
+
+[node name="Acid" type="RigidBody2D" unique_id=1850754618]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1588277091]
+shape = SubResource("CircleShape2D_s1fef")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1849319697]
+position = Vector2(1, 0)
+texture = ExtResource("1_v6kor")

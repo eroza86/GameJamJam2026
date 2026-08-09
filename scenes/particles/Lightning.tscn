@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://5kfvsktqs66o"]
+
+[ext_resource type="Texture2D" uid="uid://cynn36xbq7g4" path="res://assets/lightningparticle.png" id="1_7uaya"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1fef"]
+radius = 9.0
+
+[node name="Lightning" type="RigidBody2D" unique_id=1746926117]
+
+[node name="RigidBody2D" type="CollisionShape2D" parent="." unique_id=839367747]
+shape = SubResource("CircleShape2D_s1fef")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1604282822]
+position = Vector2(1, 0)
+texture = ExtResource("1_7uaya")

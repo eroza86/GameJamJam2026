@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Shell" format=3 uid="uid://dsyrdqvh25r3t"]
 
-[ext_resource type="Script" path="res://scripts/powder_amount.gd" id="1_h7w8e"]
-[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="2_2lhei"]
+[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="1_h7w8e"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shellRes.gd" id="2_2lhei"]
 
 [resource]
 script = ExtResource("2_2lhei")

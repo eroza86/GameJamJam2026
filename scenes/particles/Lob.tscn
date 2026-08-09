@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://btqfbemg8s5sl"]
+
+[ext_resource type="Texture2D" uid="uid://btmw0hhept38k" path="res://assets/lobparticle.png" id="1_tupb0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1fef"]
+radius = 9.0
+
+[node name="Lob" type="RigidBody2D" unique_id=597254985]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603194322]
+shape = SubResource("CircleShape2D_s1fef")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1045689697]
+position = Vector2(1, 0)
+texture = ExtResource("1_tupb0")

@@ -96,4 +96,3 @@ func get_gravity_type(_input_direction : float = 0) -> float:
 		return GRAVITY
 	return FALL_GRAVITY
 	
-

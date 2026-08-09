@@ -1,12 +1,26 @@
 extends RigidBody2D
 
+@export var fireParticle: PackedScene
+@export var iceParticle: PackedScene
+@export var acidParticle: PackedScene
+@export var lightningParticle: PackedScene
+@export var cloudParticle: PackedScene
+@export var lobParticle: PackedScene
+@export var missileParticle: PackedScene
 @onready var is_mouse_over: bool
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var parent: Node2D = $"../"
+@onready var label: Label = $Label
+@onready var marker: Marker2D = $Marker2D
+@onready var powders: Dictionary[String, int] = GlobalSaveHolder.save_game.powder_inventory
 
+var type: String
 var is_dragging: bool
 var SPEED: float = .08
 var TILTSPEED: float = .05
+
+func _ready() -> void:
+	label.text = type
 
 func _on_mouse_entered() -> void:
 	is_mouse_over = true
@@ -39,3 +53,38 @@ func _process(_delta: float) -> void:
 	else:
 		parent.heldBottle = null
 		self.freeze = false
+
+	
+func _on_timer_timeout() -> void:
+	var angle = wrapf(rad_to_deg(rotation), -180.0, 180.0)
+	var particle = RigidBody2D
+	if abs(angle) > 120:
+		match type:
+			"Fire":
+				particle = fireParticle.instantiate()
+			"Ice":
+				particle = iceParticle.instantiate()
+			"Acid":
+				particle = acidParticle.instantiate()
+			"Lightning":
+				particle = lightningParticle.instantiate()
+			"Cloud":
+				particle = cloudParticle.instantiate()
+			"Lob":
+				particle = lobParticle.instantiate()
+			"Missile":
+				particle = missileParticle.instantiate()
+
+		if powders[type] != 0:
+			get_parent().add_child(particle)
+
+			particle.global_position = marker.global_position
+			particle.reset_physics_interpolation()
+
+			particle.sleeping = false
+			
+			powders[type] = powders[type] - 1
+			
+			print(powders[type])
+		else: 
+			pass
