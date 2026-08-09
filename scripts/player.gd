@@ -19,15 +19,6 @@ extends CharacterBody2D
 
 @export_group("Components")
 @export var health_component: HealthComponent
-@export var powders: Dictionary[String, int] = {
-		"Fire": 10, 
-		"Lightning": 0, 
-		"Ice": 0, 
-		"Acid": 0, 
-		"Cloud": 0, 
-	"Missile": 0, 
-		"Lob": 0
-	}
 
 var input_buffer : Timer
 var coyote_timer : Timer
