@@ -38,7 +38,9 @@ health_component = NodePath("HealthComponent")
 position = Vector2(0, -4)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_yf7ci")
-frame_progress = 0.9912399
+autoplay = "default"
+frame = 1
+frame_progress = 0.31833336
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1400394727]
 visible = false
