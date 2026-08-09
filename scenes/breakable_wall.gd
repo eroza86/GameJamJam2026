@@ -1,5 +1,5 @@
 class_name BreakableWall
-extends StaticBody2D
+extends TileMapLayer
 @export var health: int = 1
 
 func damage(amount: int):

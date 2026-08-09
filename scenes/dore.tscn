@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://b4piloqkbma6o"]
+[gd_scene format=3 uid="uid://g53mao3q5tbe"]
 
-[ext_resource type="Texture2D" uid="uid://bp5ximh1ua0yo" path="res://assets/tilesetwip2.png" id="1_ba5p1"]
-[ext_resource type="Script" uid="uid://caxivvby7n3t5" path="res://scenes/breakable_wall.gd" id="1_qx4r1"]
+[ext_resource type="Script" uid="uid://cg61yduxf4kgh" path="res://scenes/dore.gd" id="1_s5quv"]
+[ext_resource type="Texture2D" uid="uid://bp5ximh1ua0yo" path="res://assets/tilesetwip2.png" id="1_tf3vh"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ba5p1"]
-texture = ExtResource("1_ba5p1")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tf3vh"]
+texture = ExtResource("1_tf3vh")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, 50, 50, 50, 50, -50)
@@ -46,17 +46,20 @@ texture_region_size = Vector2i(100, 100)
 5:2/0 = 0
 5:1/0 = 0
 8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 9:1/0 = 0
 9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, -50, -1, 50, -1, 50, -50)
 9:1/0/physics_layer_0/polygon_0/one_way = true
 10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 
-[sub_resource type="TileSet" id="TileSet_odehn"]
+[sub_resource type="TileSet" id="TileSet_gjvw1"]
 tile_size = Vector2i(100, 100)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ba5p1")
+sources/0 = SubResource("TileSetAtlasSource_tf3vh")
 
-[node name="BreakableWall" type="TileMapLayer" unique_id=385230286]
-tile_set = SubResource("TileSet_odehn")
-script = ExtResource("1_qx4r1")
+[node name="Dore" type="TileMapLayer" unique_id=893847846]
+tile_set = SubResource("TileSet_gjvw1")
+script = ExtResource("1_s5quv")
