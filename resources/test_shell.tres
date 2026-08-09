@@ -2,39 +2,14 @@
 
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://scripts/powder_amount.gd" id="1_h7w8e"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="2_2lhei"]
-[ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="2_yf7ci"]
+[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="2_yf7ci"]
 
-[sub_resource type="Resource" id="Resource_h7w8e"]
+[sub_resource type="Resource" id="Resource_ps1c5"]
 script = ExtResource("1_h7w8e")
 powder = ExtResource("2_yf7ci")
-amount = 20
-metadata/_custom_type_script = "uid://drxdkdot864up"
-
-[sub_resource type="Resource" id="Resource_2lhei"]
-script = ExtResource("1_h7w8e")
-powder = ExtResource("2_yf7ci")
-amount = 20
-metadata/_custom_type_script = "uid://drxdkdot864up"
-
-[sub_resource type="Resource" id="Resource_yf7ci"]
-script = ExtResource("1_h7w8e")
-powder = ExtResource("2_yf7ci")
-amount = 20
-metadata/_custom_type_script = "uid://drxdkdot864up"
-
-[sub_resource type="Resource" id="Resource_6yrqo"]
-script = ExtResource("1_h7w8e")
-powder = ExtResource("2_yf7ci")
-amount = 20
-metadata/_custom_type_script = "uid://drxdkdot864up"
-
-[sub_resource type="Resource" id="Resource_pjpip"]
-script = ExtResource("1_h7w8e")
-powder = ExtResource("2_yf7ci")
-amount = 20
 metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [resource]
 script = ExtResource("2_2lhei")
-powders = Array[ExtResource("1_h7w8e")]([SubResource("Resource_h7w8e"), SubResource("Resource_2lhei"), SubResource("Resource_yf7ci"), SubResource("Resource_6yrqo"), SubResource("Resource_pjpip")])
+powders = Array[ExtResource("1_h7w8e")]([SubResource("Resource_ps1c5")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"

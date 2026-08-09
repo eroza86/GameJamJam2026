@@ -21,6 +21,7 @@ func chase(_delta: float) -> void:
 		parent.velocity.y += gravity * _delta
 	else:
 		parent.velocity.y = JUMP_VELOCITY
+		$"../JumpAudio".play()
 		
 	
 	

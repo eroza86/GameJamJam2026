@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://hy8jmr2nsbu8" path="res://scripts/shotgun.gd" id="1_voyse"]
 [ext_resource type="Texture2D" uid="uid://dngtvnbteiyhi" path="res://assets/gun.png" id="2_gnj2g"]
+[ext_resource type="AudioStream" uid="uid://d2uuun1o0e1ka" path="res://assets/hitHurt.wav" id="3_w47vr"]
+[ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="4_w47vr"]
 
 [node name="Shotgun" type="Node2D" unique_id=1436656832]
 script = ExtResource("1_voyse")
@@ -15,3 +17,10 @@ texture = ExtResource("2_gnj2g")
 position = Vector2(14, 0)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=566353003]
+stream = ExtResource("3_w47vr")
+volume_db = -18.91
+bus = &"SFX"
+script = ExtResource("4_w47vr")
+pitch_difference = 0.2
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="randomize_pitch"]

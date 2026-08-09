@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://cfn0en8mw33ll" path="res://assets/wizard.png" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://b8yj2j87koqoe" path="res://assets/oof-hard.mp3" id="5_tuyoq"]
+[ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://xkgco33t3nsd" path="res://assets/jump.wav" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("3_qhqgy")
@@ -54,9 +57,25 @@ round_precision = 20
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_g4v7s")
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1158797871]
+[node name="HealthComponent" type="Node" parent="." unique_id=1158797871 node_paths=PackedStringArray("hurt_sound")]
 script = ExtResource("2_g2els")
+hurt_sound = NodePath("../HurtAudio")
 
 [node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("4_dqkch")]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=984159132]
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="." unique_id=984159132]
+stream = ExtResource("5_tuyoq")
+volume_db = -12.409
+bus = &"SFX"
+script = ExtResource("6_tuyoq")
+pitch_difference = 0.2
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="." unique_id=2026134322]
+stream = ExtResource("7_fjrip")
+volume_db = -20.0
+bus = &"SFX"
+script = ExtResource("6_tuyoq")
+pitch_difference = 0.2
+
+[connection signal="finished" from="HurtAudio" to="HurtAudio" method="randomize_pitch"]
+[connection signal="finished" from="JumpAudio" to="JumpAudio" method="randomize_pitch"]

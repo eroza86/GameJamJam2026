@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	# handle jumping
 	if jump_attempted or input_buffer.time_left > 0:
 		if coyote_jump_available:
+			$JumpAudio.play()
 			velocity.y = JUMP_VELOCITY
 			coyote_jump_available = false
 			if input_buffer.time_left > 0 and !Input.is_action_pressed("jump"):

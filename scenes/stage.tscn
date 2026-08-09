@@ -30,6 +30,7 @@ target = NodePath("../Player")
 SPEED = 8.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Main Camera" unique_id=1260609562]
+current = true
 
 [node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("15_5sts7")]
 position = Vector2(292, -378)

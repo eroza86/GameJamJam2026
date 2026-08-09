@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://cxo6vw30fouk7" path="res://assets/atf_ice.png" id="13_e836b"]
 [ext_resource type="Texture2D" uid="uid://rycofqs7alrk" path="res://assets/atf_acid.png" id="14_2rlql"]
 [ext_resource type="Texture2D" uid="uid://beqvgfyyyvdcg" path="res://assets/atf_lightning.png" id="14_5uotl"]
+[ext_resource type="AudioStream" uid="uid://b8yj2j87koqoe" path="res://assets/oof-hard.mp3" id="16_ps1c5"]
+[ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="17_fut6b"]
+[ext_resource type="AudioStream" uid="uid://xkgco33t3nsd" path="res://assets/jump.wav" id="18_hf7b6"]
 
 [sub_resource type="Resource" id="Resource_y16rc"]
 script = ExtResource("6_v5fqj")
@@ -138,8 +141,9 @@ shape = SubResource("CapsuleShape2D_bosb8")
 
 [node name="FiringComponent" parent="." unique_id=251753494 instance=ExtResource("8_ps1c5")]
 
-[node name="HealthComponent" type="Node" parent="." unique_id=2020781222]
+[node name="HealthComponent" type="Node" parent="." unique_id=2020781222 node_paths=PackedStringArray("hurt_sound")]
 script = ExtResource("9_fut6b")
+hurt_sound = NodePath("../HurtAudio")
 metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 
 [node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("11_bl4bq")]
@@ -157,5 +161,21 @@ sprite_frames = SubResource("SpriteFrames_phvbs")
 animation = &"fire"
 autoplay = "fire"
 
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="." unique_id=1963166725]
+stream = ExtResource("16_ps1c5")
+volume_db = -12.409
+bus = &"SFX"
+script = ExtResource("17_fut6b")
+pitch_difference = 0.15
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="." unique_id=1554700274]
+stream = ExtResource("18_hf7b6")
+volume_db = -12.409
+bus = &"SFX"
+script = ExtResource("17_fut6b")
+pitch_difference = 0.3
+
 [connection signal="died" from="HealthComponent" to="." method="on_death"]
 [connection signal="timeout" from="MovementComponent/StateTimer" to="MovementComponent" method="_on_state_timer_timeout"]
+[connection signal="finished" from="HurtAudio" to="HurtAudio" method="randomize_pitch"]
+[connection signal="finished" from="JumpAudio" to="JumpAudio" method="randomize_pitch"]

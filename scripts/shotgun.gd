@@ -28,6 +28,8 @@ func cooldown_timeout():
 func shoot_shell() -> void:
 	if shells[current_shell] == null or can_shoot == false:
 		return
+
+	$AudioStreamPlayer2D.play()
 	
 	can_shoot = false
 	var cooldown_time: float = 0
