@@ -6,11 +6,21 @@ const SAVE_GAME_PATH: String = "user://save.tres"
 @export var powder_inventory: Dictionary[String, int] = {
 	"Fire": 5,
 	"Ice": 5,
-	"Acid": 5,
-	"Lightning": 5,
-	"Cloud": 5,
-	"Lob": 5,
-	"Missile": 5
+	"Acid": 0,
+	"Lightning": 0,
+	"Cloud": 0,
+	"Lob": 0,
+	"Missile": 0
+}
+
+var backup_inventory: Dictionary[String, int] = {
+	"Fire": 5,
+	"Ice": 5,
+	"Acid": 0,
+	"Lightning": 0,
+	"Cloud": 0,
+	"Lob": 0,
+	"Missile": 0
 }
 
 # Gameplay
@@ -19,6 +29,15 @@ func add_powder(powderName: String, amount: int) -> void:
 	powder_inventory[powderName] += amount
 
 # Saving
+func check_and_use_backup() -> bool:
+	var sum: int = 0
+	for type in powder_inventory:
+		print(type)
+		sum += powder_inventory[type]
+	if sum == 0:
+		powder_inventory = backup_inventory
+		return true
+	return false
 
 func write_save() -> void:
 	ResourceSaver.save(self, SAVE_GAME_PATH)
