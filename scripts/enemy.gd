@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	var shotgun = shotgun_scene.instantiate()
-	# shotgun.shells[1] = shell
+	shotgun.shells[0] = shell
 	shotgun.target = self
 	add_sibling.call_deferred(shotgun)
 	firing_component.shotgun = shotgun

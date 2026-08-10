@@ -6,29 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://ckenseipk7a34" path="res://scenes/firing_component.tscn" id="2_lum5s"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="3_r78bl"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="3_y16rc"]
-[ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="4_hlwof"]
 [ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
-[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="5_spyv3"]
+[ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="5_tqkes"]
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_spyv3"]
 [ext_resource type="Texture2D" uid="uid://bf563br1qcgie" path="res://assets/tome.png" id="12_1lo3u"]
 [ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="13_knikh"]
 [ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="14_lud8b"]
 
-[sub_resource type="Resource" id="Resource_y16rc"]
-script = ExtResource("5_spyv3")
-bullet = ExtResource("4_hlwof")
-metadata/_custom_type_script = "uid://b2oqtr8envr5y"
-
-[sub_resource type="Resource" id="Resource_o6xl0"]
+[sub_resource type="Resource" id="Resource_xfx4c"]
 script = ExtResource("3_y16rc")
-powder = SubResource("Resource_y16rc")
-amount = 4
+powder = ExtResource("5_tqkes")
+amount = 10
 metadata/_custom_type_script = "uid://drxdkdot864up"
 
-[sub_resource type="Resource" id="Resource_tefeu"]
+[sub_resource type="Resource" id="Resource_e38vs"]
 script = ExtResource("5_17l45")
-powders = Array[ExtResource("3_y16rc")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+powders = Array[ExtResource("3_y16rc")]([SubResource("Resource_xfx4c")])
+current_capacity = 10
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
@@ -99,7 +94,7 @@ movement_component = NodePath("MovementComponent")
 firing_component = NodePath("FiringComponent")
 item_scene = ExtResource("2_17l45")
 shotgun_scene = ExtResource("2_7tskh")
-shell = SubResource("Resource_tefeu")
+shell = SubResource("Resource_e38vs")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 visible = false

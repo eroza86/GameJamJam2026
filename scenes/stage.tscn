@@ -8,12 +8,40 @@
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="6_0hg5s"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
 [ext_resource type="PackedScene" uid="uid://bgrg14ohj8flm" path="res://scenes/level.tscn" id="9_dexii"]
+[ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="9_e38vs"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="10_xfx4c"]
 [ext_resource type="PackedScene" uid="uid://c803josqfnsik" path="res://resources/enemy.tscn" id="15_5sts7"]
 [ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="16_t30jk"]
 [ext_resource type="PackedScene" uid="uid://jc637s8q2wsw" path="res://resources/turret.tscn" id="17_d4wp7"]
 
 [sub_resource type="Resource" id="Resource_w47vr"]
 script = ExtResource("6_1hwpr")
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_y16rc"]
+script = ExtResource("10_xfx4c")
+bullet = ExtResource("9_e38vs")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_o6xl0"]
+script = ExtResource("6_0hg5s")
+powder = SubResource("Resource_y16rc")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_5sts7"]
+script = ExtResource("6_1hwpr")
+powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_ddp0b"]
+script = ExtResource("6_1hwpr")
+powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_t30jk"]
+script = ExtResource("6_1hwpr")
+powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
@@ -42,12 +70,15 @@ current = true
 
 [node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("15_5sts7")]
 position = Vector2(292, -378)
+shell = SubResource("Resource_5sts7")
 
 [node name="EnemyWizard" parent="." unique_id=1437721045 instance=ExtResource("16_t30jk")]
 position = Vector2(306, -78)
+shell = SubResource("Resource_ddp0b")
 
 [node name="Turret" parent="." unique_id=1357332744 instance=ExtResource("17_d4wp7")]
 position = Vector2(486, -50)
+shell = SubResource("Resource_t30jk")
 
 [node name="Level" parent="." unique_id=1148501230 instance=ExtResource("9_dexii")]
 

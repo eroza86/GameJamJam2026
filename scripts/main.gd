@@ -19,6 +19,7 @@ func start_game(shells: Array[Shell]) -> void:
 	add_child(stage)
 	if shells != null and shells.size() > 0:
 		stage.get_node("Shotgun").shells = shells
+		print(stage.get_children())
 
 	$GlobalMusicPlayer.stop()
 
