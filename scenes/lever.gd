@@ -10,7 +10,7 @@ func hit():
 	toggled = !toggled
 	if toggled:
 		on.emit()
-		target_rotation = -0.5
+		target_rotation = -25.6327
 	else:
 		off.emit()
 		target_rotation = 1.5

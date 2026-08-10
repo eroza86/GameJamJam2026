@@ -30,6 +30,13 @@ script = ExtResource("6_1hwpr")
 powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_klq6b")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
+[sub_resource type="Gradient" id="Gradient_e38vs"]
+offsets = PackedFloat32Array(0, 0.55936074, 1)
+colors = PackedColorArray(0.30762666, 0.1344, 0.32, 1, 0.41, 0.049200002, 0.08527998, 1, 0.99, 0.79084504, 0.28710002, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yf5fn"]
+gradient = SubResource("Gradient_e38vs")
+
 [node name="Stage" type="Node2D" unique_id=1046058173]
 script = ExtResource("1_yd2gm")
 death_scene = ExtResource("2_0hg5s")
@@ -65,6 +72,13 @@ position = Vector2(486, -50)
 
 [node name="Level" parent="." unique_id=1148501230 instance=ExtResource("9_dexii")]
 position = Vector2(0, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1326688050]
+z_index = -15
+position = Vector2(515, -2541.529)
+rotation = 1.5707964
+scale = Vector2(6.004133, 990.00024)
+texture = SubResource("GradientTexture1D_yf5fn")
 
 [connection signal="player_died" from="Player" to="." method="_on_player_died"]
 [connection signal="broken" from="Level/BreakableWall" to="." method="_on_first_wall_broken"]
