@@ -12,13 +12,13 @@
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="8_xfx4c"]
 [ext_resource type="PackedScene" uid="uid://bgrg14ohj8flm" path="res://scenes/level.tscn" id="9_dexii"]
 [ext_resource type="PackedScene" uid="uid://c803josqfnsik" path="res://resources/enemy.tscn" id="15_5sts7"]
-[ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="15_ddp0b"]
 [ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="16_t30jk"]
 [ext_resource type="PackedScene" uid="uid://jc637s8q2wsw" path="res://resources/turret.tscn" id="17_d4wp7"]
 
 [sub_resource type="Resource" id="Resource_b121j"]
 script = ExtResource("8_xfx4c")
 bullet = ExtResource("7_e38vs")
+color = Color(0.69803923, 0.2, 0.050980393, 1)
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"
 
 [sub_resource type="Resource" id="Resource_klq6b"]
@@ -30,6 +30,15 @@ metadata/_custom_type_script = "uid://drxdkdot864up"
 [sub_resource type="Resource" id="Resource_w47vr"]
 script = ExtResource("6_1hwpr")
 powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_klq6b")])
+current_capacity = 2
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_xfx4c"]
+script = ExtResource("6_1hwpr")
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_5sts7"]
+script = ExtResource("6_1hwpr")
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
@@ -43,7 +52,7 @@ position = Vector2(0, -35)
 position = Vector2(3, -32)
 target = NodePath("../Player")
 SPEED = 35.0
-shells = Array[ExtResource("6_1hwpr")]([SubResource("Resource_w47vr"), null, null])
+shells = Array[ExtResource("6_1hwpr")]([SubResource("Resource_w47vr"), SubResource("Resource_xfx4c"), SubResource("Resource_5sts7")])
 
 [node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("15_5sts7")]
 position = Vector2(292, -378)
@@ -69,8 +78,6 @@ SPEED = 8.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Main Camera" unique_id=1260609562]
 current = true
-
-[node name="ItemPickup" parent="." unique_id=1782800605 instance=ExtResource("15_ddp0b")]
 
 [connection signal="player_died" from="Player" to="." method="_on_player_died"]
 [connection signal="broken" from="Level/BreakableWall" to="." method="_on_first_wall_broken"]
