@@ -92,6 +92,13 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("shoot"):
 			shoot_shell()
+		
+		if Input.is_action_just_pressed("first shell"):
+			current_shell = 0
+		if Input.is_action_just_pressed("second shell"):
+			current_shell = 1
+		if Input.is_action_just_pressed("third shell"):
+			current_shell = 2
 
 	$Sprite2D.flip_v = false
 	if abs(int(rotation_degrees) % 360) < 270 and abs(int(rotation_degrees) % 360) > 90:
