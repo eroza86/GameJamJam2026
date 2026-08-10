@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="2_72sof"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="3_x8ccl"]
 [ext_resource type="AudioStream" uid="uid://wslcbil55urb" path="res://assets/powerUp.wav" id="4_x8ccl"]
+[ext_resource type="Texture2D" uid="uid://ctokpcp86bl3j" path="res://assets/bottle2_small.png" id="5_l2q6m"]
 
 [sub_resource type="Resource" id="Resource_lgqak"]
 script = ExtResource("3_x8ccl")
@@ -46,6 +47,7 @@ angle_max = 720.0
 scale_amount_min = 3.5
 scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_lgqak")
+color = Color(1, 1, 1, 0.15686275)
 color_ramp = SubResource("Gradient_yiukj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1642556364]
@@ -53,9 +55,15 @@ stream = ExtResource("4_x8ccl")
 volume_db = 0.65
 
 [node name="Label" type="Label" parent="." unique_id=1780265342]
-offset_left = -3.0
-offset_top = -23.0
-offset_right = 15.0
-theme_override_font_sizes/font_size = 9
+offset_left = 5.0
+offset_top = -11.0
+offset_right = 23.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=983567987]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_l2q6m")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -8,11 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://ckenseipk7a34" path="res://scenes/firing_component.tscn" id="4_hh126"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="4_hjbi5"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="5_hh126"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="7_mj1tb"]
+[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="8_yac7s"]
+[ext_resource type="Resource" uid="uid://cw4l4ps5dwgch" path="res://resources/acid_powder.tres" id="9_6cixd"]
 [ext_resource type="Texture2D" uid="uid://co743p68u4tf2" path="res://assets/crystal_fire.png" id="9_p4fw7"]
+[ext_resource type="Resource" uid="uid://4pjgy3qibvc4" path="res://resources/cloud_powder.tres" id="10_1swsh"]
 [ext_resource type="Texture2D" uid="uid://cfuifcjk3ncfd" path="res://assets/crystal_ice.png" id="10_ow5bl"]
+[ext_resource type="Resource" uid="uid://blyrpvk5v5cuy" path="res://resources/lob_powder.tres" id="11_3816k"]
 [ext_resource type="Texture2D" uid="uid://c4fqkcmkcef4q" path="res://assets/crystal_lightning.png" id="11_qbnmr"]
+[ext_resource type="Resource" uid="uid://dhcmsn2movxjr" path="res://resources/missile_powder.tres" id="12_fswby"]
 [ext_resource type="Texture2D" uid="uid://bnmmf5s21c7p5" path="res://assets/crystal_acid.png" id="12_slyc3"]
 [ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="13_atta7"]
+[ext_resource type="Resource" uid="uid://bmgckv33y8yx6" path="res://resources/lightning_powder.tres" id="13_nu0q1"]
 [ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="14_2qxwh"]
 
 [sub_resource type="Resource" id="Resource_17l45"]
@@ -222,12 +229,14 @@ animations = [{
 }]
 
 [node name="Turret" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "firing_component")]
+position = Vector2(-5, -9)
 script = ExtResource("1_e2xx0")
 health_component = NodePath("HealthComponent")
 firing_component = NodePath("FiringComponent")
 item_scene = ExtResource("2_aq5wg")
 shotgun_scene = ExtResource("2_e2xx0")
 shell = SubResource("Resource_hlwof")
+powders = Array[ExtResource("7_mj1tb")]([ExtResource("8_yac7s"), ExtResource("9_6cixd"), ExtResource("10_1swsh"), ExtResource("11_3816k"), ExtResource("12_fswby"), ExtResource("13_nu0q1"), ExtResource("4_aq5wg")])
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 visible = false

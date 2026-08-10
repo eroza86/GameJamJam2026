@@ -9,9 +9,16 @@
 [ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
 [ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="5_tqkes"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="7_lx4h3"]
+[ext_resource type="Resource" uid="uid://bmgckv33y8yx6" path="res://resources/lightning_powder.tres" id="8_o0af7"]
+[ext_resource type="Resource" uid="uid://dhcmsn2movxjr" path="res://resources/missile_powder.tres" id="9_2s4m2"]
+[ext_resource type="Resource" uid="uid://blyrpvk5v5cuy" path="res://resources/lob_powder.tres" id="10_q6ndr"]
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_spyv3"]
+[ext_resource type="Resource" uid="uid://cw4l4ps5dwgch" path="res://resources/acid_powder.tres" id="11_vyvyd"]
 [ext_resource type="Texture2D" uid="uid://bf563br1qcgie" path="res://assets/tome.png" id="12_1lo3u"]
+[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="12_lddxu"]
 [ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="13_knikh"]
+[ext_resource type="Resource" uid="uid://4pjgy3qibvc4" path="res://resources/cloud_powder.tres" id="13_o0af7"]
 [ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="14_lud8b"]
 
 [sub_resource type="Resource" id="Resource_xfx4c"]
@@ -95,6 +102,7 @@ firing_component = NodePath("FiringComponent")
 item_scene = ExtResource("2_17l45")
 shotgun_scene = ExtResource("2_7tskh")
 shell = SubResource("Resource_e38vs")
+powders = Array[ExtResource("7_lx4h3")]([ExtResource("5_tqkes"), ExtResource("8_o0af7"), ExtResource("9_2s4m2"), ExtResource("10_q6ndr"), ExtResource("11_vyvyd"), ExtResource("12_lddxu"), ExtResource("13_o0af7")])
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 visible = false
