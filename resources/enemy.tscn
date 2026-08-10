@@ -102,6 +102,8 @@ firing_component = NodePath("FiringComponent")
 item_scene = ExtResource("2_17l45")
 shotgun_scene = ExtResource("2_7tskh")
 shell = SubResource("Resource_e38vs")
+minDropCount = 1
+maxDropCount = 8
 powders = Array[ExtResource("7_lx4h3")]([ExtResource("5_tqkes"), ExtResource("8_o0af7"), ExtResource("9_2s4m2"), ExtResource("10_q6ndr"), ExtResource("11_vyvyd"), ExtResource("12_lddxu"), ExtResource("13_o0af7")])
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]

@@ -41,7 +41,10 @@ func on_death() -> void:
 	queue_free()
 	
 func get_weighted_item() -> Powder:
-	var index = rng.rand_weighted(weights)
+	# var index = rng.rand_weighted(weights)
+	if powders.size() == 0:
+		return
+	var index = randi_range(0, powders.size()-1)
 	return powders[index]
 
 

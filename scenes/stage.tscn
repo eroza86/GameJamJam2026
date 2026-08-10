@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bwkyv4xdmlx77" path="res://scenes/bullets/fireball.tscn" id="7_e38vs"]
 [ext_resource type="PackedScene" uid="uid://bgrg14ohj8flm" path="res://scenes/level.tscn" id="9_dexii"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="10_xfx4c"]
+[ext_resource type="Texture2D" uid="uid://bcyd7pb7o61qb" path="res://assets/tut1.png" id="12_jl6nj"]
+[ext_resource type="Texture2D" uid="uid://cr3qbey0pt05v" path="res://assets/tut2.png" id="13_e38vs"]
 
 [sub_resource type="Resource" id="Resource_b121j"]
 script = ExtResource("10_xfx4c")
@@ -40,16 +42,27 @@ script = ExtResource("1_yd2gm")
 death_scene = ExtResource("2_0hg5s")
 win_scene = ExtResource("3_0hg5s")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1309184064]
+position = Vector2(-93.99999, -41.999996)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_jl6nj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1455431118]
+position = Vector2(15, -31)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_e38vs")
+
 [node name="Player" parent="." unique_id=67252580 instance=ExtResource("1_gi7kc")]
-position = Vector2(9, -34)
+position = Vector2(-173, -25)
 
 [node name="Shotgun" parent="." unique_id=1436656832 node_paths=PackedStringArray("target") instance=ExtResource("4_6c5u0")]
-position = Vector2(3, -32)
+position = Vector2(-179, -23)
 target = NodePath("../Player")
 SPEED = 35.0
 shells = Array[ExtResource("6_1hwpr")]([SubResource("Resource_w47vr"), null, null])
 
 [node name="Main Camera" type="Camera2D" parent="." unique_id=224485954 node_paths=PackedStringArray("target")]
+position = Vector2(-174, -38)
 zoom = Vector2(3, 3)
 process_callback = 0
 position_smoothing_speed = 10.0

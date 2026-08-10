@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://btqfbemg8s5sl" path="res://scenes/particles/Lob.tscn" id="7_sbp2b"]
 [ext_resource type="PackedScene" uid="uid://b8ypr11bec8sc" path="res://scenes/particles/Missile.tscn" id="8_7ilb1"]
 [ext_resource type="Texture2D" uid="uid://1b4b0rsji2pa" path="res://assets/bottle2_big.png" id="9_pxxmg"]
+[ext_resource type="FontFile" uid="uid://dnex5vmaxdhwt" path="res://assets/Corleone-Due-Regular.otf" id="10_sbp2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mxaj"]
 size = Vector2(42, 78)
@@ -37,6 +38,8 @@ offset_left = 11.0
 offset_top = -45.0
 offset_right = 51.0
 offset_bottom = -22.0
+theme_override_fonts/font = ExtResource("10_sbp2b")
+theme_override_font_sizes/font_size = 24
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=174066124]
 position = Vector2(0, -40)
