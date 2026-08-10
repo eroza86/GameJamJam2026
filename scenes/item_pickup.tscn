@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://ci2ipqb8ajh0u" path="res://scripts/item_pickup.gd" id="1_lgqak"]
 [ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="2_72sof"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="3_x8ccl"]
+[ext_resource type="AudioStream" uid="uid://wslcbil55urb" path="res://assets/powerUp.wav" id="4_x8ccl"]
 
 [sub_resource type="Resource" id="Resource_lgqak"]
 script = ExtResource("3_x8ccl")
 powder = ExtResource("2_72sof")
-amount = 20
+amount = 2
 metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_phvbs"]
@@ -46,5 +47,15 @@ scale_amount_min = 3.5
 scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_lgqak")
 color_ramp = SubResource("Gradient_yiukj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1642556364]
+stream = ExtResource("4_x8ccl")
+volume_db = 0.65
+
+[node name="Label" type="Label" parent="." unique_id=1780265342]
+offset_left = -3.0
+offset_top = -23.0
+offset_right = 15.0
+theme_override_font_sizes/font_size = 9
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

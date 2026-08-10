@@ -17,6 +17,8 @@ extends CharacterBody2D
 @export var INPUT_BUFFER_WINDOW = 0.1
 @export var COYOTE_WINDOW = 0.08
 
+@onready var label: Label = $pickupLabel
+
 @export_group("Components")
 @export var health_component: HealthComponent
 

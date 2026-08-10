@@ -37,8 +37,6 @@ func initialize_scene():
 	var powder_type_enum: int = 0
 	for item in powders:
 		# Amount of powder
-		print(item)
-		print(powders[item])
 		var amount = powders[item]
 		if amount <= 0:
 			powders[item] = 0
@@ -57,7 +55,6 @@ func add_to_shell(powder: Powder, shell_index: int) -> void:
 
 	# Subtract 1 from dictionary (dual reference with this system)
 	GlobalSaveHolder.save_game.powder_inventory[powder_name] -= 1
-	print(GlobalSaveHolder.save_game.powder_inventory[powder_name])
 
 	# Add that 1 to the shell
 	shells[shell_index].add_layer(powder)

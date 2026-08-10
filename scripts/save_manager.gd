@@ -16,7 +16,6 @@ const SAVE_GAME_PATH: String = "user://save.tres"
 # Gameplay
 
 func add_powder(powderName: String, amount: int) -> void:
-	print(powderName)
 	powder_inventory[powderName] += amount
 
 # Saving

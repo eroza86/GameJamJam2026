@@ -16,7 +16,6 @@ var num_base_powders = 0
 var projectiles: Array[Node] = []
 
 func _ready() -> void:
-	print(shells)
 	cooldown_timer = Timer.new()
 	cooldown_timer.one_shot = true
 	cooldown_timer.timeout.connect(cooldown_timeout)
