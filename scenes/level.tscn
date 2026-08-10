@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://3km56iq1lvnw" path="res://bg_tiles.png" id="7_klq6b"]
 [ext_resource type="PackedScene" uid="uid://dxg25jcgqkcmf" path="res://scenes/bomb_barrel.tscn" id="8_b121j"]
 [ext_resource type="PackedScene" uid="uid://b4piloqkbma6o" path="res://scenes/breakable_wall.tscn" id="9_8c41q"]
+[ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="9_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://c803josqfnsik" path="res://resources/enemy.tscn" id="10_8iemx"]
 [ext_resource type="PackedScene" uid="uid://g53mao3q5tbe" path="res://scenes/dore.tscn" id="10_olg7q"]
+[ext_resource type="PackedScene" uid="uid://jc637s8q2wsw" path="res://resources/turret.tscn" id="11_64w2a"]
 [ext_resource type="PackedScene" uid="uid://cac307i0incho" path="res://scenes/lever.tscn" id="11_t1rx8"]
 [ext_resource type="PackedScene" uid="uid://dm02lhp5a7l8k" path="res://scenes/increment_dore.tscn" id="12_8iemx"]
 [ext_resource type="PackedScene" uid="uid://cyi67l06xvlcj" path="res://scenes/fog.tscn" id="13_64w2a"]
@@ -492,7 +495,7 @@ position = Vector2(552, -2152)
 position = Vector2(341, -2002)
 
 [node name="BombBarrel36" parent="props" unique_id=205810640 instance=ExtResource("8_b121j")]
-position = Vector2(778, -1660)
+position = Vector2(790, -1671)
 
 [node name="BombBarrel2" parent="props" unique_id=1344536968 instance=ExtResource("8_b121j")]
 position = Vector2(576, -241)
@@ -550,6 +553,134 @@ position = Vector2(769, -283)
 
 [node name="BombBarrel20" parent="props" unique_id=535047755 instance=ExtResource("8_b121j")]
 position = Vector2(734, -241)
+
+[node name="enemies" type="Node2D" parent="." unique_id=1933018154]
+
+[node name="EnemyWizard" parent="enemies" unique_id=656613126 instance=ExtResource("9_t1rx8")]
+position = Vector2(315, -133)
+
+[node name="EnemyWizard3" parent="enemies" unique_id=1206447750 instance=ExtResource("9_t1rx8")]
+position = Vector2(74, -1213)
+
+[node name="EnemyWizard4" parent="enemies" unique_id=1000838551 instance=ExtResource("9_t1rx8")]
+position = Vector2(194, -1123)
+
+[node name="EnemyWizard2" parent="enemies" unique_id=502228543 instance=ExtResource("9_t1rx8")]
+position = Vector2(445, -554)
+
+[node name="EnemyWizard5" parent="enemies" unique_id=570898853 instance=ExtResource("9_t1rx8")]
+position = Vector2(1090, -793)
+
+[node name="EnemyWizard6" parent="enemies" unique_id=1817398299 instance=ExtResource("9_t1rx8")]
+position = Vector2(1344, -796)
+
+[node name="EnemyWizard7" parent="enemies" unique_id=1162300290 instance=ExtResource("9_t1rx8")]
+position = Vector2(846, -1114)
+
+[node name="EnemyWizard8" parent="enemies" unique_id=10239891 instance=ExtResource("9_t1rx8")]
+position = Vector2(1169, -1272)
+
+[node name="EnemyWizard9" parent="enemies" unique_id=1639842304 instance=ExtResource("9_t1rx8")]
+position = Vector2(1301, -1613)
+
+[node name="EnemyWizard10" parent="enemies" unique_id=1448315458 instance=ExtResource("9_t1rx8")]
+position = Vector2(643, -1562)
+
+[node name="EnemyWizard11" parent="enemies" unique_id=718920863 instance=ExtResource("9_t1rx8")]
+position = Vector2(779, -1733)
+
+[node name="EnemyWizard12" parent="enemies" unique_id=8171441 instance=ExtResource("9_t1rx8")]
+position = Vector2(1043, -2003)
+
+[node name="EnemyWizard14" parent="enemies" unique_id=1816369645 instance=ExtResource("9_t1rx8")]
+position = Vector2(842, -2144)
+
+[node name="EnemyWizard15" parent="enemies" unique_id=1091197261 instance=ExtResource("9_t1rx8")]
+position = Vector2(410, -2034)
+
+[node name="EnemyWizard13" parent="enemies" unique_id=1378661444 instance=ExtResource("9_t1rx8")]
+position = Vector2(1215, -2202)
+
+[node name="FlyingTome" parent="enemies" unique_id=110832388 instance=ExtResource("10_8iemx")]
+position = Vector2(272, -357)
+
+[node name="FlyingTome7" parent="enemies" unique_id=1222502025 instance=ExtResource("10_8iemx")]
+position = Vector2(1047, -993)
+
+[node name="FlyingTome8" parent="enemies" unique_id=1669464784 instance=ExtResource("10_8iemx")]
+position = Vector2(1410, -1306)
+
+[node name="FlyingTome9" parent="enemies" unique_id=1231917704 instance=ExtResource("10_8iemx")]
+position = Vector2(331, -1715)
+
+[node name="FlyingTome10" parent="enemies" unique_id=323301248 instance=ExtResource("10_8iemx")]
+position = Vector2(1440, -2316)
+
+[node name="FlyingTome11" parent="enemies" unique_id=304954750 instance=ExtResource("10_8iemx")]
+position = Vector2(682, -2141)
+
+[node name="FlyingTome12" parent="enemies" unique_id=687828203 instance=ExtResource("10_8iemx")]
+position = Vector2(412, -2134)
+
+[node name="FlyingTome2" parent="enemies" unique_id=545329078 instance=ExtResource("10_8iemx")]
+position = Vector2(147, -772)
+
+[node name="FlyingTome4" parent="enemies" unique_id=1598734003 instance=ExtResource("10_8iemx")]
+position = Vector2(478, -1281)
+
+[node name="FlyingTome5" parent="enemies" unique_id=1761982213 instance=ExtResource("10_8iemx")]
+position = Vector2(766, -844)
+
+[node name="FlyingTome6" parent="enemies" unique_id=1043038332 instance=ExtResource("10_8iemx")]
+position = Vector2(808, -803)
+
+[node name="FlyingTome3" parent="enemies" unique_id=1669175855 instance=ExtResource("10_8iemx")]
+position = Vector2(116, -1060)
+
+[node name="Turret" parent="enemies" unique_id=254330752 instance=ExtResource("11_64w2a")]
+position = Vector2(482, -57)
+
+[node name="Turret3" parent="enemies" unique_id=1334659373 instance=ExtResource("11_64w2a")]
+position = Vector2(210, -1061)
+
+[node name="Turret4" parent="enemies" unique_id=507815199 instance=ExtResource("11_64w2a")]
+position = Vector2(291, -1061)
+
+[node name="Turret5" parent="enemies" unique_id=886685308 instance=ExtResource("11_64w2a")]
+position = Vector2(290, -1280)
+
+[node name="Turret6" parent="enemies" unique_id=1881193019 instance=ExtResource("11_64w2a")]
+position = Vector2(742, -485)
+
+[node name="Turret7" parent="enemies" unique_id=1692849348 instance=ExtResource("11_64w2a")]
+position = Vector2(1220, -815)
+
+[node name="Turret8" parent="enemies" unique_id=856913837 instance=ExtResource("11_64w2a")]
+position = Vector2(889, -1301)
+
+[node name="Turret9" parent="enemies" unique_id=383633847 instance=ExtResource("11_64w2a")]
+position = Vector2(1256, -1195)
+
+[node name="Turret10" parent="enemies" unique_id=1033389030 instance=ExtResource("11_64w2a")]
+position = Vector2(1169, -1714)
+
+[node name="Turret11" parent="enemies" unique_id=105644131 instance=ExtResource("11_64w2a")]
+position = Vector2(1315, -1830)
+
+[node name="Turret12" parent="enemies" unique_id=1084146084 instance=ExtResource("11_64w2a")]
+position = Vector2(642, -1649)
+
+[node name="Turret13" parent="enemies" unique_id=598826530 instance=ExtResource("11_64w2a")]
+position = Vector2(1130, -2309)
+
+[node name="Turret14" parent="enemies" unique_id=369646972 instance=ExtResource("11_64w2a")]
+position = Vector2(1291, -2311)
+
+[node name="Turret15" parent="enemies" unique_id=2140834080 instance=ExtResource("11_64w2a")]
+position = Vector2(299, -2123)
+
+[node name="Turret2" parent="enemies" unique_id=1892336958 instance=ExtResource("11_64w2a")]
+position = Vector2(457, -472)
 
 [connection signal="broken" from="BreakableWall" to="Fog" method="fade_out"]
 [connection signal="broken" from="BreakableWall2" to="Fog2" method="fade_out"]

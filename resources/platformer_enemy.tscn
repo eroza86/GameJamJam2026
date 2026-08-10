@@ -120,12 +120,12 @@ animations = [{
 
 [node name="EnemyWizard" type="CharacterBody2D" unique_id=656613126 node_paths=PackedStringArray("health_component", "movement_component", "firing_component")]
 script = ExtResource("1_bnofu")
-item_scene = ExtResource("2_awfgp")
-shotgun_scene = ExtResource("3_e836b")
-shell = SubResource("Resource_tefeu")
 health_component = NodePath("HealthComponent")
 movement_component = NodePath("MovementComponent")
 firing_component = NodePath("FiringComponent")
+item_scene = ExtResource("2_awfgp")
+shotgun_scene = ExtResource("3_e836b")
+shell = SubResource("Resource_tefeu")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 visible = false
