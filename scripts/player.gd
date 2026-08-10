@@ -104,3 +104,5 @@ func get_gravity_type(input_direction : float = 0) -> float:
 
 func _on_death() -> void:
 	player_died.emit()
+	$"../Shotgun".process_mode = PROCESS_MODE_DISABLED
+	process_mode = PROCESS_MODE_DISABLED

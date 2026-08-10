@@ -1,16 +1,57 @@
 [gd_scene format=3 uid="uid://su4jevp6prbu"]
 
+[ext_resource type="Theme" uid="uid://bhb6w1si340s5" path="res://assets/default_theme.tres" id="1_dwo6e"]
+[ext_resource type="Script" uid="uid://b45oom3c3xli0" path="res://scripts/death_screen.gd" id="1_mqh5l"]
 [ext_resource type="FontFile" uid="uid://c7nadm678a654" path="res://assets/OldeEnglish.ttf" id="2_dwo6e"]
 
+[sub_resource type="Animation" id="Animation_7ns25"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mqh5l"]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.6390142, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ns25"]
+_data = {
+&"RESET": SubResource("Animation_7ns25"),
+&"enter": SubResource("Animation_mqh5l")
+}
+
 [node name="DeathScreen" type="CanvasLayer" unique_id=826159266]
+script = ExtResource("1_mqh5l")
 
 [node name="Control" type="Control" parent="." unique_id=90679748]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_dwo6e")
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=274997611]
 layout_mode = 1
@@ -51,11 +92,19 @@ grow_vertical = 2
 [node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=643698079]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
-text = "Back to shellmaking"
+text = "Refill Shells"
 
 [node name="Button2" type="Button" parent="Control/VBoxContainer" unique_id=243776375]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
-text = "Back to menu"
+text = "Back to Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=315149698]
+libraries/ = SubResource("AnimationLibrary_7ns25")
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_menu_pressed"]
