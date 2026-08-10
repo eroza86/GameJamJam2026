@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://cac307i0incho"]
 
 [ext_resource type="Script" uid="uid://cfm447kux837n" path="res://scenes/lever.gd" id="1_4kwec"]
-
-[sub_resource type="Gradient" id="Gradient_ncfea"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qxmkn"]
-gradient = SubResource("Gradient_ncfea")
+[ext_resource type="Texture2D" uid="uid://ygslpwdxyb3x" path="res://assets/lever_base.png" id="2_ncfea"]
+[ext_resource type="Texture2D" uid="uid://d4kbh8nsu3e5v" path="res://assets/lever_arm.png" id="3_qxmkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -17,16 +13,17 @@ collision_mask = 4
 script = ExtResource("1_4kwec")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1433125910]
-position = Vector2(-2.3841858e-07, -4)
-scale = Vector2(0.062499996, 8)
-texture = SubResource("GradientTexture1D_qxmkn")
+position = Vector2(-0.020727225, -14.999987)
+scale = Vector2(0.25, 0.3)
+texture = ExtResource("2_ncfea")
 
 [node name="Handle" type="Sprite2D" parent="." unique_id=1451021182]
-position = Vector2(0, -7)
-rotation = 0.7853982
-scale = Vector2(0.011718747, 14.999998)
-texture = SubResource("GradientTexture1D_qxmkn")
-offset = Vector2(0, -0.39999998)
+z_index = -1
+position = Vector2(0.007543087, -4.265686)
+rotation = 1.3962634
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_qxmkn")
+offset = Vector2(4.3651667, -45.381214)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852428477]
 position = Vector2(-0.013818149, -9.99999)
