@@ -1223,56 +1223,45 @@ z_index = -2
 position = Vector2(325, -1539)
 
 [node name="Lever5" parent="." unique_id=422719399 instance=ExtResource("11_t1rx8")]
-visible = false
 position = Vector2(916, -2150.0002)
 
 [node name="Fog" parent="." unique_id=1865970199 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(296, -361)
 scale = Vector2(25, 45)
 
 [node name="Fog2" parent="." unique_id=412370226 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(863.00006, -426.00003)
 scale = Vector2(37, 26)
 
 [node name="Fog3" parent="." unique_id=1101487870 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(691, -815)
 scale = Vector2(19, 10)
 
 [node name="Fog4" parent="." unique_id=771671544 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(1171.0001, -1419)
 scale = Vector2(35, 87)
 
 [node name="Fog5" parent="." unique_id=82089823 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(1569, -840)
 scale = Vector2(9, 9)
 
 [node name="Fog10" parent="." unique_id=165482169 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(-126, -1900)
 scale = Vector2(19, 23)
 
 [node name="Fog6" parent="." unique_id=1422805245 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(1577, -1835.0001)
 scale = Vector2(10, 9)
 
 [node name="Fog8" parent="." unique_id=2103628752 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(791.00006, -1215)
 scale = Vector2(-17, -22)
 
 [node name="Fog7" parent="." unique_id=1463359593 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(590, -1633)
 scale = Vector2(40, 21)
 
 [node name="Fog9" parent="." unique_id=2041987347 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(556, -2229.9998)
 scale = Vector2(44, 50)
 
