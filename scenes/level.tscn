@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bp5ximh1ua0yo" path="res://assets/tilesetwip2.png" id="3_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://3km56iq1lvnw" path="res://bg_tiles.png" id="7_klq6b"]
+[ext_resource type="PackedScene" uid="uid://dxg25jcgqkcmf" path="res://scenes/bomb_barrel.tscn" id="8_b121j"]
 [ext_resource type="PackedScene" uid="uid://b4piloqkbma6o" path="res://scenes/breakable_wall.tscn" id="9_8c41q"]
 [ext_resource type="PackedScene" uid="uid://g53mao3q5tbe" path="res://scenes/dore.tscn" id="10_olg7q"]
 [ext_resource type="PackedScene" uid="uid://cac307i0incho" path="res://scenes/lever.tscn" id="11_t1rx8"]
@@ -185,54 +186,68 @@ open_pos = Vector2(0, -50)
 speed = 2.0
 
 [node name="Lever2" parent="." unique_id=455943461 instance=ExtResource("11_t1rx8")]
-position = Vector2(1394, -2160.0002)
+z_index = -2
+position = Vector2(1394, -2159.0002)
 
 [node name="Lever3" parent="." unique_id=486511779 instance=ExtResource("11_t1rx8")]
-position = Vector2(1215, -1150)
+z_index = -2
+position = Vector2(1215.0001, -1149)
 
 [node name="Lever4" parent="." unique_id=1972006514 instance=ExtResource("11_t1rx8")]
-position = Vector2(325, -1540)
+z_index = -2
+position = Vector2(325, -1539)
 
 [node name="Lever5" parent="." unique_id=422719399 instance=ExtResource("11_t1rx8")]
+visible = false
 position = Vector2(916, -2150.0002)
 
 [node name="Fog" parent="." unique_id=1865970199 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(296, -361)
 scale = Vector2(25, 45)
 
 [node name="Fog2" parent="." unique_id=412370226 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(863.00006, -426.00003)
 scale = Vector2(37, 26)
 
 [node name="Fog3" parent="." unique_id=1101487870 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(691, -815)
 scale = Vector2(19, 10)
 
 [node name="Fog4" parent="." unique_id=771671544 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(1171.0001, -1419)
 scale = Vector2(35, 87)
 
 [node name="Fog5" parent="." unique_id=82089823 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(1569, -840)
 scale = Vector2(9, 9)
 
 [node name="Fog10" parent="." unique_id=165482169 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(-126, -1900)
 scale = Vector2(19, 23)
 
 [node name="Fog6" parent="." unique_id=1422805245 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(1577, -1835.0001)
 scale = Vector2(10, 9)
 
 [node name="Fog8" parent="." unique_id=2103628752 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(791.00006, -1215)
 scale = Vector2(-17, -22)
 
 [node name="Fog7" parent="." unique_id=1463359593 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(590, -1633)
 scale = Vector2(40, 21)
 
 [node name="Fog9" parent="." unique_id=2041987347 instance=ExtResource("13_64w2a")]
+visible = false
 position = Vector2(556, -2229.9998)
 scale = Vector2(44, 50)
 
@@ -424,6 +439,117 @@ position = Vector2(0.55, 0)
 scale = Vector2(0.1, 0.1)
 tile_map_data = PackedByteArray("AAADAC7/AAAAAAEAAAADAC//AAAAAAEAAAADADD/AAAAAAEAAAADADH/AAAAAAEAAAADADL/AAAAAAEAAAAEAC7/AAAAAAEAAAAEAC//AAAAAAEAAAAEADD/AAAAAAEAAAAEADH/AAAAAAEAAAAEADL/AAAAAAEAAAAFAC7/AAAAAAEAAAAFAC//AAAAAAEAAAAFADD/AAAAAAEAAAAFADH/AAAAAAEAAAAFADL/AAAAAAEAAAAGAC7/AAAAAAEAAAAGAC//AAAAAAEAAAAGADD/AAAAAAEAAAAGADH/AAAAAAEAAAAGADL/AAAAAAEAAAADADn/AAAAAAEAAAADADr/AAAAAAEAAAADADv/AAAAAAEAAAADADz/AAAAAAEAAAADAD3/AAAAAAEAAAADAD7/AAAAAAEAAAADAD//AAAAAAEAAAADAED/AAAAAAEAAAADAEH/AAAAAAEAAAADAEL/AAAAAAEAAAADAEP/AAAAAAEAAAADAET/AAAAAAEAAAADAEX/AAAAAAEAAAADAEb/AAAAAAEAAAADAEf/AAAAAAEAAAADAEj/AAAAAAEAAAADAEn/AAAAAAEAAAADAEr/AAAAAAEAAAADAEv/AAAAAAEAAAADAEz/AAAAAAEAAAADAE3/AAAAAAEAAAADAE7/AAAAAAEAAAADAE//AAAAAAEAAAADAFD/AAAAAAEAAAAEADn/AAAAAAEAAAAEADr/AAAAAAEAAAAEADv/AAAAAAEAAAAEADz/AAAAAAEAAAAEAD3/AAAAAAEAAAAEAD7/AAAAAAEAAAAEAD//AAAAAAEAAAAEAED/AAAAAAEAAAAEAEH/AAAAAAEAAAAEAEL/AAAAAAEAAAAEAEP/AAAAAAEAAAAEAET/AAAAAAEAAAAEAEX/AAAAAAEAAAAEAEb/AAAAAAEAAAAEAEf/AAAAAAEAAAAEAEj/AAAAAAEAAAAEAEn/AAAAAAEAAAAEAEr/AAAAAAEAAAAEAEv/AAAAAAEAAAAEAEz/AAAAAAEAAAAEAE3/AAAAAAEAAAAEAE7/AAAAAAEAAAAEAE//AAAAAAEAAAAEAFD/AAAAAAEAAAAFADn/AAAAAAEAAAAFADr/AAAAAAEAAAAFADv/AAAAAAEAAAAFADz/AAAAAAEAAAAFAD3/AAAAAAEAAAAFAD7/AAAAAAEAAAAFAD//AAAAAAEAAAAFAED/AAAAAAEAAAAFAEH/AAAAAAEAAAAFAEL/AAAAAAEAAAAFAEP/AAAAAAEAAAAFAET/AAAAAAEAAAAFAEX/AAAAAAEAAAAFAEb/AAAAAAEAAAAFAEf/AAAAAAEAAAAFAEj/AAAAAAEAAAAFAEn/AAAAAAEAAAAFAEr/AAAAAAEAAAAFAEv/AAAAAAEAAAAFAEz/AAAAAAEAAAAFAE3/AAAAAAEAAAAFAE7/AAAAAAEAAAAFAE//AAAAAAEAAAAFAFD/AAAAAAEAAAAGADn/AAAAAAEAAAAGADr/AAAAAAEAAAAGADv/AAAAAAEAAAAGADz/AAAAAAEAAAAGAD3/AAAAAAEAAAAGAD7/AAAAAAEAAAAGAD//AAAAAAEAAAAGAED/AAAAAAEAAAAGAEH/AAAAAAEAAAAGAEL/AAAAAAEAAAAGAEP/AAAAAAEAAAAGAET/AAAAAAEAAAAGAEX/AAAAAAEAAAAGAEb/AAAAAAEAAAAGAEf/AAAAAAEAAAAGAEj/AAAAAAEAAAAGAEn/AAAAAAEAAAAGAEr/AAAAAAEAAAAGAEv/AAAAAAEAAAAGAEz/AAAAAAEAAAAGAE3/AAAAAAEAAAAGAE7/AAAAAAEAAAAGAE//AAAAAAEAAAAGAFD/AAAAAAEAAAADACn/AAAAAAEAAAADACr/AAAAAAEAAAADACv/AAAAAAEAAAADACz/AAAAAAEAAAADAC3/AAAAAAEAAAAEACn/AAAAAAEAAAAEACr/AAAAAAEAAAAEACv/AAAAAAEAAAAEACz/AAAAAAEAAAAEAC3/AAAAAAEAAAAFACn/AAAAAAEAAAAFACr/AAAAAAEAAAAFACv/AAAAAAEAAAAFACz/AAAAAAEAAAAFAC3/AAAAAAEAAAAGACn/AAAAAAEAAAAGACr/AAAAAAEAAAAGACv/AAAAAAEAAAAGACz/AAAAAAEAAAAGAC3/AAAAAAEAAAA=")
 tile_set = SubResource("TileSet_g4v7s")
+
+[node name="props" type="Node2D" parent="." unique_id=1568975417]
+z_index = -1
+
+[node name="BombBarrel" parent="props" unique_id=1092316470 instance=ExtResource("8_b121j")]
+position = Vector2(557, -241)
+
+[node name="BombBarrel21" parent="props" unique_id=1182577808 instance=ExtResource("8_b121j")]
+position = Vector2(399, -131)
+
+[node name="BombBarrel22" parent="props" unique_id=1311873538 instance=ExtResource("8_b121j")]
+position = Vector2(112, -402)
+
+[node name="BombBarrel23" parent="props" unique_id=1375900992 instance=ExtResource("8_b121j")]
+position = Vector2(109, -991)
+
+[node name="BombBarrel24" parent="props" unique_id=1648458857 instance=ExtResource("8_b121j")]
+position = Vector2(487, -1211)
+
+[node name="BombBarrel25" parent="props" unique_id=493897333 instance=ExtResource("8_b121j")]
+position = Vector2(1428, -971)
+
+[node name="BombBarrel26" parent="props" unique_id=605647753 instance=ExtResource("8_b121j")]
+position = Vector2(743, -1171)
+
+[node name="BombBarrel27" parent="props" unique_id=923002286 instance=ExtResource("8_b121j")]
+position = Vector2(1509, -1800)
+
+[node name="BombBarrel28" parent="props" unique_id=223622680 instance=ExtResource("8_b121j")]
+position = Vector2(1527, -1800)
+
+[node name="BombBarrel29" parent="props" unique_id=324697468 instance=ExtResource("8_b121j")]
+position = Vector2(1545, -1800)
+
+[node name="BombBarrel30" parent="props" unique_id=48101152 instance=ExtResource("8_b121j")]
+position = Vector2(1535, -1821)
+
+[node name="BombBarrel31" parent="props" unique_id=1885890920 instance=ExtResource("8_b121j")]
+position = Vector2(1517, -1821)
+
+[node name="BombBarrel32" parent="props" unique_id=305119519 instance=ExtResource("8_b121j")]
+position = Vector2(1526, -1842)
+
+[node name="BombBarrel33" parent="props" unique_id=1869278537 instance=ExtResource("8_b121j")]
+position = Vector2(986, -2281)
+
+[node name="BombBarrel34" parent="props" unique_id=1394489913 instance=ExtResource("8_b121j")]
+position = Vector2(552, -2152)
+
+[node name="BombBarrel35" parent="props" unique_id=1957053944 instance=ExtResource("8_b121j")]
+position = Vector2(341, -2002)
+
+[node name="BombBarrel36" parent="props" unique_id=205810640 instance=ExtResource("8_b121j")]
+position = Vector2(778, -1660)
+
+[node name="BombBarrel2" parent="props" unique_id=1344536968 instance=ExtResource("8_b121j")]
+position = Vector2(576, -241)
+
+[node name="BombBarrel3" parent="props" unique_id=1533612496 instance=ExtResource("8_b121j")]
+position = Vector2(595, -241)
+
+[node name="BombBarrel4" parent="props" unique_id=51284847 instance=ExtResource("8_b121j")]
+position = Vector2(586, -262)
+
+[node name="BombBarrel5" parent="props" unique_id=1599844634 instance=ExtResource("8_b121j")]
+position = Vector2(752, -241)
+
+[node name="BombBarrel6" parent="props" unique_id=2008095894 instance=ExtResource("8_b121j")]
+position = Vector2(770, -241)
+
+[node name="BombBarrel7" parent="props" unique_id=1117813765 instance=ExtResource("8_b121j")]
+position = Vector2(789, -241)
+
+[node name="BombBarrel8" parent="props" unique_id=1407883567 instance=ExtResource("8_b121j")]
+position = Vector2(780, -262)
+
+[node name="BombBarrel9" parent="props" unique_id=1352309174 instance=ExtResource("8_b121j")]
+position = Vector2(672, -241)
+
+[node name="BombBarrel10" parent="props" unique_id=741740893 instance=ExtResource("8_b121j")]
+position = Vector2(690, -241)
+
+[node name="BombBarrel11" parent="props" unique_id=2027193622 instance=ExtResource("8_b121j")]
+position = Vector2(707, -241)
+
+[node name="BombBarrel12" parent="props" unique_id=887818784 instance=ExtResource("8_b121j")]
+position = Vector2(653, -241)
+
+[node name="BombBarrel13" parent="props" unique_id=472632498 instance=ExtResource("8_b121j")]
+position = Vector2(635, -241)
+
+[node name="BombBarrel14" parent="props" unique_id=404823437 instance=ExtResource("8_b121j")]
+position = Vector2(644, -262)
+
+[node name="BombBarrel15" parent="props" unique_id=1051173547 instance=ExtResource("8_b121j")]
+position = Vector2(664, -262)
+
+[node name="BombBarrel16" parent="props" unique_id=1446344082 instance=ExtResource("8_b121j")]
+position = Vector2(683, -262)
+
+[node name="BombBarrel17" parent="props" unique_id=1449225017 instance=ExtResource("8_b121j")]
+position = Vector2(672, -283)
+
+[node name="BombBarrel18" parent="props" unique_id=410401338 instance=ExtResource("8_b121j")]
+position = Vector2(760, -262)
+
+[node name="BombBarrel19" parent="props" unique_id=113747860 instance=ExtResource("8_b121j")]
+position = Vector2(769, -283)
+
+[node name="BombBarrel20" parent="props" unique_id=535047755 instance=ExtResource("8_b121j")]
+position = Vector2(734, -241)
 
 [connection signal="broken" from="BreakableWall" to="Fog" method="fade_out"]
 [connection signal="broken" from="BreakableWall2" to="Fog2" method="fade_out"]
