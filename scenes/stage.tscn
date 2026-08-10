@@ -7,13 +7,27 @@
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="6_0hg5s"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
+[ext_resource type="PackedScene" uid="uid://bwkyv4xdmlx77" path="res://scenes/bullets/fireball.tscn" id="7_e38vs"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="8_xfx4c"]
 [ext_resource type="PackedScene" uid="uid://bgrg14ohj8flm" path="res://scenes/level.tscn" id="9_dexii"]
-[ext_resource type="PackedScene" uid="uid://c803josqfnsik" path="res://resources/enemy.tscn" id="15_5sts7"]
+[ext_resource type="PackedScene" uid="uid://bm7locmbd30fu" path="res://resources/enemy.tscn" id="15_5sts7"]
 [ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="16_t30jk"]
-[ext_resource type="PackedScene" uid="uid://jc637s8q2wsw" path="res://resources/turret.tscn" id="17_d4wp7"]
+[ext_resource type="PackedScene" uid="uid://btul3ocvl7cih" path="res://resources/turret.tscn" id="17_d4wp7"]
+
+[sub_resource type="Resource" id="Resource_b121j"]
+script = ExtResource("8_xfx4c")
+bullet = ExtResource("7_e38vs")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_klq6b"]
+script = ExtResource("6_0hg5s")
+powder = SubResource("Resource_b121j")
+amount = 10
+metadata/_custom_type_script = "uid://drxdkdot864up"
 
 [sub_resource type="Resource" id="Resource_w47vr"]
 script = ExtResource("6_1hwpr")
+powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_klq6b")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [node name="Stage" type="Node2D" unique_id=1046058173]
@@ -50,5 +64,6 @@ position = Vector2(306, -78)
 position = Vector2(486, -50)
 
 [node name="Level" parent="." unique_id=1148501230 instance=ExtResource("9_dexii")]
+position = Vector2(0, -1)
 
 [connection signal="player_died" from="Player" to="." method="_on_player_died"]
