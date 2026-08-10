@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="6_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://xkgco33t3nsd" path="res://assets/jump.wav" id="7_fjrip"]
+[ext_resource type="Theme" uid="uid://bhb6w1si340s5" path="res://assets/default_theme.tres" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("3_qhqgy")
@@ -34,6 +35,9 @@ animations = [{
 radius = 5.0
 height = 16.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smehm"]
+bg_color = Color(0.9915864, 0.37577316, 0.32640502, 0.31764707)
+
 [node name="Player" type="CharacterBody2D" unique_id=67252580 node_paths=PackedStringArray("health_component")]
 script = ExtResource("1_3vyb7")
 health_component = NodePath("HealthComponent")
@@ -57,9 +61,10 @@ round_precision = 20
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_g4v7s")
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1158797871 node_paths=PackedStringArray("hurt_sound")]
+[node name="HealthComponent" type="Node" parent="." unique_id=1158797871 node_paths=PackedStringArray("hurt_sound", "health_bar")]
 script = ExtResource("2_g2els")
 hurt_sound = NodePath("../HurtAudio")
+health_bar = NodePath("../CanvasLayer/Control/ProgressBar")
 
 [node name="LaunchableComponent" parent="." unique_id=578453824 instance=ExtResource("4_dqkch")]
 
@@ -82,6 +87,26 @@ offset_left = -15.0
 offset_top = -30.0
 offset_right = 5.0
 offset_bottom = -7.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=258154915]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=448029681]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_smehm")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=502564163]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 24.0
+offset_right = 466.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/fill = SubResource("StyleBoxFlat_smehm")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_death"]
 [connection signal="finished" from="HurtAudio" to="HurtAudio" method="randomize_pitch"]
