@@ -32,11 +32,15 @@ func _physics_process(_delta: float) -> void:
 
 func on_death() -> void:
 	var item = item_scene.instantiate()
-	call_deferred("add_sibling", item)
-	item.global_position = global_position
+	
 	item.powder_flask = PowderAmount.new()
 	item.powder_flask.amount = rng.randi_range(minDropCount, maxDropCount)
 	item.powder_flask.powder = get_weighted_item()
+
+	if item.powder_flask.powder != null:
+		call_deferred("add_sibling", item)
+		item.global_position = global_position
+
 	firing_component.shotgun.queue_free()
 	queue_free()
 	

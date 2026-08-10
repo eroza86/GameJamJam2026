@@ -13,8 +13,7 @@ extends StaticBody2D
 var maxShellCapacity: int = 20
 
 func _ready() -> void:
-	# shellRes = Shell.new()
-	pass
+	shellRes = parent.shells[shellIndex]
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Particles"):

@@ -4,10 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dqfvifn5fnudl" path="res://scenes/refill_scene/bottle.tscn" id="2_qp78i"]
 [ext_resource type="Script" uid="uid://8s5qchk0uig4" path="res://resources/powder.gd" id="3_xkdpu"]
 [ext_resource type="PackedScene" uid="uid://ba70oc4hemmr1" path="res://scenes/stage.tscn" id="3_yodej"]
-[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="3_ytep6"]
 [ext_resource type="PackedScene" uid="uid://bter4y4x1bsab" path="res://scenes/ui.tscn" id="4_1y3xj"]
 [ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="4_y5nxo"]
-[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="4_ytep6"]
 [ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="5_y5nxo"]
 [ext_resource type="Resource" uid="uid://bmgckv33y8yx6" path="res://resources/lightning_powder.tres" id="6_hrwyk"]
 [ext_resource type="Resource" uid="uid://cw4l4ps5dwgch" path="res://resources/acid_powder.tres" id="7_fyfm3"]
@@ -19,18 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://d1phxy5t2fm4h" path="res://assets/bg2.png" id="14_qwn0x"]
 [ext_resource type="Texture2D" uid="uid://dq27kq7l0w5yy" path="res://assets/pour-diagram.png" id="17_comii"]
 [ext_resource type="Theme" uid="uid://bhb6w1si340s5" path="res://assets/default_theme.tres" id="18_bg27b"]
-
-[sub_resource type="Resource" id="Resource_y4r1p"]
-script = ExtResource("3_ytep6")
-metadata/_custom_type_script = "uid://cie1duhcybmbl"
-
-[sub_resource type="Resource" id="Resource_d2wvv"]
-script = ExtResource("3_ytep6")
-metadata/_custom_type_script = "uid://cie1duhcybmbl"
-
-[sub_resource type="Resource" id="Resource_3v2ag"]
-script = ExtResource("3_ytep6")
-metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
 size = Vector2(1154, 20)
@@ -50,7 +36,6 @@ associated_powders = Dictionary[String, ExtResource("3_xkdpu")]({
 "Lob": ExtResource("9_1eq23"),
 "Missile": ExtResource("10_u278u")
 })
-load_shells = Array[ExtResource("3_ytep6")]([SubResource("Resource_y4r1p"), SubResource("Resource_d2wvv"), SubResource("Resource_3v2ag")])
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1949979887]
 self_modulate = Color(1, 1, 1, 0.27058825)

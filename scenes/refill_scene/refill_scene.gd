@@ -7,7 +7,6 @@ extends Node2D
 @export var stage: PackedScene
 @export var associated_powders: Dictionary[String, Powder]
 @export var shells: Array[Shell] = [null, null, null]
-@export var load_shells: Array[Shell] = [null, null, null]
 var elements: Array[String] = [ "Fire", "Ice", "Acid", "Lightning", "Cloud", "Lob", "Missile" ] 
 
 
@@ -28,7 +27,10 @@ var SPEED: float = 10.0
 signal start_play_with(shells: Array[Shell])
 
 func _ready() -> void:
-	shells = load_shells
+	print(shells)
+	shells[0] = Shell.new()
+	shells[1] = Shell.new()
+	shells[2] = Shell.new()
 	if GlobalSaveHolder.save_game.check_and_use_backup():
 		powders = GlobalSaveHolder.save_game.powder_inventory
 	initialize_scene()
