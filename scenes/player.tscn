@@ -126,6 +126,7 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("9_y4r1p")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer" unique_id=28832155]
+modulate = Color(1, 1, 1, 0.3372549)
 layout_mode = 2
 texture = ExtResource("9_ur7pv")
 

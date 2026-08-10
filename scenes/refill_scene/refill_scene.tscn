@@ -16,16 +16,19 @@
 [ext_resource type="Resource" uid="uid://dhcmsn2movxjr" path="res://resources/missile_powder.tres" id="10_u278u"]
 [ext_resource type="PackedScene" uid="uid://18kkeqfyypd4" path="res://scenes/shell.tscn" id="12_1eq23"]
 [ext_resource type="AudioStream" uid="uid://daw34ijdac0kg" path="res://assets/click.wav" id="13_wbusq"]
+[ext_resource type="Texture2D" uid="uid://d1phxy5t2fm4h" path="res://assets/bg2.png" id="14_qwn0x"]
+[ext_resource type="Texture2D" uid="uid://dq27kq7l0w5yy" path="res://assets/pour-diagram.png" id="17_comii"]
+[ext_resource type="Theme" uid="uid://bhb6w1si340s5" path="res://assets/default_theme.tres" id="18_bg27b"]
 
-[sub_resource type="Resource" id="Resource_u278u"]
+[sub_resource type="Resource" id="Resource_y4r1p"]
 script = ExtResource("3_ytep6")
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
-[sub_resource type="Resource" id="Resource_gcwyq"]
+[sub_resource type="Resource" id="Resource_d2wvv"]
 script = ExtResource("3_ytep6")
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
-[sub_resource type="Resource" id="Resource_d2epk"]
+[sub_resource type="Resource" id="Resource_3v2ag"]
 script = ExtResource("3_ytep6")
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
@@ -47,7 +50,17 @@ associated_powders = Dictionary[String, ExtResource("3_xkdpu")]({
 "Lob": ExtResource("9_1eq23"),
 "Missile": ExtResource("10_u278u")
 })
-shells = Array[ExtResource("3_ytep6")]([SubResource("Resource_u278u"), SubResource("Resource_gcwyq"), SubResource("Resource_d2epk")])
+load_shells = Array[ExtResource("3_ytep6")]([SubResource("Resource_y4r1p"), SubResource("Resource_d2wvv"), SubResource("Resource_3v2ag")])
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1949979887]
+self_modulate = Color(1, 1, 1, 0.27058825)
+z_index = -1
+offset_right = 1156.0
+offset_bottom = 650.0
+offset_transform_visual_only = false
+mouse_filter = 2
+texture = ExtResource("14_qwn0x")
+stretch_mode = 1
 
 [node name="UI" parent="." unique_id=323746447 instance=ExtResource("4_1y3xj")]
 offset_left = 808.0
@@ -122,6 +135,53 @@ shellIndex = 2
 [node name="PickupBottle" type="AudioStreamPlayer2D" parent="." unique_id=570951289]
 stream = ExtResource("13_wbusq")
 volume_db = -11.05
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1195625801]
+offset_left = 470.99997
+offset_top = 9.999999
+offset_right = 971.0
+offset_bottom = 510.0
+scale = Vector2(0.4, 0.4)
+mouse_filter = 2
+theme = ExtResource("18_bg27b")
+texture = ExtResource("17_comii")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1600791693]
+layout_mode = 0
+offset_left = 272.50006
+offset_top = 382.5
+offset_right = 373.50006
+offset_bottom = 455.5
+theme_override_font_sizes/font_size = 64
+text = "HOLD 
+to drag"
+
+[node name="Label2" type="Label" parent="TextureRect" unique_id=2064128897]
+layout_mode = 0
+offset_left = 285.00006
+offset_top = 17.500002
+offset_right = 386.00006
+offset_bottom = 90.5
+theme_override_font_sizes/font_size = 64
+text = "A"
+
+[node name="Label3" type="Label" parent="TextureRect" unique_id=1663780085]
+layout_mode = 0
+offset_left = 440.00006
+offset_top = 32.5
+offset_right = 541.00006
+offset_bottom = 105.5
+theme_override_font_sizes/font_size = 64
+text = "D"
+
+[node name="Label4" type="Label" parent="TextureRect" unique_id=1625005449]
+layout_mode = 0
+offset_left = 512.50006
+offset_top = 90.0
+offset_right = 613.50006
+offset_bottom = 163.0
+theme_override_font_sizes/font_size = 64
+text = "to pour"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_go_pressed"]
