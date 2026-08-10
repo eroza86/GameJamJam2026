@@ -73,7 +73,8 @@ offset_bottom = 146.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_dwo6e")
 theme_override_font_sizes/font_size = 128
-text = "YOU FUCKING DIED"
+text = "YOU DIED"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1260225013]
 layout_mode = 1
