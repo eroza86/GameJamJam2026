@@ -125,16 +125,16 @@ grow_vertical = 0
 scale = Vector2(0.2, 0.2)
 script = ExtResource("9_y4r1p")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer" unique_id=28832155]
+[node name="Shell1" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer" unique_id=28832155]
 layout_mode = 2
 texture = ExtResource("9_ur7pv")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer" unique_id=1705374292]
+[node name="Shell2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer" unique_id=1705374292]
 self_modulate = Color(1, 1, 1, 0.3372549)
 layout_mode = 2
 texture = ExtResource("9_ur7pv")
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer" unique_id=1406652424]
+[node name="Shell3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer" unique_id=1406652424]
 self_modulate = Color(1, 1, 1, 0.3372549)
 layout_mode = 2
 texture = ExtResource("9_ur7pv")
