@@ -114,11 +114,11 @@ func physics_body_exit(body: Node):
 		launchables.erase(body)
 
 func add_powder_amount(_element: String, amount: float, augments: Array[float]) -> void:
-	damage *= (amount/4 + 1) * augments[0] * pow(0.99, amount - 1)
-	speed *= (amount/20 + 1) * augments[1] * pow(0.99, amount - 1)
-	kick *= amount/8 * augments[2] * pow(0.99, amount - 1)
-	set_size((amount/5 + 1) * augments[3] * pow(0.99, amount - 1)) 
-	cooldown *= 1 + augments[4] * pow(0.99, amount - 1)
+	damage *= (amount/4 + 1) * augments[0] * pow(0.985, amount - 1)
+	speed *= (amount/20 + 1) * augments[1] * pow(0.985, amount - 1)
+	kick *= amount/8 * augments[2] * pow(0.985, amount - 1)
+	set_size((amount/5 + 1) * augments[3] * pow(0.985, amount - 1)) 
+	cooldown *= 1 + augments[4] * pow(0.985, amount - 1)
 
 	bullet_health = int(amount)
 	#0.05 - 1.0
