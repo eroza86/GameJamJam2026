@@ -15,6 +15,10 @@ var num_base_powders = 0
 
 var projectiles: Array[Node] = []
 
+var shell_ui1
+var shell_ui2
+var shell_ui3
+
 func _ready() -> void:
 	cooldown_timer = Timer.new()
 	cooldown_timer.one_shot = true
@@ -96,10 +100,19 @@ func _physics_process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("first shell"):
 			current_shell = 0
+			target.shell1.self_modulate.a = 1
+			target.shell2.self_modulate.a = 0.337
+			target.shell3.self_modulate.a = 0.337
 		if Input.is_action_just_pressed("second shell"):
 			current_shell = 1
+			target.shell1.self_modulate.a = 0.337
+			target.shell2.self_modulate.a = 1
+			target.shell3.self_modulate.a = 0.337
 		if Input.is_action_just_pressed("third shell"):
 			current_shell = 2
+			target.shell1.self_modulate.a = 0.337
+			target.shell2.self_modulate.a = 0.337
+			target.shell3.self_modulate.a = 1
 
 	$Sprite2D.flip_v = false
 	if abs(int(rotation_degrees) % 360) < 270 and abs(int(rotation_degrees) % 360) > 90:

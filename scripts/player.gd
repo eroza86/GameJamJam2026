@@ -28,6 +28,10 @@ var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available :=  true
 
+@onready var shell1 = $CanvasLayer/Control/HBoxContainer/Shell1
+@onready var shell2 = $CanvasLayer/Control/HBoxContainer/Shell2
+@onready var shell3 = $CanvasLayer/Control/HBoxContainer/Shell3
+
 signal player_died
 
 func _ready() -> void:
