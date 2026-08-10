@@ -244,7 +244,6 @@ shape = SubResource("CapsuleShape2D_bosb8")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1809848720 node_paths=PackedStringArray("hurt_sound")]
 script = ExtResource("5_hh126")
-max_hp = 5
 hurt_sound = NodePath("../HurtAudio")
 metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 
