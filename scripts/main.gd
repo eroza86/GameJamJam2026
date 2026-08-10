@@ -30,3 +30,7 @@ func _on_debug_play_pressed() -> void:
 	var stage = stage_scene.instantiate()
 	add_child(stage)
 	$GlobalMusicPlayer.stop()
+
+
+func _on_menu_goto_settings() -> void:
+	pass # Replace with function body.

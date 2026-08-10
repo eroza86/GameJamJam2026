@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/shellcaster.mp3-8bdeea8a846fd188813fa7e5f0c3c
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
