@@ -6,11 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://b4piloqkbma6o" path="res://scenes/breakable_wall.tscn" id="9_8c41q"]
 [ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="9_t1rx8"]
 [ext_resource type="PackedScene" uid="uid://c803josqfnsik" path="res://resources/enemy.tscn" id="10_8iemx"]
+[ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="10_arp2o"]
 [ext_resource type="PackedScene" uid="uid://g53mao3q5tbe" path="res://scenes/dore.tscn" id="10_olg7q"]
 [ext_resource type="PackedScene" uid="uid://jc637s8q2wsw" path="res://resources/turret.tscn" id="11_64w2a"]
 [ext_resource type="PackedScene" uid="uid://cac307i0incho" path="res://scenes/lever.tscn" id="11_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://bwkyv4xdmlx77" path="res://scenes/bullets/fireball.tscn" id="11_ux5qa"]
 [ext_resource type="PackedScene" uid="uid://dm02lhp5a7l8k" path="res://scenes/increment_dore.tscn" id="12_8iemx"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="12_82cfe"]
 [ext_resource type="PackedScene" uid="uid://cyi67l06xvlcj" path="res://scenes/fog.tscn" id="13_64w2a"]
+[ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="13_gunhw"]
+[ext_resource type="PackedScene" uid="uid://b1n33bnhs7qws" path="res://scenes/bullets/lob_shot.tscn" id="15_ux5qa"]
+[ext_resource type="PackedScene" uid="uid://jx6ums4li3ep" path="res://scenes/bullets/icicle.tscn" id="16_8gofh"]
+[ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="16_556r4"]
+[ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="17_7agi7"]
+[ext_resource type="PackedScene" uid="uid://p55gf3p5gj68" path="res://scenes/bullets/bullet_component.tscn" id="18_82cfe"]
+[ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="18_kih21"]
+[ext_resource type="PackedScene" uid="uid://ckenseipk7a34" path="res://scenes/firing_component.tscn" id="20_w3o6u"]
+[ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="21_2e2fo"]
+[ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="22_gur6y"]
+[ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="23_v3why"]
+[ext_resource type="Texture2D" uid="uid://bf563br1qcgie" path="res://assets/tome.png" id="24_asl66"]
+[ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="25_2jdvr"]
+[ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="26_q4oe8"]
+[ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="28_7agi7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
 texture = ExtResource("3_mx8sn")
@@ -111,6 +129,388 @@ texture_region_size = Vector2i(100, 100)
 tile_size = Vector2i(500, 500)
 sources/3 = SubResource("TileSetAtlasSource_klq6b")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [3, Vector2i(0, 0)], [0, Vector2i(1, 0)], [3, Vector2i(1, 0)], [0, Vector2i(2, 0)], [3, Vector2i(2, 0)], [0, Vector2i(3, 0)], [3, Vector2i(3, 0)], [0, Vector2i(4, 0)], [3, Vector2i(4, 0)], [0, Vector2i(6, 0)], [3, Vector2i(6, 0)], [2, Vector2i(0, 0)], [3, Vector2i(7, 0)]]
+
+[sub_resource type="Resource" id="Resource_otn3d"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("11_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_2qxwh"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_otn3d")
+amount = 5
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_atta7"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_2qxwh")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_vmndo"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("11_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_tcyu4"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_vmndo")
+amount = 20
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_bhb1k"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_tcyu4")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_2jdvr"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_q4oe8"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_2jdvr")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_kih21"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_50fbu"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_kih21")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_0fmhk"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_iafhg"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_0fmhk")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_w3o6u"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_cr74b"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_w3o6u")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_2e2fo"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_uhfbm"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_2e2fo")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_lqb7q"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_q4oe8"), SubResource("Resource_50fbu"), SubResource("Resource_iafhg"), SubResource("Resource_cr74b"), SubResource("Resource_uhfbm")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_82cfe"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("15_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_ux5qa"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_82cfe")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_gunhw"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_82cfe")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_8gofh"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_82cfe")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_arp2o"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_ux5qa"), SubResource("Resource_gunhw"), SubResource("Resource_8gofh")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_svjb4"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_c1pbi"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_svjb4")
+amount = 10
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_535f6"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_c1pbi")])
+current_capacity = 10
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bosb8"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqkes"]
+atlas = ExtResource("24_asl66")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knikh"]
+atlas = ExtResource("24_asl66")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lud8b"]
+atlas = ExtResource("24_asl66")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f68b"]
+atlas = ExtResource("24_asl66")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etwnm"]
+atlas = ExtResource("24_asl66")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jtjr"]
+atlas = ExtResource("24_asl66")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx4h3"]
+atlas = ExtResource("24_asl66")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phvbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqkes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knikh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lud8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f68b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etwnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jtjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx4h3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_oksur"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("28_7agi7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_3fqns"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_oksur")
+amount = 2
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_jide8"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("28_7agi7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_sc620"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_jide8")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_4h8xp"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("28_7agi7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_421lv"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_4h8xp")
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_30hdq"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_3fqns"), SubResource("Resource_sc620"), SubResource("Resource_421lv")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_acvde"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_amthr"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_acvde")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_mj1tb"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_dm4tu"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_mj1tb")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_1pebt"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_amthr"), SubResource("Resource_dm4tu")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_ok3ci"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("15_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_7agi7"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_ok3ci")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_hv3ux"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("15_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_j4eoh"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_hv3ux")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_556r4"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_7agi7"), SubResource("Resource_j4eoh")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_asl66"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("28_7agi7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_v3why"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_asl66")
+amount = 10
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_gur6y"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_v3why")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_v4d4p"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("15_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_7iqcu"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_v4d4p")
+amount = 12
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_bo6tc"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_7iqcu")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Curve" id="Curve_ey2d6"]
+_data = [Vector2(0, 0.839779), 0.0, 0.0, 0, 0, Vector2(0.5450451, 0.6629834), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_l1nk1"]
+offsets = PackedFloat32Array(0.13875598, 0.43779904, 1)
+colors = PackedColorArray(1, 0.26666665, 0, 0.5254902, 1, 0.53333336, 0, 0.5254902, 0.65, 0.65, 0.65, 0)
+
+[sub_resource type="Curve" id="Curve_qhn8b"]
+_data = [Vector2(0, 0.18232042), 0.0, 1.1062726, 0, 0, Vector2(0.231982, 0.7292818), 3.9861906, 3.9861906, 0, 0, Vector2(0.5202703, 0.46408838), -1.4866904, -1.4866904, 0, 0, Vector2(1, 0), -1.582606, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_kkxlm"]
+offsets = PackedFloat32Array(0.114832535, 0.50717705, 0.81100476)
+colors = PackedColorArray(0.8199214, 0.5867364, 1.92523e-07, 1, 1, 0.31666666, 0, 0.9411765, 0.59717613, 0.59717613, 0.5971761, 0.5294118)
+
+[sub_resource type="Curve" id="Curve_3dbie"]
+_data = [Vector2(0, 0.6243094), 0.0, 0.0, 0, 0, Vector2(0.5405406, 0.8449198), 0.0, 0.0, 0, 0, Vector2(1, 0.35911602), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_xpoo6"]
+offsets = PackedFloat32Array(0.11244019, 0.39952153, 0.75119615, 0.96889955)
+colors = PackedColorArray(0.85, 0.74913335, 0.09350002, 0.6392157, 0.80664897, 0.24845234, 0, 0.8235294, 0.81, 0.032400016, 0.0453598, 0.63529414, 0.74, 0.74, 0.74, 0.42745098)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjqqg"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ey2d6"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4v3kp"]
+
+[sub_resource type="PackedScene" id="PackedScene_gunhw"]
+_bundled = {
+"conn_count": 5,
+"conns": PackedInt32Array(1073741834, 1073741833, 88, 87, 2, 0, 0, 1073741836, 1073741835, 90, 89, 2, 0, 0, 1073741838, 1073741837, 92, 91, 2, 0, 0, 1073741840, 1073741839, 94, 93, 2, 0, 0, 1073741842, 1073741841, 96, 95, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("Fireball", "RigidBody2D", "Bullet", "collision_layer", "collision_mask", "gravity_scale", "lock_rotation", "continuous_cd", "contact_monitor", "max_contacts_reported", "Trail", "CPUParticles2D", "amount", "lifetime", "preprocess", "emission_shape", "emission_sphere_radius", "spread", "gravity", "initial_velocity_min", "initial_velocity_max", "scale_amount_min", "scale_amount_max", "scale_amount_curve", "color_ramp", "Explosion", "CPUParticles2D", "emitting", "amount", "lifetime", "one_shot", "explosiveness", "local_coords", "emission_shape", "emission_sphere_radius", "spread", "gravity", "initial_velocity_min", "initial_velocity_max", "angular_velocity_max", "angle_max", "scale_amount_min", "scale_amount_max", "scale_amount_curve", "color_ramp", "BulletParticles", "CPUParticles2D", "amount", "lifetime", "preprocess", "local_coords", "spread", "gravity", "initial_velocity_min", "initial_velocity_max", "angle_max", "scale_amount_min", "scale_amount_max", "scale_amount_curve", "color_ramp", "BulletComponent", "speed", "kick", "cooldown", "explosion", "main_particles", "trail", "collider", "bullet_collision_area", "explosion_area", "CollisionShape2D", "CollisionShape2D", "shape", "Area2D", "Area2D", "collision_layer", "collision_mask", "CollisionShape2D", "CollisionShape2D", "shape", "ExplosionArea", "Area2D", "collision_layer", "collision_mask", "CollisionShape2D", "CollisionShape2D", "shape", "_collide", "body_entered", "_dead", "finished", "bullet_clash", "body_entered", "physics_body_enter", "body_entered", "physics_body_exit", "body_exited"),
+"node_count": 10,
+"node_ids": PackedInt32Array(2092640543, 2117564453, 805111044, 1837293441, 279700306, 267663067, 608919384, 1489007346, 851372238, 1454974686),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./Area2D"), NodePath("."), NodePath("./ExplosionArea"), NodePath("BulletComponent"), NodePath("."), NodePath("BulletComponent"), NodePath("Explosion"), NodePath("BulletComponent"), NodePath("Area2D"), NodePath("BulletComponent"), NodePath("ExplosionArea"), NodePath("BulletComponent"), NodePath("ExplosionArea")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 7, 3, 0, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 1, 2, 1073741824, 0, 11, 10, -1, 13, 12, 7, 13, 8, 14, 9, 15, 10, 16, 11, 17, 12, 18, 13, 19, 14, 20, 15, 21, 16, 22, 17, 23, 18, 24, 19, 0, 1073741825, 0, 26, 25, -1, 18, 27, 20, 28, 21, 29, 22, 30, 23, 31, 24, 32, 25, 33, 26, 34, 27, 35, 28, 36, 29, 37, 30, 38, 31, 39, 32, 40, 33, 41, 34, 42, 35, 43, 36, 44, 37, 0, 1073741826, 0, 46, 45, -1, 13, 47, 38, 48, 39, 49, 40, 50, 41, 51, 42, 52, 43, 53, 44, 54, 45, 55, 46, 56, 47, 57, 48, 58, 49, 59, 50, 0, 1073741827, 0, 2147483647, 60, 51, 9, 61, 52, 62, 53, 63, 54, 1073741888, 55, 1073741889, 56, 1073741890, 57, 1073741891, 58, 1073741892, 59, 1073741893, 60, 0, 1073741828, 0, 71, 70, -1, 1, 72, 61, 0, 1073741829, 0, 74, 73, -1, 2, 75, 62, 76, 63, 0, 1073741830, 0, 78, 77, -1, 1, 79, 64, 0, 1073741831, 0, 81, 80, -1, 2, 82, 65, 83, 66, 0, 1073741832, 0, 85, 84, -1, 1, 86, 67, 0),
+"variants": [4, 3, 0.0, true, 2, true, 5, 45, 0.35000000000000003, 1.0, 1, 1.0, 180.0, Vector2(0, 9), 1.2, 2.4, 1.2, 1.75, SubResource("Curve_ey2d6"), SubResource("Gradient_l1nk1"), false, 25, 0.5, true, 0.74, true, 1, 1.0, 180.0, Vector2(0, 0), 20.0, 30.0, 80.0, 720.0, 4.0, 10.0, SubResource("Curve_qhn8b"), SubResource("Gradient_kkxlm"), 15, 0.5, 1.0, true, 180.0, Vector2(0, 0), 2.0, 4.0, 720.0, 3.5, 5.0, SubResource("Curve_3dbie"), SubResource("Gradient_xpoo6"), ExtResource("18_82cfe"), 125.0, 150.0, 0.25, NodePath("../Explosion"), NodePath("../BulletParticles"), NodePath("../Trail"), NodePath("../CollisionShape2D"), NodePath("../Area2D"), NodePath("../ExplosionArea"), SubResource("CircleShape2D_gjqqg"), 0, 4, SubResource("CircleShape2D_ey2d6"), 7, 7, SubResource("CircleShape2D_4v3kp")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_h6wmr"]
+script = ExtResource("12_82cfe")
+bullet = SubResource("PackedScene_gunhw")
+name = "Fire"
+color = Color(0.69632334, 0.19868496, 0.05023171, 1)
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_pqd0y"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_h6wmr")
+amount = 10
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_5k0ak"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_pqd0y")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [node name="Level" type="Node2D" unique_id=1148501230]
 
@@ -558,15 +958,24 @@ position = Vector2(734, -241)
 
 [node name="EnemyWizard" parent="enemies" unique_id=656613126 instance=ExtResource("9_t1rx8")]
 position = Vector2(315, -133)
+shell = SubResource("Resource_atta7")
 
 [node name="EnemyWizard3" parent="enemies" unique_id=1206447750 instance=ExtResource("9_t1rx8")]
 position = Vector2(74, -1213)
+shell = SubResource("Resource_bhb1k")
 
 [node name="EnemyWizard4" parent="enemies" unique_id=1000838551 instance=ExtResource("9_t1rx8")]
 position = Vector2(194, -1123)
+shell = SubResource("Resource_lqb7q")
+
+[node name="AnimatedSprite2D" parent="enemies/EnemyWizard4" index="6" unique_id=198040784]
+animation = &"ice"
 
 [node name="EnemyWizard2" parent="enemies" unique_id=502228543 instance=ExtResource("9_t1rx8")]
 position = Vector2(445, -554)
+
+[node name="AnimatedSprite2D" parent="enemies/EnemyWizard2" index="6" unique_id=198040784]
+animation = &"lightning"
 
 [node name="EnemyWizard5" parent="enemies" unique_id=570898853 instance=ExtResource("9_t1rx8")]
 position = Vector2(1090, -793)
@@ -603,6 +1012,7 @@ position = Vector2(1215, -2202)
 
 [node name="FlyingTome" parent="enemies" unique_id=110832388 instance=ExtResource("10_8iemx")]
 position = Vector2(272, -357)
+shell = SubResource("Resource_arp2o")
 
 [node name="FlyingTome7" parent="enemies" unique_id=1222502025 instance=ExtResource("10_8iemx")]
 position = Vector2(1047, -993)
@@ -622,11 +1032,58 @@ position = Vector2(682, -2141)
 [node name="FlyingTome12" parent="enemies" unique_id=687828203 instance=ExtResource("10_8iemx")]
 position = Vector2(412, -2134)
 
-[node name="FlyingTome2" parent="enemies" unique_id=545329078 instance=ExtResource("10_8iemx")]
+[node name="FlyingTome2" type="CharacterBody2D" parent="enemies" unique_id=545329078 node_paths=PackedStringArray("health_component", "movement_component", "firing_component")]
 position = Vector2(147, -772)
+script = ExtResource("16_556r4")
+health_component = NodePath("HealthComponent")
+movement_component = NodePath("MovementComponent")
+firing_component = NodePath("FiringComponent")
+item_scene = ExtResource("17_7agi7")
+shotgun_scene = ExtResource("18_kih21")
+shell = SubResource("Resource_535f6")
+
+[node name="Line2D" type="Line2D" parent="enemies/FlyingTome2" unique_id=867128478]
+visible = false
+points = PackedVector2Array(0, 0, 0, 6)
+default_color = Color(1, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/FlyingTome2" unique_id=1241338940]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_bosb8")
+
+[node name="FiringComponent" parent="enemies/FlyingTome2" unique_id=251753494 instance=ExtResource("20_w3o6u")]
+scale = Vector2(0.65, 0.65)
+
+[node name="HealthComponent" type="Node" parent="enemies/FlyingTome2" unique_id=2020781222 node_paths=PackedStringArray("hurt_sound")]
+script = ExtResource("21_2e2fo")
+max_hp = 6
+hurt_sound = NodePath("../HurtAudio")
+metadata/_custom_type_script = "uid://bymqxq3huhmw7"
+
+[node name="MovementComponent" type="Node2D" parent="enemies/FlyingTome2" unique_id=1667526438]
+script = ExtResource("22_gur6y")
+
+[node name="LaunchableComponent" parent="enemies/FlyingTome2" unique_id=578453824 instance=ExtResource("23_v3why")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemies/FlyingTome2" unique_id=115759778]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_phvbs")
+autoplay = "default"
+frame_progress = 0.91819465
+
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="enemies/FlyingTome2" unique_id=1692119306]
+stream = ExtResource("25_2jdvr")
+volume_db = -12.409
+bus = &"SFX"
+script = ExtResource("26_q4oe8")
+pitch_difference = 0.15
 
 [node name="FlyingTome4" parent="enemies" unique_id=1598734003 instance=ExtResource("10_8iemx")]
 position = Vector2(478, -1281)
+shell = SubResource("Resource_30hdq")
 
 [node name="FlyingTome5" parent="enemies" unique_id=1761982213 instance=ExtResource("10_8iemx")]
 position = Vector2(766, -844)
@@ -639,18 +1096,29 @@ position = Vector2(116, -1060)
 
 [node name="Turret" parent="enemies" unique_id=254330752 instance=ExtResource("11_64w2a")]
 position = Vector2(482, -57)
+shell = SubResource("Resource_1pebt")
 
 [node name="Turret3" parent="enemies" unique_id=1334659373 instance=ExtResource("11_64w2a")]
 position = Vector2(210, -1061)
+shell = SubResource("Resource_556r4")
 
 [node name="Turret4" parent="enemies" unique_id=507815199 instance=ExtResource("11_64w2a")]
 position = Vector2(291, -1061)
+shell = SubResource("Resource_gur6y")
+
+[node name="AnimatedSprite2D" parent="enemies/Turret4" index="4" unique_id=242111160]
+animation = &"fire"
 
 [node name="Turret5" parent="enemies" unique_id=886685308 instance=ExtResource("11_64w2a")]
 position = Vector2(290, -1280)
+shell = SubResource("Resource_bo6tc")
 
 [node name="Turret6" parent="enemies" unique_id=1881193019 instance=ExtResource("11_64w2a")]
 position = Vector2(742, -485)
+shell = SubResource("Resource_5k0ak")
+
+[node name="AnimatedSprite2D" parent="enemies/Turret6" index="4" unique_id=242111160]
+animation = &"fire"
 
 [node name="Turret7" parent="enemies" unique_id=1692849348 instance=ExtResource("11_64w2a")]
 position = Vector2(1220, -815)
@@ -682,6 +1150,10 @@ position = Vector2(299, -2123)
 [node name="Turret2" parent="enemies" unique_id=1892336958 instance=ExtResource("11_64w2a")]
 position = Vector2(457, -472)
 
+[node name="AnimatedSprite2D" parent="enemies/Turret2" index="4" unique_id=242111160]
+animation = &"ice"
+autoplay = "ice"
+
 [connection signal="broken" from="BreakableWall" to="Fog" method="fade_out"]
 [connection signal="broken" from="BreakableWall2" to="Fog2" method="fade_out"]
 [connection signal="broken" from="BreakableWall3" to="Fog5" method="fade_out"]
@@ -705,3 +1177,13 @@ position = Vector2(457, -472)
 [connection signal="off" from="Lever5" to="Fog10" method="fade_in"]
 [connection signal="on" from="Lever5" to="Dore2" method="open"]
 [connection signal="on" from="Lever5" to="Fog10" method="fade_out"]
+[connection signal="died" from="enemies/FlyingTome2/HealthComponent" to="enemies/FlyingTome2" method="on_death"]
+[connection signal="finished" from="enemies/FlyingTome2/HurtAudio" to="enemies/FlyingTome2/HurtAudio" method="randomize_pitch"]
+
+[editable path="enemies/EnemyWizard4"]
+[editable path="enemies/EnemyWizard2"]
+[editable path="enemies/Turret"]
+[editable path="enemies/Turret3"]
+[editable path="enemies/Turret4"]
+[editable path="enemies/Turret6"]
+[editable path="enemies/Turret2"]

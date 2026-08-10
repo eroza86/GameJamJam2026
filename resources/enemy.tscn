@@ -109,9 +109,11 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_bosb8")
 
 [node name="FiringComponent" parent="." unique_id=251753494 instance=ExtResource("2_lum5s")]
+scale = Vector2(0.65, 0.65)
 
 [node name="HealthComponent" type="Node" parent="." unique_id=2020781222 node_paths=PackedStringArray("hurt_sound")]
 script = ExtResource("3_r78bl")
+max_hp = 6
 hurt_sound = NodePath("../HurtAudio")
 metadata/_custom_type_script = "uid://bymqxq3huhmw7"
 
