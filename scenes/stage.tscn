@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://pnbhp234cws4" path="res://scenes/player.tscn" id="1_gi7kc"]
 [ext_resource type="Script" uid="uid://cae6tvhvf0xge" path="res://scripts/stage.gd" id="1_yd2gm"]
 [ext_resource type="PackedScene" uid="uid://su4jevp6prbu" path="res://scenes/death_screen.tscn" id="2_0hg5s"]
-[ext_resource type="PackedScene" uid="uid://dm1tpa3p2mvfp" path="res://scenes/transition_layer.tscn" id="3_jl6nj"]
 [ext_resource type="Script" uid="uid://dn4k3s1lknvao" path="res://scripts/main_camera.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="6_0hg5s"]
@@ -20,8 +19,6 @@ metadata/_custom_type_script = "uid://cie1duhcybmbl"
 [node name="Stage" type="Node2D" unique_id=1046058173]
 script = ExtResource("1_yd2gm")
 death_scene = ExtResource("2_0hg5s")
-
-[node name="TransitionLayer" parent="." unique_id=1348900820 instance=ExtResource("3_jl6nj")]
 
 [node name="Player" parent="." unique_id=67252580 instance=ExtResource("1_gi7kc")]
 position = Vector2(0, -35)

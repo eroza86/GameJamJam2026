@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://ba70oc4hemmr1" path="res://scenes/stage.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cxj3pjy8evpd6" path="res://scenes/refill_scene/refill_scene.tscn" id="3_tbgi4"]
 [ext_resource type="FontFile" uid="uid://c7nadm678a654" path="res://assets/OldeEnglish.ttf" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dm1tpa3p2mvfp" path="res://scenes/transition_layer.tscn" id="6_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://cd8kspkejoyje" path="res://assets/menuSong.wav" id="6_tefeu"]
 
 [node name="Main" type="Node" unique_id=1860395890]
@@ -61,8 +60,6 @@ custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Go to stage"
-
-[node name="TransitionLayer" parent="." unique_id=1348900820 instance=ExtResource("6_o6xl0")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1610896727]
 stream = ExtResource("6_tefeu")

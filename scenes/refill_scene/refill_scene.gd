@@ -8,7 +8,6 @@ extends Node2D
 @export var associated_powders: Dictionary[String, Powder]
 @export var shells: Array[Shell] = [null, null, null]
 var elements: Array[String] = [ "Fire", "Ice", "Acid", "Lightning", "Cloud", "Lob", "Missile" ] 
-@onready var transition: AnimationPlayer = $TransitionLayer/AnimationPlayer
 
 @onready var markers: Array[Marker2D] = [
 	$"FlaskSpawnMarkers/1", 
@@ -27,7 +26,6 @@ var SPEED: float = 10.0
 signal start_play_with(shells: Array[Shell])
 
 func _ready() -> void:
-	transition.play("fade_in")
 	initialize_scene()
 	
 
