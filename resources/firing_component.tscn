@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bwtkv1fu7o4g1" path="res://scripts/firing_component.gd" id="1_l7wfq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_phvbs"]
-radius = 240.46829
+radius = 171.0263
 
 [node name="FiringComponent" type="Node2D" unique_id=251753494]
 script = ExtResource("1_l7wfq")

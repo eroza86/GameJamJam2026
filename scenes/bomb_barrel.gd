@@ -9,7 +9,7 @@ var exploded: bool = false
 
 func _ready() -> void:
 	explode_timer = Timer.new()
-	explode_timer.wait_time = randf_range(0.2, 0.65)
+	explode_timer.wait_time = randf_range(0.1, 0.65)
 	explode_timer.one_shot = true
 	explode_timer.timeout.connect(explode)
 	add_child(explode_timer)
