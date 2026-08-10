@@ -82,7 +82,7 @@ func explode() -> void:
 		else:
 			launch_vector.y = -abs(launch_vector.y)
 		if object is CharacterBody2D:
-			object.velocity += launch_vector * kick / 50
+			object.velocity += launch_vector * kick / 350
 			continue
 		if object is RigidBody2D:
 			object.apply_impulse(launch_vector / 2, object.global_position)
