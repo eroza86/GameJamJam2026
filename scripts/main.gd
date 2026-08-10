@@ -3,6 +3,10 @@ extends Node
 @export var menu_scene: PackedScene
 @export var stage_scene: PackedScene
 @export var refill_scene: PackedScene
+@onready var menuMusic: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+func _ready() -> void:
+	menuMusic.play()
 
 func _on_play_pressed() -> void:
 	$Menu.queue_free()
