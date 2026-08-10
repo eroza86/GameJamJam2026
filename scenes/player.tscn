@@ -63,6 +63,7 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1158797871 node_paths=PackedStringArray("hurt_sound", "health_bar")]
 script = ExtResource("2_g2els")
+max_hp = 20
 hurt_sound = NodePath("../HurtAudio")
 health_bar = NodePath("../CanvasLayer/Control/ProgressBar")
 

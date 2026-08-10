@@ -7,14 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="5_5uotl"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="6_v5fqj"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="7_5wuo2"]
+[ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="8_cgvfh"]
 [ext_resource type="PackedScene" uid="uid://bd1e57ye01t4e" path="res://resources/firing_component.tscn" id="8_ps1c5"]
+[ext_resource type="Resource" uid="uid://bmgckv33y8yx6" path="res://resources/lightning_powder.tres" id="9_5fcnb"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="9_fut6b"]
+[ext_resource type="Resource" uid="uid://dhcmsn2movxjr" path="res://resources/missile_powder.tres" id="10_20cg2"]
 [ext_resource type="PackedScene" uid="uid://dkkrtr7lbu6lm" path="res://scenes/LaunchableComponent.tscn" id="11_bl4bq"]
 [ext_resource type="Script" uid="uid://o4kfgei3xsq2" path="res://resources/enemy_wizard_movement.gd" id="11_bnofu"]
+[ext_resource type="Resource" uid="uid://blyrpvk5v5cuy" path="res://resources/lob_powder.tres" id="11_l6bs8"]
 [ext_resource type="Texture2D" uid="uid://bhaahdhk6xqsv" path="res://assets/atf_fire.png" id="12_awfgp"]
+[ext_resource type="Resource" uid="uid://4pjgy3qibvc4" path="res://resources/cloud_powder.tres" id="12_uedxi"]
+[ext_resource type="Resource" uid="uid://cw4l4ps5dwgch" path="res://resources/acid_powder.tres" id="13_0mglm"]
 [ext_resource type="Texture2D" uid="uid://cxo6vw30fouk7" path="res://assets/atf_ice.png" id="13_e836b"]
 [ext_resource type="Texture2D" uid="uid://rycofqs7alrk" path="res://assets/atf_acid.png" id="14_2rlql"]
 [ext_resource type="Texture2D" uid="uid://beqvgfyyyvdcg" path="res://assets/atf_lightning.png" id="14_5uotl"]
+[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="14_ncnub"]
 [ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="16_ps1c5"]
 [ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="17_fut6b"]
 [ext_resource type="AudioStream" uid="uid://xkgco33t3nsd" path="res://assets/jump.wav" id="18_hf7b6"]
@@ -126,6 +133,7 @@ firing_component = NodePath("FiringComponent")
 item_scene = ExtResource("2_awfgp")
 shotgun_scene = ExtResource("3_e836b")
 shell = SubResource("Resource_tefeu")
+powders = Array[ExtResource("6_v5fqj")]([ExtResource("8_cgvfh"), ExtResource("9_5fcnb"), ExtResource("10_20cg2"), ExtResource("11_l6bs8"), ExtResource("12_uedxi"), ExtResource("13_0mglm"), ExtResource("14_ncnub")])
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 visible = false

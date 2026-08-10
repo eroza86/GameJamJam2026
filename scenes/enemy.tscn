@@ -10,6 +10,13 @@
 [ext_resource type="Script" uid="uid://cd1jwcxxfwa0v" path="res://scripts/default_enemy_movement.gd" id="4_r78bl"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="5_17l45"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="5_spyv3"]
+[ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="8_shcg2"]
+[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="9_ile5s"]
+[ext_resource type="Resource" uid="uid://bmgckv33y8yx6" path="res://resources/lightning_powder.tres" id="10_1x4g4"]
+[ext_resource type="Resource" uid="uid://cw4l4ps5dwgch" path="res://resources/acid_powder.tres" id="11_2pwtc"]
+[ext_resource type="Resource" uid="uid://4pjgy3qibvc4" path="res://resources/cloud_powder.tres" id="12_rogs8"]
+[ext_resource type="Resource" uid="uid://blyrpvk5v5cuy" path="res://resources/lob_powder.tres" id="13_wrm80"]
+[ext_resource type="Resource" uid="uid://dhcmsn2movxjr" path="res://resources/missile_powder.tres" id="14_6awcb"]
 
 [sub_resource type="Resource" id="Resource_y16rc"]
 script = ExtResource("5_spyv3")
@@ -39,6 +46,8 @@ firing_component = NodePath("FiringComponent")
 item_scene = ExtResource("2_17l45")
 shotgun_scene = ExtResource("2_7tskh")
 shell = SubResource("Resource_tefeu")
+minDropCount = 1
+powders = Array[ExtResource("5_spyv3")]([ExtResource("8_shcg2"), ExtResource("9_ile5s"), ExtResource("10_1x4g4"), ExtResource("11_2pwtc"), ExtResource("12_rogs8"), ExtResource("13_wrm80"), ExtResource("14_6awcb")])
 
 [node name="Line2D" type="Line2D" parent="." unique_id=867128478]
 points = PackedVector2Array(0, 0, 0, 6)

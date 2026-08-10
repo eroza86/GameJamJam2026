@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 @export var minDropCount: int = 0
 @export var maxDropCount: int = 4
-var powderNames: Array[String] = ["Fire", "Ice", "Acid", "Lightning", "Cloud", "Lob", "Missile" ]
+@export var powders: Array[BasePowder]  
 var weights: PackedFloat32Array = [50.0, 50.0, 40.0, 40.0, 30.0, 20.0, 20.0]
 
 var rng = RandomNumberGenerator.new()
@@ -36,14 +36,13 @@ func on_death() -> void:
 	item.global_position = global_position
 	item.powder_flask = PowderAmount.new()
 	item.powder_flask.amount = rng.randi_range(minDropCount, maxDropCount)
-	item.powder_flask.powder = Powder.new()
-	item.powder_flask.powder.name = get_weighted_item()
+	item.powder_flask.powder = get_weighted_item()
 	firing_component.shotgun.queue_free()
 	queue_free()
 	
-func get_weighted_item() -> String:
+func get_weighted_item() -> Powder:
 	var index = rng.rand_weighted(weights)
-	return powderNames[index]
+	return powders[index]
 
 
 
