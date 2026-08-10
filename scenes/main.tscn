@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ba70oc4hemmr1" path="res://scenes/stage.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cxj3pjy8evpd6" path="res://scenes/refill_scene/refill_scene.tscn" id="3_tbgi4"]
 [ext_resource type="FontFile" uid="uid://c7nadm678a654" path="res://assets/OldeEnglish.ttf" id="5_tbgi4"]
-[ext_resource type="AudioStream" path="res://assets/menuSong.wav" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://ddtucet5aeg85" path="res://assets/menuSong.wav" id="6_tefeu"]
 
 [node name="Main" type="Node" unique_id=1860395890]
 script = ExtResource("1_0wfyh")
