@@ -64,7 +64,8 @@ func shoot_shell() -> void:
 
 			bullet_data.add_powder_amount(powder.name, amount, mod_powder_augment)
 			bullet_data.bullet_owner = target
-			bullet_instance.add_collision_exception_with(target)
+			if bullet_instance is RigidBody2D:
+				bullet_instance.add_collision_exception_with(target)
 			bullet_data.shotgun = self
 			cooldown_time += bullet_data.cooldown
 			mod_powder_augment = [1, 1, 1, 1, 1]

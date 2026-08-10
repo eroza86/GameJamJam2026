@@ -119,12 +119,16 @@ shape = SubResource("CircleShape2D_3lt2i")
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=207605761]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2" unique_id=492419207]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_3lt2i")
 
 [node name="Area2D3" type="Area2D" parent="." unique_id=256588513]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=425641156]
 shape = SubResource("CircleShape2D_nvgch")
