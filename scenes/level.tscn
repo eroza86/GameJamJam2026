@@ -18,8 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://b1n33bnhs7qws" path="res://scenes/bullets/lob_shot.tscn" id="15_ux5qa"]
 [ext_resource type="PackedScene" uid="uid://jx6ums4li3ep" path="res://scenes/bullets/icicle.tscn" id="16_8gofh"]
 [ext_resource type="Script" uid="uid://ceiqyjs1u1wmq" path="res://scripts/enemy.gd" id="16_556r4"]
+[ext_resource type="Resource" uid="uid://cw4l4ps5dwgch" path="res://resources/acid_powder.tres" id="16_kih21"]
 [ext_resource type="PackedScene" uid="uid://0yd7w8qenv1o" path="res://scenes/item_pickup.tscn" id="17_7agi7"]
 [ext_resource type="PackedScene" uid="uid://p55gf3p5gj68" path="res://scenes/bullets/bullet_component.tscn" id="18_82cfe"]
+[ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="18_gur6y"]
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="18_kih21"]
 [ext_resource type="PackedScene" uid="uid://ckenseipk7a34" path="res://scenes/firing_component.tscn" id="20_w3o6u"]
 [ext_resource type="Script" uid="uid://bymqxq3huhmw7" path="res://scripts/health_component.gd" id="21_2e2fo"]
@@ -29,6 +31,8 @@
 [ext_resource type="AudioStream" uid="uid://8k55tje8gv5g" path="res://assets/explosion.wav" id="25_2jdvr"]
 [ext_resource type="Script" uid="uid://cerxm3owl4g6a" path="res://scripts/pitch_player.gd" id="26_q4oe8"]
 [ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="28_7agi7"]
+[ext_resource type="Resource" uid="uid://blyrpvk5v5cuy" path="res://resources/lob_powder.tres" id="31_2e2fo"]
+[ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="32_gur6y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
 texture = ExtResource("3_mx8sn")
@@ -222,6 +226,239 @@ script = ExtResource("13_gunhw")
 powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_q4oe8"), SubResource("Resource_50fbu"), SubResource("Resource_iafhg"), SubResource("Resource_cr74b"), SubResource("Resource_uhfbm")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
+[sub_resource type="Resource" id="Resource_nj2gj"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("11_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_5ga6x"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_nj2gj")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_xmwm8"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_msn66"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_xmwm8")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_ql8jr"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_5ga6x"), SubResource("Resource_msn66")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_p1qlp"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("15_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_iobf8"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_p1qlp")
+amount = 2
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_bdomq"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("15_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_1sbqr"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_bdomq")
+amount = 2
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_ebg7i"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_iobf8"), SubResource("Resource_1sbqr")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_4a5sc"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("16_kih21")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_w33q4"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("16_kih21")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_s2ybf"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("16_kih21")
+amount = 10
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_xrpag"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_4a5sc"), SubResource("Resource_w33q4"), SubResource("Resource_s2ybf")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_sy37w"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("15_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_f55ft"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_sy37w")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_ovgnb"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("28_7agi7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_kwu62"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_ovgnb")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_y73rr"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("11_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_i7b3e"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_y73rr")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_vfkgb"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_1ep04"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_vfkgb")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_236yy"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_f55ft"), SubResource("Resource_kwu62"), SubResource("Resource_i7b3e"), SubResource("Resource_1ep04")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_0g86u"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("18_gur6y")
+amount = 5
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_y2y7i"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("18_gur6y")
+amount = 5
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_iri6o"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("16_kih21")
+amount = 10
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_appgx"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_0g86u"), SubResource("Resource_y2y7i"), SubResource("Resource_iri6o")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_pmw43"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("31_2e2fo")
+amount = 6
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_d3p7y"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("31_2e2fo")
+amount = 6
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_plen7"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("31_2e2fo")
+amount = 6
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_epb10"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("31_2e2fo")
+amount = 6
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_5ikxq"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("31_2e2fo")
+amount = 6
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_albe2"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_pmw43"), SubResource("Resource_d3p7y"), SubResource("Resource_plen7"), SubResource("Resource_epb10"), SubResource("Resource_5ikxq")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_idnaj"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("11_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_u0n8q"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_idnaj")
+amount = 20
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_vwqyp"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("28_7agi7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_d5irf"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_vwqyp")
+amount = 20
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_smfc2"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_ltwek"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_smfc2")
+amount = 20
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_s1acf"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("15_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_vry8j"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_s1acf")
+amount = 20
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_jydfl"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_u0n8q"), SubResource("Resource_d5irf"), SubResource("Resource_ltwek"), SubResource("Resource_vry8j")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
 [sub_resource type="Resource" id="Resource_82cfe"]
 script = ExtResource("12_82cfe")
 bullet = ExtResource("15_ux5qa")
@@ -245,6 +482,44 @@ metadata/_custom_type_script = "uid://drxdkdot864up"
 [sub_resource type="Resource" id="Resource_arp2o"]
 script = ExtResource("13_gunhw")
 powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_ux5qa"), SubResource("Resource_gunhw"), SubResource("Resource_8gofh")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_tvrmj"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_ty36l"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_tvrmj")
+amount = 10
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_7ujeh"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_speit"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_7ujeh")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_5bunc"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("16_8gofh")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_wb1uj"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_5bunc")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_kbk4x"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_ty36l"), SubResource("Resource_speit"), SubResource("Resource_wb1uj")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [sub_resource type="Resource" id="Resource_svjb4"]
@@ -510,6 +785,95 @@ metadata/_custom_type_script = "uid://drxdkdot864up"
 [sub_resource type="Resource" id="Resource_5k0ak"]
 script = ExtResource("13_gunhw")
 powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_pqd0y")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_iij8i"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("11_ux5qa")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_om2me"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_iij8i")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_7kuto"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("28_7agi7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_4qdnu"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_7kuto")
+amount = 2
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_clbla"]
+script = ExtResource("12_82cfe")
+bullet = ExtResource("28_7agi7")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_k1glb"]
+script = ExtResource("10_arp2o")
+powder = SubResource("Resource_clbla")
+amount = 2
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_u5upv"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_om2me"), SubResource("Resource_4qdnu"), SubResource("Resource_k1glb")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_nfwxq"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("31_2e2fo")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_jptc6"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("31_2e2fo")
+amount = 3
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_5fap2"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("32_gur6y")
+amount = 8
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_dk6qd"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_nfwxq"), SubResource("Resource_jptc6"), SubResource("Resource_5fap2")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_hgjl6"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("32_gur6y")
+amount = 7
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_fkalo"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("18_gur6y")
+amount = 7
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_1d5u2"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_hgjl6"), SubResource("Resource_fkalo")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_cv87a"]
+script = ExtResource("10_arp2o")
+powder = ExtResource("32_gur6y")
+amount = 20
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_sr7al"]
+script = ExtResource("13_gunhw")
+powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_cv87a")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
 [node name="Level" type="Node2D" unique_id=1148501230]
@@ -970,33 +1334,61 @@ shell = SubResource("Resource_lqb7q")
 
 [node name="AnimatedSprite2D" parent="enemies/EnemyWizard4" index="6" unique_id=198040784]
 animation = &"ice"
+autoplay = "ice"
 
 [node name="EnemyWizard2" parent="enemies" unique_id=502228543 instance=ExtResource("9_t1rx8")]
 position = Vector2(445, -554)
 
 [node name="AnimatedSprite2D" parent="enemies/EnemyWizard2" index="6" unique_id=198040784]
 animation = &"lightning"
+autoplay = "lightning"
 
 [node name="EnemyWizard5" parent="enemies" unique_id=570898853 instance=ExtResource("9_t1rx8")]
 position = Vector2(1090, -793)
+shell = SubResource("Resource_ql8jr")
+
+[node name="AnimatedSprite2D" parent="enemies/EnemyWizard5" index="6" unique_id=198040784]
+animation = &"lightning"
+autoplay = "lightning"
 
 [node name="EnemyWizard6" parent="enemies" unique_id=1817398299 instance=ExtResource("9_t1rx8")]
 position = Vector2(1344, -796)
+shell = SubResource("Resource_ebg7i")
+
+[node name="AnimatedSprite2D" parent="enemies/EnemyWizard6" index="6" unique_id=198040784]
+animation = &"ice"
+autoplay = "ice"
 
 [node name="EnemyWizard7" parent="enemies" unique_id=1162300290 instance=ExtResource("9_t1rx8")]
 position = Vector2(846, -1114)
+shell = SubResource("Resource_xrpag")
+
+[node name="AnimatedSprite2D" parent="enemies/EnemyWizard7" index="6" unique_id=198040784]
+animation = &"ice"
+autoplay = "ice"
 
 [node name="EnemyWizard8" parent="enemies" unique_id=10239891 instance=ExtResource("9_t1rx8")]
 position = Vector2(1169, -1272)
+shell = SubResource("Resource_236yy")
 
 [node name="EnemyWizard9" parent="enemies" unique_id=1639842304 instance=ExtResource("9_t1rx8")]
 position = Vector2(1301, -1613)
 
+[node name="AnimatedSprite2D" parent="enemies/EnemyWizard9" index="6" unique_id=198040784]
+animation = &"lightning"
+autoplay = "lightning"
+
 [node name="EnemyWizard10" parent="enemies" unique_id=1448315458 instance=ExtResource("9_t1rx8")]
 position = Vector2(643, -1562)
+shell = SubResource("Resource_appgx")
+
+[node name="AnimatedSprite2D" parent="enemies/EnemyWizard10" index="6" unique_id=198040784]
+animation = &"ice"
+autoplay = "ice"
 
 [node name="EnemyWizard11" parent="enemies" unique_id=718920863 instance=ExtResource("9_t1rx8")]
 position = Vector2(779, -1733)
+shell = SubResource("Resource_albe2")
 
 [node name="EnemyWizard12" parent="enemies" unique_id=8171441 instance=ExtResource("9_t1rx8")]
 position = Vector2(1043, -2003)
@@ -1007,6 +1399,14 @@ position = Vector2(842, -2144)
 [node name="EnemyWizard15" parent="enemies" unique_id=1091197261 instance=ExtResource("9_t1rx8")]
 position = Vector2(410, -2034)
 
+[node name="EnemyWizard16" parent="enemies" unique_id=1168108398 instance=ExtResource("9_t1rx8")]
+position = Vector2(82, -2002)
+shell = SubResource("Resource_jydfl")
+
+[node name="AnimatedSprite2D" parent="enemies/EnemyWizard16" index="6" unique_id=198040784]
+animation = &"purple"
+autoplay = "purple"
+
 [node name="EnemyWizard13" parent="enemies" unique_id=1378661444 instance=ExtResource("9_t1rx8")]
 position = Vector2(1215, -2202)
 
@@ -1016,6 +1416,7 @@ shell = SubResource("Resource_arp2o")
 
 [node name="FlyingTome7" parent="enemies" unique_id=1222502025 instance=ExtResource("10_8iemx")]
 position = Vector2(1047, -993)
+shell = SubResource("Resource_kbk4x")
 
 [node name="FlyingTome8" parent="enemies" unique_id=1669464784 instance=ExtResource("10_8iemx")]
 position = Vector2(1410, -1306)
@@ -1102,6 +1503,9 @@ shell = SubResource("Resource_1pebt")
 position = Vector2(210, -1061)
 shell = SubResource("Resource_556r4")
 
+[node name="AnimatedSprite2D" parent="enemies/Turret3" index="4" unique_id=242111160]
+autoplay = "purple"
+
 [node name="Turret4" parent="enemies" unique_id=507815199 instance=ExtResource("11_64w2a")]
 position = Vector2(291, -1061)
 shell = SubResource("Resource_gur6y")
@@ -1113,6 +1517,9 @@ animation = &"fire"
 position = Vector2(290, -1280)
 shell = SubResource("Resource_bo6tc")
 
+[node name="AnimatedSprite2D" parent="enemies/Turret5" index="4" unique_id=242111160]
+autoplay = "purple"
+
 [node name="Turret6" parent="enemies" unique_id=1881193019 instance=ExtResource("11_64w2a")]
 position = Vector2(742, -485)
 shell = SubResource("Resource_5k0ak")
@@ -1122,21 +1529,43 @@ animation = &"fire"
 
 [node name="Turret7" parent="enemies" unique_id=1692849348 instance=ExtResource("11_64w2a")]
 position = Vector2(1220, -815)
+shell = SubResource("Resource_u5upv")
+
+[node name="AnimatedSprite2D" parent="enemies/Turret7" index="4" unique_id=242111160]
+autoplay = "purple"
 
 [node name="Turret8" parent="enemies" unique_id=856913837 instance=ExtResource("11_64w2a")]
 position = Vector2(889, -1301)
+shell = SubResource("Resource_dk6qd")
+
+[node name="AnimatedSprite2D" parent="enemies/Turret8" index="4" unique_id=242111160]
+animation = &"lightning"
+autoplay = "lightning"
 
 [node name="Turret9" parent="enemies" unique_id=383633847 instance=ExtResource("11_64w2a")]
 position = Vector2(1256, -1195)
+
+[node name="AnimatedSprite2D" parent="enemies/Turret9" index="4" unique_id=242111160]
+animation = &"ice"
+autoplay = "ice"
 
 [node name="Turret10" parent="enemies" unique_id=1033389030 instance=ExtResource("11_64w2a")]
 position = Vector2(1169, -1714)
 
 [node name="Turret11" parent="enemies" unique_id=105644131 instance=ExtResource("11_64w2a")]
 position = Vector2(1315, -1830)
+shell = SubResource("Resource_1d5u2")
+
+[node name="AnimatedSprite2D" parent="enemies/Turret11" index="4" unique_id=242111160]
+animation = &"ice"
+autoplay = "ice"
 
 [node name="Turret12" parent="enemies" unique_id=1084146084 instance=ExtResource("11_64w2a")]
 position = Vector2(642, -1649)
+shell = SubResource("Resource_sr7al")
+
+[node name="AnimatedSprite2D" parent="enemies/Turret12" index="4" unique_id=242111160]
+autoplay = "purple"
 
 [node name="Turret13" parent="enemies" unique_id=598826530 instance=ExtResource("11_64w2a")]
 position = Vector2(1130, -2309)
@@ -1182,8 +1611,20 @@ autoplay = "ice"
 
 [editable path="enemies/EnemyWizard4"]
 [editable path="enemies/EnemyWizard2"]
+[editable path="enemies/EnemyWizard5"]
+[editable path="enemies/EnemyWizard6"]
+[editable path="enemies/EnemyWizard7"]
+[editable path="enemies/EnemyWizard9"]
+[editable path="enemies/EnemyWizard10"]
+[editable path="enemies/EnemyWizard16"]
 [editable path="enemies/Turret"]
 [editable path="enemies/Turret3"]
 [editable path="enemies/Turret4"]
+[editable path="enemies/Turret5"]
 [editable path="enemies/Turret6"]
+[editable path="enemies/Turret7"]
+[editable path="enemies/Turret8"]
+[editable path="enemies/Turret9"]
+[editable path="enemies/Turret11"]
+[editable path="enemies/Turret12"]
 [editable path="enemies/Turret2"]
