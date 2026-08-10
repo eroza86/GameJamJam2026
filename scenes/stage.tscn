@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkiwe0qyk8cay" path="res://scenes/shotgun.tscn" id="4_6c5u0"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="6_0hg5s"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
+[ext_resource type="PackedScene" uid="uid://bter4y4x1bsab" path="res://scenes/ui.tscn" id="8_jl6nj"]
 [ext_resource type="PackedScene" uid="uid://bgrg14ohj8flm" path="res://scenes/level.tscn" id="9_dexii"]
 [ext_resource type="PackedScene" uid="uid://c803josqfnsik" path="res://resources/enemy.tscn" id="15_5sts7"]
 [ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="16_t30jk"]
@@ -39,6 +40,8 @@ SPEED = 8.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Main Camera" unique_id=1260609562]
 current = true
+
+[node name="UI" parent="Main Camera" unique_id=323746447 instance=ExtResource("8_jl6nj")]
 
 [node name="Enemy" parent="." unique_id=656613126 instance=ExtResource("15_5sts7")]
 position = Vector2(292, -378)

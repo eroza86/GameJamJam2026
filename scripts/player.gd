@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 func coyote_timeout():
 	coyote_jump_available = false
 	
-func get_gravity_type(input_direction : float = 0) -> float:
+func get_gravity_type(_input_direction : float = 0) -> float:
 	if Input.is_action_pressed("down"):
 		return FAST_FALL_GRAVITY
 	if velocity.y < 0:
@@ -104,3 +104,7 @@ func get_gravity_type(input_direction : float = 0) -> float:
 
 func _on_death() -> void:
 	player_died.emit()
+
+
+func _on_footsteps_audio_finished() -> void:
+	pass # Replace with function body.

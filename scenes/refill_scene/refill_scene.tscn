@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://dsn7l4xthcgao" path="res://scenes/refill_scene/refill_scene.gd" id="1_qkivf"]
 [ext_resource type="PackedScene" uid="uid://dqfvifn5fnudl" path="res://scenes/refill_scene/bottle.tscn" id="2_qp78i"]
 [ext_resource type="Script" uid="uid://8s5qchk0uig4" path="res://resources/powder.gd" id="3_xkdpu"]
+[ext_resource type="PackedScene" uid="uid://ba70oc4hemmr1" path="res://scenes/stage.tscn" id="3_yodej"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="3_ytep6"]
+[ext_resource type="PackedScene" uid="uid://bter4y4x1bsab" path="res://scenes/ui.tscn" id="4_1y3xj"]
 [ext_resource type="Resource" uid="uid://bsa308us5trci" path="res://resources/fire_powder.tres" id="4_y5nxo"]
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="4_ytep6"]
 [ext_resource type="Resource" uid="uid://cmpl0qlpxsqoq" path="res://resources/ice_powder.tres" id="5_y5nxo"]
@@ -11,17 +13,19 @@
 [ext_resource type="Resource" uid="uid://cw4l4ps5dwgch" path="res://resources/acid_powder.tres" id="7_fyfm3"]
 [ext_resource type="Resource" uid="uid://4pjgy3qibvc4" path="res://resources/cloud_powder.tres" id="8_uhod4"]
 [ext_resource type="Resource" uid="uid://blyrpvk5v5cuy" path="res://resources/lob_powder.tres" id="9_1eq23"]
+[ext_resource type="Resource" uid="uid://dhcmsn2movxjr" path="res://resources/missile_powder.tres" id="10_u278u"]
 [ext_resource type="PackedScene" uid="uid://18kkeqfyypd4" path="res://scenes/shell.tscn" id="12_1eq23"]
+[ext_resource type="AudioStream" uid="uid://daw34ijdac0kg" path="res://assets/click.wav" id="13_wbusq"]
 
-[sub_resource type="Resource" id="Resource_cfgym"]
+[sub_resource type="Resource" id="Resource_u278u"]
 script = ExtResource("3_ytep6")
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
-[sub_resource type="Resource" id="Resource_1y3xj"]
+[sub_resource type="Resource" id="Resource_gcwyq"]
 script = ExtResource("3_ytep6")
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
-[sub_resource type="Resource" id="Resource_ytep6"]
+[sub_resource type="Resource" id="Resource_d2epk"]
 script = ExtResource("3_ytep6")
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
@@ -33,15 +37,17 @@ size = Vector2(1154, 20)
 [node name="RefillScene" type="Node2D" unique_id=1718217334]
 script = ExtResource("1_qkivf")
 bottle = ExtResource("2_qp78i")
+stage = ExtResource("3_yodej")
 associated_powders = Dictionary[String, ExtResource("3_xkdpu")]({
 "Acid": ExtResource("7_fyfm3"),
 "Cloud": ExtResource("8_uhod4"),
 "Fire": ExtResource("4_y5nxo"),
 "Ice": ExtResource("5_y5nxo"),
 "Lightning": ExtResource("6_hrwyk"),
-"Lob": ExtResource("9_1eq23")
+"Lob": ExtResource("9_1eq23"),
+"Missile": ExtResource("10_u278u")
 })
-shells = Array[ExtResource("3_ytep6")]([SubResource("Resource_cfgym"), SubResource("Resource_1y3xj"), SubResource("Resource_ytep6")])
+shells = Array[ExtResource("3_ytep6")]([SubResource("Resource_u278u"), SubResource("Resource_gcwyq"), SubResource("Resource_d2epk")])
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1421438365]
 position = Vector2(56, 613)
@@ -59,13 +65,6 @@ scale = Vector2(28.799397, 1.090199)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1249163312]
 texture = SubResource("PlaceholderTexture2D_s1fef")
-
-[node name="Label" type="Label" parent="." unique_id=106849743]
-offset_left = 5.0
-offset_top = 56.0
-offset_right = 45.0
-offset_bottom = 79.0
-text = "FPS:"
 
 [node name="Button" type="Button" parent="." unique_id=430304693]
 offset_left = 1.0
@@ -112,6 +111,17 @@ shellIndex = 1
 [node name="Shell3" parent="." unique_id=1438187701 instance=ExtResource("12_1eq23")]
 position = Vector2(746, 448)
 shellIndex = 2
+
+[node name="PickupBottle" type="AudioStreamPlayer2D" parent="." unique_id=570951289]
+stream = ExtResource("13_wbusq")
+volume_db = -11.05
+
+[node name="UI" parent="." unique_id=323746447 instance=ExtResource("4_1y3xj")]
+offset_left = 808.0
+offset_top = 501.99994
+offset_right = 1175.6243
+offset_bottom = 701.38165
+scale = Vector2(4.165, 4.165)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_go_pressed"]

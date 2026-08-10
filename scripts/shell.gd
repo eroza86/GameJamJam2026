@@ -3,6 +3,7 @@ extends Resource
 
 @export var powders: Array[PowderAmount] 
 
+
 func add_layer(powder: Powder) -> void:
 	var powderAmount: PowderAmount
 	if powders.size() == 0:
