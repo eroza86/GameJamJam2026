@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dm1tpa3p2mvfp"]
+
+[sub_resource type="Animation" id="Animation_0tb6e"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_s44ji"]
+resource_name = "fade_in"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_08lus"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hunk0"]
+_data = {
+&"RESET": SubResource("Animation_0tb6e"),
+&"fade_in": SubResource("Animation_s44ji"),
+&"fade_out": SubResource("Animation_08lus")
+}
+
+[node name="TransitionLayer" type="CanvasLayer" unique_id=1348900820]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1987689067]
+offset_right = 1151.0
+offset_bottom = 647.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1852211157]
+libraries/ = SubResource("AnimationLibrary_hunk0")

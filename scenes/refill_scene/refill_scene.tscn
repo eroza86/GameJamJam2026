@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://4pjgy3qibvc4" path="res://resources/cloud_powder.tres" id="8_uhod4"]
 [ext_resource type="Resource" uid="uid://blyrpvk5v5cuy" path="res://resources/lob_powder.tres" id="9_1eq23"]
 [ext_resource type="PackedScene" uid="uid://18kkeqfyypd4" path="res://scenes/shell.tscn" id="12_1eq23"]
+[ext_resource type="PackedScene" uid="uid://dm1tpa3p2mvfp" path="res://scenes/transition_layer.tscn" id="12_wbusq"]
 
 [sub_resource type="Resource" id="Resource_cfgym"]
 script = ExtResource("3_ytep6")
@@ -112,6 +113,8 @@ shellIndex = 1
 [node name="Shell3" parent="." unique_id=1438187701 instance=ExtResource("12_1eq23")]
 position = Vector2(746, 448)
 shellIndex = 2
+
+[node name="TransitionLayer" parent="." unique_id=1348900820 instance=ExtResource("12_wbusq")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_go_pressed"]
