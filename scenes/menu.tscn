@@ -3,8 +3,9 @@
 [ext_resource type="Theme" uid="uid://bhb6w1si340s5" path="res://assets/default_theme.tres" id="1_vjb58"]
 [ext_resource type="FontFile" uid="uid://c7nadm678a654" path="res://assets/OldeEnglish.ttf" id="2_con2f"]
 [ext_resource type="Script" uid="uid://0oa7jspagr8c" path="res://scenes/menu.gd" id="2_mhnvy"]
-[ext_resource type="Texture2D" uid="uid://egah15to61xh" path="res://assets/bg2.png" id="3_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://d1phxy5t2fm4h" path="res://assets/bg2.png" id="3_4ytvr"]
 [ext_resource type="FontFile" uid="uid://da6hfdnr2pmi0" path="res://assets/Corleone-Regular.otf" id="4_4ytvr"]
+[ext_resource type="Script" uid="uid://ctu8mm740n1f3" path="res://scripts/volume_slider.gd" id="6_g3eks"]
 
 [node name="Menu" type="Control" unique_id=169283483]
 layout_mode = 3
@@ -67,6 +68,7 @@ theme_override_font_sizes/font_size = 128
 text = "Spire"
 
 [node name="Settings" type="Button" parent="." unique_id=1005498586]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 3
@@ -120,6 +122,73 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "ENTER THE SPIRE"
 
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer" unique_id=564390996]
+layout_mode = 2
+min_value = -50.0
+max_value = 6.0
+script = ExtResource("6_g3eks")
+control_bus = 1
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer" unique_id=613458357]
+layout_mode = 2
+min_value = -50.0
+max_value = 6.0
+script = ExtResource("6_g3eks")
+control_bus = 2
+
+[node name="Label3" type="Label" parent="." unique_id=610346372]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.8039216, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "a SUNSAU project"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Music" type="Label" parent="." unique_id=1595143387]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -751.0
+offset_top = -309.0
+offset_right = -695.0
+offset_bottom = -254.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "MUSIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music2" type="Label" parent="." unique_id=1521525867]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -751.0
+offset_top = -290.0
+offset_right = -695.0
+offset_bottom = -235.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="value_changed" from="VBoxContainer/MusicSlider" to="VBoxContainer/MusicSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFXSlider" to="VBoxContainer/SFXSlider" method="_on_value_changed"]
