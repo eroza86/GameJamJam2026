@@ -19,6 +19,8 @@ extends CharacterBody2D
 
 @onready var label: Label = $pickupLabel
 
+@export var shell_ui_group: Container
+
 @export_group("Components")
 @export var health_component: HealthComponent
 
