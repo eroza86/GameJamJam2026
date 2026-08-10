@@ -53,7 +53,6 @@ func bullet_clash(body: Node):
 	if body.is_in_group("Bullet"):
 		var other_bullet = body.get_node_or_null("BulletComponent")
 		if other_bullet != null && other_bullet.bullet_owner != self.bullet_owner:
-			print("hit bullet")
 			if body.global_position.x > self.global_position.x:
 				var health_copy: float = bullet_health
 				bullet_health -= other_bullet.bullet_health
@@ -88,7 +87,6 @@ func explode() -> void:
 			object.apply_impulse(launch_vector / 2, object.global_position)
 			if object is BombBarrel and !object.exploded:
 				object.detonate()
-	print(launchables)
 	
 func _dead() -> void:
 	bullet.queue_free()

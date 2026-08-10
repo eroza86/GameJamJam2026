@@ -77,6 +77,12 @@ bus = &"SFX"
 script = ExtResource("6_tuyoq")
 pitch_difference = 0.2
 
+[node name="pickupLabel" type="Label" parent="." unique_id=1177891857]
+offset_left = -15.0
+offset_top = -30.0
+offset_right = 5.0
+offset_bottom = -7.0
+
 [connection signal="died" from="HealthComponent" to="." method="_on_death"]
 [connection signal="finished" from="HurtAudio" to="HurtAudio" method="randomize_pitch"]
 [connection signal="finished" from="JumpAudio" to="JumpAudio" method="randomize_pitch"]

@@ -91,6 +91,49 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionLayer" unique_id=1521915342]
 libraries/ = SubResource("AnimationLibrary_85g3d")
+[node name="Label" type="Label" parent="Menu" unique_id=460603419]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_right = 93.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_o5qli")
+theme_override_fonts/font = ExtResource("5_tbgi4")
+theme_override_font_sizes/font_size = 72
+text = "Shellcasters"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1388202176]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -33.0
+offset_right = 67.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Menu/VBoxContainer" unique_id=185271003]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Go to refill room"
+
+[node name="DebugPlay" type="Button" parent="Menu/VBoxContainer" unique_id=1656095668]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Go to stage"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1610896727]
+stream = ExtResource("6_tefeu")
+volume_db = -13.65
 
 [node name="GlobalMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1841080113]
 stream = ExtResource("6_tefeu")

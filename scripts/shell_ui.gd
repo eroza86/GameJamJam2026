@@ -8,6 +8,7 @@ extends StaticBody2D
 @onready var vbox: VBoxContainer = $MarginContainer/VBoxContainer
 @onready var shellRes: Shell
 @onready var area: Area2D = $Area2D
+@onready var particleDropSound: AudioStreamPlayer2D = $ParticleDrop
 
 var maxShellCapacity: int = 20
 
@@ -25,6 +26,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				rect.color = parent.associated_powders[string].color
 				rect.custom_minimum_size = Vector2(rect.get_minimum_size().x, 4)
 				vbox.add_child(rect)
+				particleDropSound.play()
 			else: 
 				pass
 		body.free()

@@ -6,5 +6,5 @@
 script = ExtResource("1_hg4s6")
 element = 5
 name = "Missile"
-color = Color(0.9428228, 0.94282264, 0.94282264, 1)
+color = Color(0.9411765, 0.9411765, 0.9411765, 1)
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"

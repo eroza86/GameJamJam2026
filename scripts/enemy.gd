@@ -8,6 +8,12 @@ extends CharacterBody2D
 @export var shotgun_scene: PackedScene
 @export var shell: Shell
 
+@export var minDropCount: int = 0
+@export var maxDropCount: int = 4
+var powderNames: Array[String] = ["Fire", "Ice", "Acid", "Lightning", "Cloud", "Lob", "Missile" ]
+var weights: PackedFloat32Array = [50.0, 50.0, 40.0, 40.0, 30.0, 20.0, 20.0]
+
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	var shotgun = shotgun_scene.instantiate()
@@ -25,11 +31,19 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 
 func on_death() -> void:
-	var item_drop = item_scene.instantiate()
-	add_sibling(item_drop)
-	item_drop.global_position = global_position
-	queue_free()
+	var item = item_scene.instantiate()
+	call_deferred("add_sibling", item)
+	item.global_position = global_position
+	item.powder_flask = PowderAmount.new()
+	item.powder_flask.amount = rng.randi_range(minDropCount, maxDropCount)
+	item.powder_flask.powder = Powder.new()
+	item.powder_flask.powder.name = get_weighted_item()
 	firing_component.shotgun.queue_free()
+	queue_free()
+	
+func get_weighted_item() -> String:
+	var index = rng.rand_weighted(weights)
+	return powderNames[index]
 
 
 

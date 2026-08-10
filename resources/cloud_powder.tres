@@ -8,5 +8,5 @@ script = ExtResource("2_abb43")
 element = 4
 bullet = ExtResource("1_boiyb")
 name = "Cloud"
-color = Color(0.446777, 0.44677705, 0.44677705, 1)
+color = Color(0.44705883, 0.44705883, 0.44705883, 1)
 metadata/_custom_type_script = "uid://b2oqtr8envr5y"

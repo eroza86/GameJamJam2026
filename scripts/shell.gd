@@ -5,6 +5,7 @@ extends Resource
 @export var current_capacity: int = 0
 const MAX_CAPACITY: int = 20
 
+
 func add_layer(powder: Powder) -> void:
 	var powderAmount: PowderAmount
 	current_capacity += 1

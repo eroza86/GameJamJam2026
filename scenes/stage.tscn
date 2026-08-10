@@ -8,8 +8,14 @@
 [ext_resource type="Script" uid="uid://drxdkdot864up" path="res://resources/powder_amount.gd" id="6_0hg5s"]
 [ext_resource type="Script" uid="uid://cie1duhcybmbl" path="res://scripts/shell.gd" id="6_1hwpr"]
 [ext_resource type="PackedScene" uid="uid://bwkyv4xdmlx77" path="res://scenes/bullets/fireball.tscn" id="7_e38vs"]
+[ext_resource type="PackedScene" uid="uid://bter4y4x1bsab" path="res://scenes/ui.tscn" id="8_jl6nj"]
 [ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="8_xfx4c"]
 [ext_resource type="PackedScene" uid="uid://bgrg14ohj8flm" path="res://scenes/level.tscn" id="9_dexii"]
+[ext_resource type="PackedScene" uid="uid://cb0felt6e4cvi" path="res://scenes/bullets/acid_bullet.tscn" id="9_e38vs"]
+[ext_resource type="Script" uid="uid://b2oqtr8envr5y" path="res://resources/base_powder.gd" id="10_xfx4c"]
+[ext_resource type="PackedScene" uid="uid://c803josqfnsik" path="res://resources/enemy.tscn" id="15_5sts7"]
+[ext_resource type="PackedScene" uid="uid://dxcbvirrn3a4u" path="res://resources/platformer_enemy.tscn" id="16_t30jk"]
+[ext_resource type="PackedScene" uid="uid://jc637s8q2wsw" path="res://resources/turret.tscn" id="17_d4wp7"]
 
 [sub_resource type="Resource" id="Resource_b121j"]
 script = ExtResource("8_xfx4c")
@@ -27,6 +33,31 @@ script = ExtResource("6_1hwpr")
 powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_klq6b")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
+[sub_resource type="Resource" id="Resource_y16rc"]
+script = ExtResource("10_xfx4c")
+bullet = ExtResource("9_e38vs")
+metadata/_custom_type_script = "uid://b2oqtr8envr5y"
+
+[sub_resource type="Resource" id="Resource_o6xl0"]
+script = ExtResource("6_0hg5s")
+powder = SubResource("Resource_y16rc")
+amount = 4
+metadata/_custom_type_script = "uid://drxdkdot864up"
+
+[sub_resource type="Resource" id="Resource_5sts7"]
+script = ExtResource("6_1hwpr")
+powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_ddp0b"]
+script = ExtResource("6_1hwpr")
+powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
+
+[sub_resource type="Resource" id="Resource_t30jk"]
+script = ExtResource("6_1hwpr")
+powders = Array[ExtResource("6_0hg5s")]([SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0"), SubResource("Resource_o6xl0")])
+metadata/_custom_type_script = "uid://cie1duhcybmbl"
 [sub_resource type="Gradient" id="Gradient_e38vs"]
 offsets = PackedFloat32Array(0, 0.55936074, 1)
 colors = PackedColorArray(0.30762666, 0.1344, 0.32, 1, 0.41, 0.049200002, 0.08527998, 1, 0.99, 0.79084504, 0.28710002, 1)

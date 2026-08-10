@@ -17,6 +17,8 @@ extends CharacterBody2D
 @export var INPUT_BUFFER_WINDOW = 0.1
 @export var COYOTE_WINDOW = 0.08
 
+@onready var label: Label = $pickupLabel
+
 @export_group("Components")
 @export var health_component: HealthComponent
 
@@ -94,7 +96,7 @@ func _physics_process(delta: float) -> void:
 func coyote_timeout():
 	coyote_jump_available = false
 	
-func get_gravity_type(input_direction : float = 0) -> float:
+func get_gravity_type(_input_direction : float = 0) -> float:
 	if Input.is_action_pressed("down"):
 		return FAST_FALL_GRAVITY
 	if velocity.y < 0:
@@ -106,3 +108,7 @@ func _on_death() -> void:
 	player_died.emit()
 	$"../Shotgun".process_mode = PROCESS_MODE_DISABLED
 	process_mode = PROCESS_MODE_DISABLED
+
+
+func _on_footsteps_audio_finished() -> void:
+	pass # Replace with function body.
