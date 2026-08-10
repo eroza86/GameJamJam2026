@@ -18,7 +18,7 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Particles"):
 		var string = body.name.rstrip("0123456789")
-		if GlobalSaveHolder.save_game.powder_inventory[string] > 0:
+		if GlobalSaveHolder.save_game.powder_inventory[string] > 0 and parent.shells[shellIndex].current_capacity < 20:
 			parent.add_to_shell(parent.associated_powders[string], shellIndex)
 			if vbox.get_child_count() < maxShellCapacity:
 				var rect = ColorRect.new()

@@ -52,3 +52,6 @@ position = Vector2(486, -50)
 [node name="Level" parent="." unique_id=1148501230 instance=ExtResource("9_dexii")]
 
 [connection signal="player_died" from="Player" to="." method="_on_player_died"]
+[connection signal="broken" from="Level/BreakableWall" to="." method="_on_first_wall_broken"]
+
+[editable path="Level"]
