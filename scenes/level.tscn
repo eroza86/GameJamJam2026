@@ -1152,6 +1152,9 @@ script = ExtResource("13_gunhw")
 powders = Array[ExtResource("10_arp2o")]([SubResource("Resource_cutyp")])
 metadata/_custom_type_script = "uid://cie1duhcybmbl"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3why"]
+size = Vector2(151, 60)
+
 [node name="Level" type="Node2D" unique_id=1148501230]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=96911408]
@@ -1271,7 +1274,6 @@ position = Vector2(1569, -840)
 scale = Vector2(9, 9)
 
 [node name="Fog10" parent="." unique_id=165482169 instance=ExtResource("13_64w2a")]
-visible = false
 position = Vector2(-126, -1900)
 scale = Vector2(19, 23)
 
@@ -1884,6 +1886,14 @@ position = Vector2(457, -472)
 [node name="AnimatedSprite2D" parent="enemies/Turret2" index="4" unique_id=242111160]
 animation = &"ice"
 autoplay = "ice"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=957182122]
+position = Vector2(-38, -2049)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=83668656]
+position = Vector2(2.5, 30)
+shape = SubResource("RectangleShape2D_v3why")
 
 [connection signal="broken" from="BreakableWall" to="Fog" method="fade_out"]
 [connection signal="broken" from="BreakableWall2" to="Fog2" method="fade_out"]
