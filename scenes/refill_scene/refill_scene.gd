@@ -29,6 +29,8 @@ signal start_play_with(shells: Array[Shell])
 
 func _ready() -> void:
 	shells = load_shells
+	if GlobalSaveHolder.save_game.check_and_use_backup():
+		powders = GlobalSaveHolder.save_game.powder_inventory
 	initialize_scene()
 
 func _on_button_pressed() -> void:
