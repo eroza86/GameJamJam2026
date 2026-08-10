@@ -67,3 +67,6 @@ position = Vector2(486, -50)
 position = Vector2(0, -1)
 
 [connection signal="player_died" from="Player" to="." method="_on_player_died"]
+[connection signal="broken" from="Level/BreakableWall" to="." method="_on_first_wall_broken"]
+
+[editable path="Level"]

@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://ba70oc4hemmr1" path="res://scenes/stage.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cxj3pjy8evpd6" path="res://scenes/refill_scene/refill_scene.tscn" id="3_tbgi4"]
 [ext_resource type="FontFile" uid="uid://c7nadm678a654" path="res://assets/OldeEnglish.ttf" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://ddtucet5aeg85" path="res://assets/menuSong.wav" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://c7pdjv4syau2g" path="res://scripts/global_music_player.gd" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://bg5f1titpweto" path="res://assets/shellcaster.mp3" id="8_tipki"]
 
 [node name="Main" type="Node" unique_id=1860395890]
 script = ExtResource("1_0wfyh")
@@ -61,6 +64,14 @@ theme_override_font_sizes/font_size = 32
 text = "Go to stage"
 
 [node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=27222125]
+
+[node name="GlobalMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1841080113]
+stream = ExtResource("6_tefeu")
+volume_db = -7.055
+bus = &"Music"
+script = ExtResource("7_o6xl0")
+menu_music = ExtResource("6_tefeu")
+level_music = ExtResource("8_tipki")
 
 [connection signal="pressed" from="Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/DebugPlay" to="." method="_on_debug_play_pressed"]
